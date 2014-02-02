@@ -5,15 +5,15 @@
 
 @font-face {
 font-family: ChaparralPro-Regular;
-src: url('fonts/ChaparralPro-Regular.otf'),
+src: url('../fonts/ChaparralPro-Regular.otf');
 }
 @font-face {
 font-family: NeverLetGo;
-src: url('fonts/NeverLetGo.ttf'),
+src: url('../fonts/NeverLetGo.ttf');
 }
 @font-face {
 font-family: simplicity;
-src: url('fonts/simplicity.ttf'),
+src: url('../fonts/simplicity.ttf');
 }
 
 /* text and colors */
