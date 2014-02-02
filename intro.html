@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore John Muir's Yosemite - Introduction</title>
+<!--CSS-->
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" >
+<!--JavaScript-->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/slideBuilder.js"></script>
+<script src="js/popcorn-complete.js"></script>
+<script src="js/popcorn.player.js"></script>
+<script src="js/popcorn._MediaElementProto.js"></script>
+<script src="js/popcorn.HTMLNullVideoElement.js"></script>
+<script>
+
+// TO DO: create master volume control (and put a notice on the splash screen to turn up computer volume)
+
+// create global variable "pop"
+var pop;
+
+// ensure the web page (DOM) has loaded
+$(document).ready(function() {
+ 
+	// mute all audio, to start with
+	var $allAudioVideo = $("audio, video");
+	$allAudioVideo.prop("volume", 0);
+
+	// create popcorn timeline (independent of media elements)
+	Popcorn.player( "baseplayer" );
+	// assign Popcorn timeline to global variable "pop"
+	pop = Popcorn.smart("#base", "#t=,100");
+
+	/* show timer
+	pop.on( "timeupdate", function() {
+    	document.getElementById( "foo" ).innerHTML = this.currentTime();
+	}); */
+
+	// timeline navigation buttons
+	$("#next").click(function() {
+		pop.play();
+		return false;
+	});
+	$("#previous").click(function() {
+		var currentTime = pop.currentTime();
+		pop.play(currentTime - 7);
+		return false;
+	});
+
+	// Using Popcorn timeline, cue slides
+
+	// Slide 1
+	slideBuilder(1, function onStart() {
+		audioManager($("#track1, #track2"));
+		// start playing all audio and video
+		$("audio, video").trigger("play");
+		// get rid of title page stuff
+		$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
+		$("#begin").addClass("fadeOut");
+		$("#titleBG").removeClass("transparent").addClass("fadeOut");
+		$("#titleText").addClass("fadeOut");
+		$("#buttonsNav").removeClass("fadeOut");
+	});
+	// Slide 2
+	slideBuilder(2, function onStart() {
+		audioManager($("#track1, #track2, #track3, #merced-video2"), 1, 0.5);
+	});
+	// Slide 3
+	slideBuilder(3, function onStart() {
+		audioManager($("#track1, #track2, #track3, #merced-video2"), 1, 1);
+	});
+	// Slide 4
+	slideBuilder(4, function onStart() {
+		audioManager($("#track1, #track3, #track4"));
+	});
+	// Slide 5
+	slideBuilder(5, function onStart() {
+		audioManager($("#track4, #track5"));
+	});
+	// Slide 6 (About)
+	slideBuilder(6, function onStart() {
+		audioManager($("#track4, #track5"));
+	});
+  
+});
+</script>
+<body>
+
+<!--Audio embeds and hidden elements-->
+<audio id="track1" loop src="audio/yosemite_valley/track1.wav" type="audio/wav" class="hidden"></audio>
+<audio id="track2" loop src="audio/yosemite_valley/track2.wav" type="audio/wav" class="hidden"></audio>
+<audio id="track3" loop src="audio/yosemite_valley/track3.wav" type="audio/wav" class="hidden"></audio>
+<audio id="track4" loop src="audio/yosemite_valley/track4.wav" type="audio/wav" class="hidden"></audio>
+<audio id="track5" loop src="audio/yosemite_valley/track5.wav" type="audio/wav" class="hidden"></audio>
+<div id="base"></div><!--base div for Popcorn timeline-->
+<div id="foo"></div><!--timer-->
+
+<!--Header and navigation-->
+<div id="header">
+	<div id="titleNav">
+		Explore John Muir's Yosemite - <a href="#">Map</a> - <a href="#">About</a> - <a href="#">Share</a>
+	</div>
+	<span id="buttonsNav" class="fadeOut">
+		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide2" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide3" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+	</span>
+</div>
+<div id="previous" class="button fadeOut"><a href="#"><i class="icon-chevron-left icon-3x"></i></a></div>
+<div id="next" class="button beginPosition"><a href="#"><span id="begin">Begin </span><i class="icon-chevron-right icon-3x"></i></a></div>
+
+<!--Title (Splash)-->
+<div id="titleBG" class="fullscreen transparent">
+	<img src="img/mirror_lake.jpg" />
+</div>
+<div id="titleText">
+	<h1>Explore John Muir's Yosemite</h1>
+	<p>An Interactive Web Installation</p>
+	<p>Web Site, Music, Photography, by Nell Shaw Cohen<br />
+	Featuring Excerpts from the Writings of John Muir (18??-19??)</p>
+	<p>Turn up your volume  <br /><i class="icon-volume-up icon-2x"></i></p>
+</div>
+
+<!--Slide 1-->
+<div id="slide1" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/john-muir.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			John Muir was... he journeyed into the Sierra Nevada... (short bio summarizing his relationship to Yosemite and the writings he kept)
+		</div>
+	</div>
+</div>
+
+<!--Slide 2-->
+<div id="slide2" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/valley_then.jpg" />
+	</div>
+	<div class="boxWrap topRight fadeOut">
+		<div class="boxText">
+			He spent years fighting for its protection, etc...
+		</div>
+	</div>
+</div>
+
+<!--Slide 3-->
+<div id="slide3" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/valley_today.jpg" />
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			Now you can explore Yosemite yourself. At any time, use the navigation above to visit a new location in Yosemite National Park with John Muir as your guide.
+			<p>Try it now: click "Map" and start with "Range of Light." Then sit back, relax, and take in the fresh Sierra Nevada air.</p>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

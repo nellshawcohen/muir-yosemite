@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore John Muir's Yosemite</title>
+<!--CSS-->
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" >
+<!--JavaScript-->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/slideBuilder.js"></script>
+<script src="js/popcorn-complete.js"></script>
+<script src="js/popcorn.player.js"></script>
+<script src="js/popcorn._MediaElementProto.js"></script>
+<script src="js/popcorn.HTMLNullVideoElement.js"></script>
+<script>
+
+// TO DO: create master volume control (and put a notice on the splash screen to turn up computer volume)
+
+// create global variable "pop"
+var pop;
+
+// ensure the web page (DOM) has loaded
+$(document).ready(function() {
+ 
+	// mute all audio, to start with
+	var $allAudioVideo = $("audio, video");
+	$allAudioVideo.prop("volume", 0);
+
+	// create popcorn timeline (independent of media elements)
+	Popcorn.player( "baseplayer" );
+	// assign Popcorn timeline to global variable "pop"
+	pop = Popcorn.smart("#base", "#t=,100");
+
+	/* show timer
+	pop.on( "timeupdate", function() {
+    	document.getElementById( "foo" ).innerHTML = this.currentTime();
+	}); */
+
+	// timeline navigation buttons
+	$("#next").click(function() {
+		pop.play();
+		return false;
+	});
+	$("#previous").click(function() {
+		var currentTime = pop.currentTime();
+		pop.play(currentTime - 7);
+		return false;
+	});
+
+	// Using Popcorn timeline, cue slides
+
+	// Slide 1
+	slideBuilder(1, function onStart() {
+		audioManager($("#track1, #track2"));
+		// start playing all audio and video
+		$("audio, video").trigger("play");
+		// get rid of title page stuff
+		$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
+		$("#begin").addClass("fadeOut");
+		$("#titleBG").removeClass("transparent").addClass("fadeOut");
+		$("#titleText").addClass("fadeOut");
+		$("#buttonsNav").removeClass("fadeOut");
+	});
+	// Slide 2
+	slideBuilder(2, function onStart() {
+		audioManager($("#track1, #track2, #track3, #merced-video2"), 1, 0.5);
+	});
+	// Slide 3
+	slideBuilder(3, function onStart() {
+		audioManager($("#track1, #track2, #track3, #merced-video2"), 1, 1);
+	});
+	// Slide 4
+	slideBuilder(4, function onStart() {
+		audioManager($("#track1, #track3, #track4"));
+	});
+	// Slide 5
+	slideBuilder(5, function onStart() {
+		audioManager($("#track4, #track5"));
+	});
+	// Slide 6 (About)
+	slideBuilder(6, function onStart() {
+		audioManager($("#track4, #track5"));
+		$("#previous").addClass("fadeOut");
+	});
+  
+});
+</script>
+<body>
+
+<!--Audio embeds and hidden elements-->
+<audio id="track1" loop src="audio/yosemite_valley/track1.wav" type="audio/wav" class="hidden"></audio>
+<audio id="track2" loop src="audio/yosemite_valley/track2.wav" type="audio/wav" class="hidden"></audio>
+<audio id="track3" loop src="audio/yosemite_valley/track3.wav" type="audio/wav" class="hidden"></audio>
+<audio id="track4" loop src="audio/yosemite_valley/track4.wav" type="audio/wav" class="hidden"></audio>
+<audio id="track5" loop src="audio/yosemite_valley/track5.wav" type="audio/wav" class="hidden"></audio>
+<div id="base"></div><!--base div for Popcorn timeline-->
+<div id="foo"></div><!--timer-->
+
+<!--Header and navigation-->
+<div id="header">
+	<div id="titleNav">
+		Explore John Muir's Yosemite - <a href="#">Map</a> - <a href="#">Introduction</a> - <a href="#">About</a> - <a href="#">Share</a>
+	</div>
+	<span id="buttonsNav" class="fadeOut">
+		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide2" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide3" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide4" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide5" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide6" class="button"><a href="#"><i class="icon-info-sign"></i></a></span>
+	</span>
+</div>
+<div id="previous" class="button fadeOut"><a href="#"><i class="icon-chevron-left icon-3x"></i></a></div>
+<div id="next" class="button beginPosition"><a href="#"><span id="begin">Begin </span><i class="icon-chevron-right icon-3x"></i></a></div>
+
+<!--Title (Splash)-->
+<div id="titleBG" class="fullscreen transparent">
+	<img src="img/yosemite_valley/tunnel_view.jpg" />
+</div>
+<div id="titleText">
+	<h1>Yosemite Valley</h1>
+</div>
+
+<!--Slide 1-->
+<div id="slide1" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/yosemite_valley/tunnel_view.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"I came at length to the brow of that massive cliff that stands between Indian Cañon and Yosemite Falls, and here the far-famed valley came suddenly into view throughout almost its whole extent.
+		</div>
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			The noble walls--<span class="highlight">sculptured into endless variety of domes and gables, spires and battlements and plain mural precipices</span>--all a-tremble with the thunder tones of the falling water."
+		</div>
+	</div>
+</div>
+
+<!--Slide 2-->
+<div id="slide2" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="merced-video1" loop src="video/yosemite_valley/Merced.mp4" type="video/mp4" class="video"></video>
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"The level bottom seemed to be dressed like a garden, sunny meadows here and there, and groves of pine and oak..."
+		</div>
+	</div>
+</div>
+
+<!--Slide 3-->
+<div id="slide3" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="merced-video2" loop src="video/yosemite_valley/Merced_Close.mp4" type="video/mp4" class="video"></video>
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			<span class="highlight">"...the river of Mercy sweeping in majesty through the midst of them and flashing back the sunbeams."</span>
+		</div>
+	</div>
+</div>
+
+<!--Slide 4-->
+<div id="slide4" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/yosemite_valley/halfdome.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			<span class="highlight">"The great Tissiack, or Half-Dome,</span> rising at the upper end of the valley to a height of nearly a mile, is nobly proportioned and life-like, the most impressive of all the rocks, holding the eye in devout admiration, calling it back again and again from falls or meadows, or even the mountains beyond."
+		</div>
+	</div>
+</div>
+
+<!--Slide 5-->
+<div id="slide5" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/yosemite_valley/cathedral.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"Marvelous cliffs, <span class="highlight">marvelous in sheer dizzy depth and sculpture.</span> Thousands of years have they stood in the sky exposed to rain, snow, frost, earthquake and avalanche, yet they still wear the bloom of youth."</span>
+			<p><a href="http://www.sierraclub.org/john_muir_exhibit/writings/my_first_summer_in_the_sierra/chapter_5.aspx" target="_blank">John Muir. <em>My First Summer in the Sierra</em>, Chapter 5. <i class="icon-external-link"></i></a></p>
+		</div>
+	</div>
+</div>
+
+<!--Slide 6 (About)-->
+<div id="slide6" class="slide">
+	<div class="fullscreen transparent fadeOut">
+		<img src="img/yosemite_valley/valley.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="infoBox">
+			<h1><i class="icon-info-sign"></i> Yosemite Valley</h1>
+			<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
+		</div>
+	</div>
+		<div class="boxWrap topRight fadeOut">
+		<div class="infoBox">
+			<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
+		</div>
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			<i class="icon-arrow-right"></i> Continue east to <a href="#">Bridalveil Falls</a>
+			<br /><i class="icon-arrow-up"></i> Continue north to <a href="#">Hetch Hetchy</a>
+			<br /><i class="icon-home"></i> Return to the <a href="#">Introduction</a>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

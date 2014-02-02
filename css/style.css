@@ -1,0 +1,290 @@
+@charset "UTF-8";
+/* CSS Stylesheet */
+
+/* special fonts */
+
+@font-face {
+font-family: ChaparralPro-Regular;
+src: url('fonts/ChaparralPro-Regular.otf'),
+}
+@font-face {
+font-family: NeverLetGo;
+src: url('fonts/NeverLetGo.ttf'),
+}
+@font-face {
+font-family: simplicity;
+src: url('fonts/simplicity.ttf'),
+}
+
+/* text and colors */
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #000;
+	color: #fff;
+	font: 14px arial,sans-serif;
+}
+a, a:visited {
+	color: #a1e2ff;
+	text-decoration: none;
+}
+a:hover {
+	color: #fff800; /* pale yellow */
+}
+h1 {
+	color: #fff;
+	font-family: ChaparralPro-Regular;
+	font-size: 32px;
+	text-shadow: 2px 2px #000;
+	margin: 2px;
+}
+h2 {
+	color: #fff;
+	font-family: NeverLetGo;
+	font-size: 24px;
+	text-shadow: 2px 2px #000;
+	margin: 2px;
+}
+
+/* header & navigation */
+
+#header {
+	opacity: 1;
+	z-index: 4;
+	position: absolute;
+	width: 100%;
+	min-width: 550px;
+	padding: 10px 0 10px 0;
+	height: 20px;
+	top: 0;
+	background: rgba(0, 0, 0, .5);
+}
+#header:hover {
+	opacity: 1;
+}
+#titleNav {
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	padding: 5px;
+	color: #fff;
+	/* color: #9e8b73; */
+	font-family: ChaparralPro-Regular;
+	font-size: 18px;
+	text-shadow: 2px 2px #000;
+}
+.button {
+	z-index: 6;
+	text-shadow: 2px 2px #000;
+	margin-left: 10px;
+	font-size: 18px;
+	font-family: ChaparralPro-Regular;
+	-webkit-transition: all 2s ease-in-out;
+  	-moz-transition: all 2s ease-in-out;
+  	-o-transition: all 2s ease-in-out;
+  	transition: all 2s ease-in-out;
+}
+.button a {
+	color: #fff;
+}
+.button a:hover {
+	color: #fff800; /* pale yellow */
+}
+.buttonCurrent a {
+	color: #a800db;
+}
+#buttonsNav {
+	position: absolute;
+	right: 10px;
+	-webkit-transition: all 2s ease-in-out;
+  	-moz-transition: all 2s ease-in-out;
+  	-o-transition: all 2s ease-in-out;
+  	transition: all 2s ease-in-out;
+}
+
+/* title screen and navigation arrows */
+
+#titleText {
+	z-index: 10;
+	position: relative;
+	width: 800px;
+	margin: 0 auto;
+	left: 120px;
+	top: 300px;
+	-webkit-transition: all 2s ease-in-out;
+  	-moz-transition: all 2s ease-in-out;
+  	-o-transition: all 2s ease-in-out;
+  	transition: all 2s ease-in-out;
+}
+#titleText p {
+	font-size: 18px;
+	font-family: ChaparralPro-Regular;
+	text-shadow: 2px 2px #000;
+	text-align: center;
+}
+#titleText h2 {
+	font-size: 22px;
+	font-family: ChaparralPro-Regular;
+	text-shadow: 2px 2px #000;
+	text-align: center;
+}
+#titleText h1 {
+	font-family: NeverLetGo;
+	color: #fff;
+	font-size: 72px;
+}
+#begin {
+	z-index: 4;
+	text-shadow: 2px 2px #000;
+	padding-bottom: 15px;
+	font-size: 40px;
+	font-family: ChaparralPro-Regular;
+	line-height: 55px;
+	vertical-align: bottom;
+}
+.beginPosition {
+	right: 40%;
+	bottom: 40%;
+}
+.nextPosition {
+	position: fixed;
+	right: 5px;
+	bottom: 40%;
+}
+#next {
+	position: fixed;
+}
+#previous {
+	position: fixed;
+	left: 5px;
+	bottom: 40%;
+}
+
+/* page structure */
+
+/* By default all slides are tucked away off the screen - but are still
+"visible" (in that they are not display: none). */
+.slide {
+	position: fixed;
+	left: 100%;
+	top: 100%;
+}
+/* When a slide is active, the current slide, then we just position it normally. */
+.slide.activeSlide {
+	position: relative;
+}
+
+/*
+#footer {
+	z-index: 4;
+	position: absolute;
+	width: auto;
+	min-width: 315px;
+	left: 35%;
+	padding: 10px 0 10px 0;
+	height: 20px;
+	bottom: 0;
+	background: rgba(0, 0, 0, .5);
+	border-radius: 20px 20px 0 0;
+}
+*/
+
+.fadeOut, .fadeOut.transparent {
+	opacity: 0;
+}
+.hidden {
+	display: none;
+}
+.transparent {
+	opacity: 0.3;
+}
+.topRight {
+	top: 40px;
+	right: 0;
+}
+.topLeft {
+	top: 40px;
+	left: 0;
+}
+.bottomRight {
+	bottom: 20px;
+	right: 0;
+	left: auto;
+}
+.bottomLeft {
+	bottom: 20px;
+	left: auto;
+}
+.boxWrap {
+	z-index: 5;
+	position: fixed;
+	margin: 10px;
+	width: 50%;
+	max-width: 700px;
+	overflow: scroll;
+	-webkit-transition: all 2s ease-in-out;
+  	-moz-transition: all 2s ease-in-out;
+  	-o-transition: all 2s ease-in-out;
+  	transition: all 2s ease-in-out;
+}
+.boxText {
+	background: rgba(124, 107, 86, 0.7); /* tan */
+	color: white;
+	font-family: ChaparralPro-Regular;
+	font-size: 22px;
+	text-shadow: 2px 2px #000;
+	border-radius: 20px;
+	padding: 10px;
+}
+.infoBox {
+	color: white;
+	font-family: ChaparralPro-Regular;
+	font-size: 18px;
+	text-shadow: 2px 2px #000;
+	padding: 10px;
+	margin: 0 50px 0 50px;
+}
+.highlight {
+	font-size: 26px;
+	font-style: italic;
+	/* color: #a1e2ff; light blue */
+}
+.fullscreen {
+	position: fixed; 
+	top: 0; 
+	left: 0;
+	right: 0;
+	-webkit-transition: all 2s ease-in-out;
+  	-moz-transition: all 2s ease-in-out;
+  	-o-transition: all 2s ease-in-out;
+  	transition: all 2s ease-in-out;
+}
+.fullscreen img {
+	min-width: 100%;
+	min-height: 100%;
+}
+.fullscreen video {
+	min-width: 100%;
+	min-height: 100%;
+}
+
+/* not being used */
+
+#map {
+	z-index: 5;
+	position: absolute;
+	top: 2px;
+	right: 20px;
+	font-family: ChaparralPro-Regular;
+	font-size: 18px;
+	text-shadow: 2px 2px #000;
+}
+#foo {
+	z-index: 100;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: auto;
+	height: 20px;
+}
