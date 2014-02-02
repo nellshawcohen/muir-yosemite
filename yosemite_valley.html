@@ -90,11 +90,27 @@ $(document).ready(function() {
 <body>
 
 <!--Audio embeds and hidden elements-->
-<audio id="track1" loop src="audio/yosemite_valley/track1.wav" type="audio/wav" class="hidden"></audio>
-<audio id="track2" loop src="audio/yosemite_valley/track2.wav" type="audio/wav" class="hidden"></audio>
-<audio id="track3" loop src="audio/yosemite_valley/track3.wav" type="audio/wav" class="hidden"></audio>
-<audio id="track4" loop src="audio/yosemite_valley/track4.wav" type="audio/wav" class="hidden"></audio>
-<audio id="track5" loop src="audio/yosemite_valley/track5.wav" type="audio/wav" class="hidden"></audio>
+<audio id="track1" loop class="hidden">
+	<source src="audio/yosemite_valley/track1.mp3" type="audio/mpeg">
+	<source src="audio/yosemite_valley/track1.ogg" type="audio/ogg">
+</audio>
+<audio id="track2" loop class="hidden">
+	<source src="audio/yosemite_valley/track2.mp3" type="audio/mpeg">
+	<source src="audio/yosemite_valley/track2.ogg" type="audio/ogg">
+</audio>
+<audio id="track3" loop class="hidden">
+	<source src="audio/yosemite_valley/track3.mp3" type="audio/mpeg">
+	<source src="audio/yosemite_valley/track3.ogg" type="audio/ogg">
+</audio>
+<audio id="track4" loop class="hidden">
+	<source src="audio/yosemite_valley/track4.mp3" type="audio/mpeg">
+	<source src="audio/yosemite_valley/track4.ogg" type="audio/ogg">
+</audio>
+<audio id="track5" loop class="hidden">
+	<source src="audio/yosemite_valley/track5.mp3" type="audio/mpeg">
+	<source src="audio/yosemite_valley/track5.ogg" type="audio/ogg">
+</audio>
+
 <div id="base"></div><!--base div for Popcorn timeline-->
 <div id="foo"></div><!--timer-->
 
