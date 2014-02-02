@@ -153,6 +153,10 @@ function audioLoader(files, callback) {
             total += 1;
             document.body.appendChild(elem);
         }
+
+ 		if (total === 0) {
+ 			callback();
+ 		}
     });
 }
 
