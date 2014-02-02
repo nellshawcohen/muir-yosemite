@@ -75,10 +75,14 @@ function slideBuilder(slideNum, onStart, onEnd) {
 		onStart: function(){
 			// fade in the divs with class of .boxWrap inside this slide
 			slide.find(".boxWrap").removeClass("fadeOut");
+			slide.find(".infoColumnLeft").removeClass("fadeOut");
+			slide.find(".infoColumnRight").removeClass("fadeOut");
 		},
 		onEnd: function(){
 			// fade back out again
 			slide.find(".boxWrap").addClass("fadeOut");
+			slide.find(".infoColumnLeft").addClass("fadeOut");
+			slide.find(".infoColumnRight").addClass("fadeOut");
 		}
 	});	
 }
