@@ -15,14 +15,6 @@ C. Create global "volume" control
 
 * * *
 
-CSS / JS:
-
-A. In Firefox, animations not working right; scenes fade from black
-
-B. Centering of opening titles — possible with animated “begin” div??
-
-* * *
-
 Content:
 
 A. Need to write historical/contextualizing text for all scenes; begin with Yosemite Valley and Introduction text
