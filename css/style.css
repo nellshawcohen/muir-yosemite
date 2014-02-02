@@ -152,7 +152,7 @@ h2 {
   	-o-transition: all 2s ease-in-out;
   	transition: all 2s ease-in-out;
 }
-#begin {
+#begin, #loadingText {
 	z-index: 4;
 	text-shadow: 2px 2px #000;
 	padding-bottom: 15px;
@@ -162,6 +162,7 @@ h2 {
 	vertical-align: bottom;
 }
 .beginPosition {
+	position: fixed;
 	right: 44%;
 	bottom: 40%;
 }

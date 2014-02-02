@@ -21,9 +21,22 @@
 // create global variable "pop"
 var pop;
 
-// ensure the web page (DOM) has loaded
-$(document).ready(function() {
- 
+audioLoader({
+    // Audio embeds and hidden elements
+    track1: "audio/yosemite_valley/track1",
+    track2: "audio/yosemite_valley/track2",
+    track3: "audio/yosemite_valley/track3",
+    track4: "audio/yosemite_valley/track4",
+    track5: "audio/yosemite_valley/track5"
+}, function() {
+    // After all the audio and DOM has loaded
+
+    // Hide the loading indicator
+    $("#loading").hide();
+
+    // Show the next/begin link
+    $("#next").removeClass("fadeOut");
+
 	// mute all audio, to start with
 	var $allAudioVideo = $("audio, video");
 	$allAudioVideo.prop("volume", 0);
@@ -89,28 +102,6 @@ $(document).ready(function() {
 </script>
 <body>
 
-<!--Audio embeds and hidden elements-->
-<audio id="track1" loop class="hidden">
-	<source src="audio/yosemite_valley/track1.mp3" type="audio/mpeg">
-	<source src="audio/yosemite_valley/track1.ogg" type="audio/ogg">
-</audio>
-<audio id="track2" loop class="hidden">
-	<source src="audio/yosemite_valley/track2.mp3" type="audio/mpeg">
-	<source src="audio/yosemite_valley/track2.ogg" type="audio/ogg">
-</audio>
-<audio id="track3" loop class="hidden">
-	<source src="audio/yosemite_valley/track3.mp3" type="audio/mpeg">
-	<source src="audio/yosemite_valley/track3.ogg" type="audio/ogg">
-</audio>
-<audio id="track4" loop class="hidden">
-	<source src="audio/yosemite_valley/track4.mp3" type="audio/mpeg">
-	<source src="audio/yosemite_valley/track4.ogg" type="audio/ogg">
-</audio>
-<audio id="track5" loop class="hidden">
-	<source src="audio/yosemite_valley/track5.mp3" type="audio/mpeg">
-	<source src="audio/yosemite_valley/track5.ogg" type="audio/ogg">
-</audio>
-
 <div id="base"></div><!--base div for Popcorn timeline-->
 <div id="foo"></div><!--timer-->
 
@@ -129,7 +120,10 @@ $(document).ready(function() {
 	</span>
 </div>
 <div id="previous" class="button fadeOut"><a href="#"><i class="icon-chevron-left icon-3x"></i></a></div>
-<div id="next" class="button beginPosition"><a href="#"><span id="begin">Begin </span><i class="icon-chevron-right icon-3x"></i></a></div>
+
+<div id="next" class="button beginPosition fadeOut"><a href="#"><span id="begin">Begin </span><i class="icon-chevron-right icon-3x"></i></a></div>
+
+<div id="loading" class="button beginPosition"><span id="loadingText">Loading... </span></div>
 
 <!--Title (Splash)-->
 <div id="titleBG" class="fullscreen transparent">

@@ -124,7 +124,37 @@ function audioManager($toUnmute, audioVolume, videoVolume) {
 			$(audioVideoElem).animate({volume: 0}, 1000);
 		}
 	});
-};
+}
+
+function audioLoader(files, callback) {
+    var loaded = 0;
+    var total = 0;
+
+    $(document).ready(function() {
+        for (var name in files) {
+            var filePath = files[name];
+            var elem = document.createElement("audio");
+            elem.id = name;
+            elem.loop = true;
+            elem.volume = 0;
+            elem.preload = "auto";
+            elem.className = "hidden";
+            if (elem.canPlayType("audio/mpeg")) {
+                elem.src = filePath + ".mp3";
+            } else {
+                elem.src = filePath + ".ogg";
+            }
+            elem.oncanplay = function() {
+                loaded += 1;
+                if (loaded === total) {
+                    callback();
+                }
+            };
+            total += 1;
+            document.body.appendChild(elem);
+        }
+    });
+}
 
 /*
 volume = 1
