@@ -30,9 +30,6 @@ function slideBuilder(slideNum, onStart, onEnd) {
 		// slides are always 5 seconds long
 		end: start + 5,
 		onStart: function(){
-			// Hide the other active slide (the slide we're transitioning out of)
-			// "Hide" means to put it off the side of the page.
-			$(".activeSlide").removeClass("activeSlide");
 			// Bring the current slide into view
 			slide.addClass("activeSlide");
 			// if a custom function for onStart is defined, then call it
@@ -60,6 +57,9 @@ function slideBuilder(slideNum, onStart, onEnd) {
 			if (onEnd) {
 				onEnd();
 			}
+			// Hide the other active slide (the slide we're transitioning out of)
+			// "Hide" means to put it off the side of the page.
+			$(".activeSlide").not(slide).removeClass("activeSlide");
 			// fade back out again
 			slide.find(".fullscreen").addClass("fadeOut");
 			$(jumpSlide).removeClass("buttonCurrent");
