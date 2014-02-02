@@ -61,6 +61,7 @@ $(document).ready(function() {
 		$("#begin").addClass("fadeOut");
 		$("#titleBG").removeClass("transparent").addClass("fadeOut");
 		$("#titleText").addClass("fadeOut");
+		$("#titleCard").addClass("fadeOut");
 		$("#buttonsNav").removeClass("fadeOut");
 	});
 	// Slide 2
@@ -70,18 +71,6 @@ $(document).ready(function() {
 	// Slide 3
 	slideBuilder(3, function onStart() {
 		audioManager($("#track1, #track2, #track3, #merced-video2"), 1, 1);
-	});
-	// Slide 4
-	slideBuilder(4, function onStart() {
-		audioManager($("#track1, #track3, #track4"));
-	});
-	// Slide 5
-	slideBuilder(5, function onStart() {
-		audioManager($("#track4, #track5"));
-	});
-	// Slide 6 (About)
-	slideBuilder(6, function onStart() {
-		audioManager($("#track4, #track5"));
 	});
   
 });
@@ -117,9 +106,11 @@ $(document).ready(function() {
 </div>
 <div id="titleText">
 	<h1>Explore John Muir's Yosemite</h1>
+</div>
+<div id="titleCard">
 	<p>An Interactive Web Installation
 	<br />Featuring Excerpts from the Writings of John Muir (1838-1914)</p>
-	<p>Photography, Video, Music, and Interactive Design by Nell Shaw Cohen<br />
+	<p>Photography, Video, Music, and Media Design by Nell Shaw Cohen<br />
 	<p>Turn up your volume  <br /><i class="icon-volume-up icon-2x"></i></p>
 </div>
 
@@ -133,7 +124,7 @@ $(document).ready(function() {
 			Scottish-born American naturalist John Muir (1838-1914) was instrumental in the preservation of wilderness in the United States, including Yosemite and Sequoia National Parks. He was also a prolific author and published accounts of his adventures trekking through the Sierra Nevada.
 		</div>
 	</div>
-	<div class="boxWrap bottomLeft fadeOut">
+	<div class="boxWrap bottomRight fadeOut">
 		<div class="boxText">
 			Through all his forms of advocacy and teaching, whether publishing essays or taking President Theodore Roosevelt on a life-changing camping trip, John Muir helped the public to understand and appreciate both the scientific workings and the spiritual glory of the natural world around them.
 		</div>
@@ -142,6 +133,9 @@ $(document).ready(function() {
 
 <!--Slide 2-->
 <div id="slide2" class="slide">
+	<div class="caption fadeOut" id="watkins">
+		Photo by Carleton Watkins, 1878-1881. <a href="http://commons.wikimedia.org/wiki/File:The_Yosemite_Valley_From_The_Mariposa_Trail_Yosemite_California_by_Carleton_Watkins.jpg" target="_blank">Source <i class="icon-external-link"></i></a>
+	</div>
 	<div class="fullscreen fadeOut">
 		<img src="img/valley_then.jpg" />
 	</div>

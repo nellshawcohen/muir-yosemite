@@ -39,6 +39,7 @@ function slideBuilder(slideNum, onStart, onEnd) {
 			setTimeout(function() {
 				// fade in the divs with class of .fullscreen inside this slide
 				slide.find(".fullscreen").removeClass("fadeOut");
+				slide.find(".caption").removeClass("fadeOut");
 			}, 0);
 			// highlight the circular button for the active slide
 			$(jumpSlide).addClass("buttonCurrent");
@@ -62,6 +63,7 @@ function slideBuilder(slideNum, onStart, onEnd) {
 			$(".activeSlide").not(slide).removeClass("activeSlide");
 			// fade back out again
 			slide.find(".fullscreen").addClass("fadeOut");
+			slide.find(".caption").addClass("fadeOut");
 			$(jumpSlide).removeClass("buttonCurrent");
 			$("#next, #previous").addClass("fadeOut");
 		}
