@@ -1,0 +1,38 @@
+Explore John Muir’s Yosemite
+
+To-Do List
+
+Audio:
+
+A. Audio needs to be pre-loaded before playback begins. Create “loading” animation for opening page (which turns from “loading” to “begin”). In this order:
+1. Load all audio files
+2. Change opening text from “loading” to “begin”
+3. Begin (muted) audio playback
+
+B. Also, is there a cleaner way to loop the audio? Maybe have cross fade between loops to avoid clicks?
+
+C. Create global "volume" control
+
+* * *
+
+CSS / JS:
+
+A. In Firefox, animations not working right; scenes fade from black
+
+B. Centering of opening titles — possible with animated “begin” div??
+
+* * *
+
+Content:
+
+A. Need to write historical/contextualizing text for all scenes; begin with Yosemite Valley and Introduction text
+
+B. Mock-up another full scene with a different format (captions, more text, etc)
+
+C. Write credits / about page
+
+* * *
+
+Navigation:
+
+A. Figure out “map” drop down screen---plan how it's going to work, create illustrations, implement with animated visuals/audio
