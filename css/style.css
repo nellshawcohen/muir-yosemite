@@ -210,11 +210,10 @@ h2 {
 .bottomRight {
 	bottom: 20px;
 	right: 0;
-	left: auto;
 }
 .bottomLeft {
 	bottom: 20px;
-	left: auto;
+	left: 0;
 }
 .boxWrap {
 	z-index: 5;
