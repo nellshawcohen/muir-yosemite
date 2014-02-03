@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore John Muir's Yosemite - Crescent Meadow</title>
+<!--CSS-->
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" >
+<!--JavaScript-->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/slideBuilder.js"></script>
+<script src="js/popcorn-complete.js"></script>
+<script src="js/popcorn.player.js"></script>
+<script src="js/popcorn._MediaElementProto.js"></script>
+<script src="js/popcorn.HTMLNullVideoElement.js"></script>
+<script>
+
+// create global variable "pop"
+var pop;
+
+audioLoader({
+    // Audio embeds and hidden elements
+    //track1: "audio/crescent_meadow/track1",
+    //track2: "audio/crescent_meadow/track2",
+    //track3: "audio/crescent_meadow/track3",
+    //track4: "audio/crescent_meadow/track4",
+    //track5: "audio/crescent_meadow/track5"
+}, function() {
+    // After all the audio and DOM has loaded
+
+    // Hide the loading indicator
+    $("#loading").hide();
+
+    // Show the next/begin link
+    $("#next").removeClass("fadeOut");
+
+	// mute all audio, to start with
+	var $allAudioVideo = $("audio, video");
+	$allAudioVideo.prop("volume", 0);
+
+	// create popcorn timeline (independent of media elements)
+	Popcorn.player( "baseplayer" );
+	// assign Popcorn timeline to global variable "pop"
+	pop = Popcorn.smart("#base", "#t=,100");
+
+	/* show timer
+	pop.on( "timeupdate", function() {
+    	document.getElementById( "foo" ).innerHTML = this.currentTime();
+	}); */
+
+	// timeline navigation buttons
+	$("#next").click(function() {
+		pop.play();
+		return false;
+	});
+	$("#previous").click(function() {
+		var currentTime = pop.currentTime();
+		pop.play(currentTime - 7);
+		return false;
+	});
+
+	// Using Popcorn timeline, cue slides
+
+	// Slide 1
+	slideBuilder(1, function onStart() {
+		audioManager($("#track1, #track2"));
+		// start playing all audio and video
+		$("audio, video").trigger("play");
+		// get rid of title page stuff
+		$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
+		$("#begin").addClass("fadeOut");
+		$("#titleBG").removeClass("transparent").addClass("fadeOut");
+		$("#titleText").addClass("fadeOut");
+		$("#buttonsNav").removeClass("fadeOut");
+	});
+	// Slide 2
+	slideBuilder(2, function onStart() {
+		audioManager($("#track1"), 1, 0.5);
+	});
+	// Slide 3
+	slideBuilder(3, function onStart() {
+		audioManager($("#track1"), 1, 1);
+	});
+	// Slide 4
+	slideBuilder(4, function onStart() {
+		audioManager($("#track1"));
+	});
+	// Slide 5
+	slideBuilder(5, function onStart() {
+		audioManager($("#track1"));
+	});
+	// Slide 6
+	slideBuilder(6, function onStart() {
+		audioManager($("#track1"));
+	});
+	// Slide 7
+	slideBuilder(7, function onStart() {
+		audioManager($("#track1"));
+	});
+	// Slide 8
+	slideBuilder(8, function onStart() {
+		audioManager($("#track1"));
+	});
+  
+});
+</script>
+<body>
+
+<div id="base"></div><!--base div for Popcorn timeline-->
+<div id="foo"></div><!--timer-->
+
+<!--Header and navigation-->
+<div id="header">
+	<div id="titleNav">
+		Explore John Muir's Yosemite - <a href="#">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+	</div>
+	<span id="buttonsNav" class="fadeOut">
+		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide2" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide3" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide4" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide5" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide6" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide7" class="button"><a href="#"><i class="icon-info-sign"></i></a></span>
+	</span>
+</div>
+<div id="previous" class="button fadeOut"><a href="#"><i class="icon-chevron-left icon-3x"></i></a></div>
+
+<div id="next" class="button beginPosition fadeOut"><a href="#"><span id="begin">Begin </span><i class="icon-chevron-right icon-3x"></i></a></div>
+
+<div id="loading" class="button beginPosition"><span id="loadingText">Loading... </span></div>
+
+<!--Title (Splash)-->
+<div id="titleBG" class="fullscreen transparent">
+	<img src="img/crescent_meadow/lawn_2.jpg" />
+</div>
+<div id="titleText">
+	<h1>Crescent Meadow</h1>
+</div>
+
+<!--Slide 1-->
+<div id="slide1" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/crescent_meadow/lawn_2.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"It seemed impossible that any other forest picture in the world could rival it. There lay the <span class="highlight">grassy, flowery lawn,</span> three fourths of a mile long, smoothly outspread."
+		</div>
+	</div>
+</div>
+
+<!--Slide 2-->
+<div id="slide2" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/crescent_meadow/sky.jpg" />
+	</div>
+	<div class="boxWrap topRight fadeOut">
+		<div class="boxText">
+			"Then up spring the mighty walls of verdure three hundred feet high, <span class="highlight">the brown fluted pillars so thick and tall and strong they seem fit to uphold the sky."</span>
+		</div>
+	</div>
+</div>
+
+<!--Slide 3-->
+<div id="slide3" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/crescent_meadow/fallen.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"An aged lightning-smitten patriarch standing a little forward beyond the general line with knotty arms outspread was covered with gray and yellow lichens and surrounded by a group of saplings whose slender spires seemed to lack not a single leaf or spray in their wondrous perfection. Such was the Kaweah meadow picture that golden afternoon..."
+		</div>
+	</div>
+</div>
+
+<!--Slide 4-->
+<div id="slide4" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/crescent_meadow/lawn_1.jpg" />
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			"...and as I gazed every color seemed to deepen and glow as if <span class="highlight">the progress of the fresh sun-work</span> were visible from hour to hour, while every tree seemed religious and conscious of the presence of God."
+		</div>
+	</div>
+</div>
+
+<!--Slide 5-->
+<div id="slide5" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/crescent_meadow/detail_1.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"I stood fixed in silent wonder or sauntered about shifting my points of view, studying the physiognomy of separate trees, and going out to the different color patches to see how they were put on and what they were made of..."
+		</div>
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			"...giving free expression to my joy, <span class="highlight">exulting in Nature's wild immortal vigor and beauty</span>, never dreaming any other human being was near."
+		</div>
+	</div>
+</div>
+
+<!--Slide 6-->
+<div id="slide6" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="Meadow" loop class="video">
+			<source src="video/crescent_meadow/Meadow.mp4" type="video/mp4">
+			<!--<source src="video/crescent_meadow/Reservoir.webm" type="video/webm">-->
+		</video>
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			<span class="highlight">"A free man revels in a scene like this and time goes by unmeasured."</span>
+			<br /><a href="http://www.sierraclub.org/john_muir_exhibit/writings/our_national_parks/chapter_9.aspx" target="_blank">Source: <em>Our National Parks</em>, Chapter 9. <i class="icon-external-link"></i></a>
+		</div>
+	</div>
+</div>
+
+
+<!--Slide 7-->
+<div id="slide7" class="slide">
+	<div class="fullscreen transparent fadeOut">
+		<img src="img/crescent_meadow/gem.jpg" />
+	</div>
+	<div class="infoText fadeOut">
+		<h1><i class="icon-info-sign"></i> Crescent Meadow</h1>
+		<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
+	</div>
+	<div class="endNav topRight fadeOut">
+		<i class="icon-arrow-right"></i> Continue east to <a href="#">Bridalveil Falls</a>
+		<br /><i class="icon-arrow-up"></i> Continue north to <a href="#">Hetch Hetchy</a>
+		<br /><i class="icon-home"></i> Return to the <a href="#">Introduction</a>
+	</div>
+</div>
+
+</body>
+</html>

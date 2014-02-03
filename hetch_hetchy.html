@@ -78,33 +78,32 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1, #track2, #track3"), 1, 0.5);
+		audioManager($("#track1"), 1, 0.5);
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1, #track2, #track3"), 1, 1);
+		audioManager($("#track1"), 1, 1);
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#track1, #track3, #track4, #Wapama"));
+		audioManager($("#track1, #Wapama"));
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
-		audioManager($("#track4, #track5"));
+		audioManager($("#track1"));
 	});
 	// Slide 6
 	slideBuilder(6, function onStart() {
-		audioManager($("#track4, #track5"));
+		audioManager($("#track1"));
 	});
 	// Slide 7
 	slideBuilder(7, function onStart() {
-		audioManager($("#track4, #track5, #Reservoir"));
+		audioManager($("#track1, #Reservoir"));
 		$("#Reservoir")[0].currentTime = 0;
 	});
 	// Slide 8
 	slideBuilder(8, function onStart() {
-		audioManager($("#track4, #track5"));
-		$("#previous").addClass("fadeOut");
+		audioManager($("#track1"));
 	});
   
 });
@@ -117,7 +116,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="#">Map</a> - <a href="#">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite - <a href="#">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -259,7 +258,7 @@ audioLoader({
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
 			"Dam Hetch Hetchy! As well dam for water-tanks the people's cathedrals and churches, for <span class="highlight">no holier temple has ever been consecrated by the heart of man."</span>
-			<br /><a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_16.aspx" target="_blank">Source: Muir, John. <em>The Yosemite</em>, Chapter 16. <i class="icon-external-link"></i></a>
+			<br /><a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_16.aspx" target="_blank">Source: <em>The Yosemite</em>, Chapter 16. <i class="icon-external-link"></i></a>
 		</div>
 	</div>
 </div>

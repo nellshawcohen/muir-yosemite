@@ -132,6 +132,8 @@ function audioManager($toUnmute, audioVolume, videoVolume) {
 	});
 }
 
+// audio loading
+
 function audioLoader(files, callback) {
     var loaded = 0;
     var total = 0;
