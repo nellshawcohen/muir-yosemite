@@ -338,6 +338,29 @@ h2 {
 	min-width: 100%;
 	min-height: 100%;
 }
+.columnLeft {
+	float: left;
+	width: 50%;
+}
+.columnRight {
+	float: right;
+	width: 50%;
+}
+
+/* specific divs for other pages */
+
+#about {
+	z-index: 5;
+	position: fixed;
+	top: 40px;
+	left: 0;
+	width: auto;
+	color: white;
+	font-family: ChaparralPro-Regular;
+	font-size: 18px;
+	text-shadow: 2px 2px #000;
+	padding: 10px;
+}
 
 /* not currently being used */
 

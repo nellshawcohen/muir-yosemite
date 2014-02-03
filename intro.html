@@ -21,9 +21,22 @@
 // create global variable "pop"
 var pop;
 
-// ensure the web page (DOM) has loaded
-$(document).ready(function() {
- 
+audioLoader({
+    // Audio embeds and hidden elements
+    //track1: "audio/hetch_hetchy/track1",
+    //track2: "audio/hetch_hetchy/track2",
+    //track3: "audio/hetch_hetchy/track3",
+    //track4: "audio/hetch_hetchy/track4",
+    //track5: "audio/hetch_hetchy/track5"
+}, function() {
+    // After all the audio and DOM has loaded
+
+    // Hide the loading indicator
+    $("#loading").hide();
+
+    // Show the next/begin link
+    $("#next").removeClass("fadeOut");
+
 	// mute all audio, to start with
 	var $allAudioVideo = $("audio, video");
 	$allAudioVideo.prop("volume", 0);

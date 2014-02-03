@@ -10,11 +10,7 @@ is there a cleaner way to loop the audio? Maybe have cross fade between loops to
 
 Content:
 
-A. Need to write historical/contextualizing text for all scenes; begin with Yosemite Valley and Introduction text
-
-B. Mock-up another full scene with a different format (captions, more text, etc)
-
-C. Write credits / about page
+A. Need to write historical/contextualizing text for all scenes; begin with Yosemite Valley
 
 * * *
 
