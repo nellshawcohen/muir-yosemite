@@ -21,11 +21,13 @@ var pop;
 
 audioLoader({
     // Audio embeds and hidden elements
-    //track1: "audio/giant_forest/track1",
-    //track2: "audio/giant_forest/track2",
-    //track3: "audio/giant_forest/track3",
-    //track4: "audio/giant_forest/track4",
-    //track5: "audio/giant_forest/track5"
+    track1: "audio/giant_forest/track1",
+    track2: "audio/giant_forest/track2",
+    track3: "audio/giant_forest/track3",
+    track4: "audio/giant_forest/track4",
+    track5: "audio/giant_forest/track5",
+    track6: "audio/giant_forest/track6",
+    track7: "audio/giant_forest/track7"
 }, function() {
     // After all the audio and DOM has loaded
 
@@ -64,7 +66,7 @@ audioLoader({
 
 	// Slide 1
 	slideBuilder(1, function onStart() {
-		audioManager($("#track1, #track2"));
+		audioManager($("#track1, #track2, #track3"));
 		// start playing all audio and video
 		$("audio, video").trigger("play");
 		// get rid of title page stuff
@@ -76,31 +78,19 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1"), 1, 0.5);
+		audioManager($("#track4, #track5"), 1, 1);
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1"), 1, 1);
+		audioManager($("#track3, #track4, #track6"), 1, 1);
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#track1"));
+		audioManager($("#track5, #track7"));
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
-		audioManager($("#track1"));
-	});
-	// Slide 6
-	slideBuilder(6, function onStart() {
-		audioManager($("#track1"));
-	});
-	// Slide 7
-	slideBuilder(7, function onStart() {
-		audioManager($("#track1"));
-	});
-	// Slide 8
-	slideBuilder(8, function onStart() {
-		audioManager($("#track1"));
+		audioManager($("#track5, #track7"));
 	});
   
 });
@@ -113,7 +103,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="#">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -190,7 +180,12 @@ audioLoader({
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
-			"So harmonious and finely balanced are even the mightiest of these monarchs in all their proportions that there is never anything overgrown or monstrous about them. Seeing them for the first time you are more impressed with their beauty than their size, their grandeur being in great part invisible; but sooner or later it becomes manifest to the loving eye, stealing slowly on the senses like the grandeur of Niagara or of the Yosemite Domes."
+			"So harmonious and finely balanced are even the mightiest of these monarchs in all their proportions that there is never anything overgrown or monstrous about them."
+		</div>
+	</div>
+	<div class="boxWrap topRight fadeOut">
+		<div class="boxText">
+			"Seeing them for the first time you are more impressed with their beauty than their size, their grandeur being in great part invisible; but sooner or later it becomes manifest to the loving eye, stealing slowly on the senses like the grandeur of Niagara or of the Yosemite Domes."
 		</div>
 	</div>
 	<div class="boxWrap bottomRight fadeOut">
@@ -210,11 +205,11 @@ audioLoader({
 	<div class="infoText fadeOut">
 		<h1><i class="icon-info-sign"></i> Giant Forest</h1>
 		<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
-		<img src="img/giant_forest/brownie.jpg" />John Muir and Brownie. <a href="http://www.nps.gov/media/photo/gallery.htm?tagID=7052" target="_blank">Source</em> <i class="icon-external-link"></i></a></span>
+		<img src="img/giant_forest/brownie.jpg" />
+		<br />John Muir and Brownie. <a href="http://www.nps.gov/media/photo/gallery.htm?tagID=7052" target="_blank">Source</em> <i class="icon-external-link"></i></a></span>
 	</div>
 	<div class="endNav topRight fadeOut">
-		<i class="icon-arrow-right"></i> Continue east to <a href="#">Bridalveil Falls</a>
-		<br /><i class="icon-arrow-up"></i> Continue north to <a href="#">Hetch Hetchy</a>
+		<i class="icon-arrow-up"></i> Continue north to <a href="#">Mariposa Grove</a>
 		<br /><i class="icon-home"></i> Return to the <a href="#">Introduction</a>
 	</div>
 </div>

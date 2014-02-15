@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore John Muir's Yosemite: Map of Yosemite National Park (Detail View)</title>
+<!--CSS-->
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" >
+<!--JavaScript-->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/slideBuilder.js"></script>
+<script src="js/popcorn-complete.js"></script>
+<script src="js/popcorn.player.js"></script>
+<script src="js/popcorn._MediaElementProto.js"></script>
+<script src="js/popcorn.HTMLNullVideoElement.js"></script>
+<script>
+
+/* this stuff isn't working yet
+
+audioLoader({
+    // Audio embeds and hidden elements
+    track1: "audio/giant_forest/track1",
+    track2: "audio/giant_forest/track2",
+    track3: "audio/giant_forest/track3",
+    track4: "audio/giant_forest/track4",
+    track5: "audio/giant_forest/track5",
+    track6: "audio/giant_forest/track6",
+    track7: "audio/giant_forest/track7"
+}, function() {
+    // After all the audio and DOM has loaded
+
+	$("#mapHetchHetchy").hover(
+	  	function() {
+	  	// Once you enter
+	  	$(track1).trigger("play");
+	  	}, function() {
+	  	// Once you leave
+	  	$(track1).trigger("pause");
+	  }
+	);
+
+});
+*/
+
+</script>
+
+<!--Header and navigation-->
+<div id="header">
+	<div id="titleNav">
+		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+	</div>
+</div>
+
+
+<!--Map-->
+<div class="mapOverlay" id="mapYosemite">
+	<div id="mapTitleYosemite" class="mapTitle">
+		<h1>Yosemite National Park</h1>
+		<p>(Detail view)</p>
+	</div>
+	<!--Map Links-->
+	<div id="mapRange" class="mapIcon">
+		<a href="range_of_light.html"><i class="fa fa-star"></i> Begin: Range of Light</a>
+	</div>
+	<div id="mapHetchHetchy" class="mapIcon">
+		<a href="hetch_hetchy.html">Hetch Hetchy</a>
+	</div>
+	<div id="mapYosemiteValley" class="mapIcon">
+		<a href="yosemite_valley.html">Yosemite Valley</a>
+	</div>
+	<!--<div id="mapYosemiteFalls" class="mapIcon">
+		<<a href="yosemite_falls.html">Yosemite Falls</a>
+	</div>-->
+	<div id="mapBridalveil" class="mapIcon">
+		<a href="bridalveil.html">Bridalveil Fall</a>
+	</div>
+	<div id="mapHoffman" class="mapIcon">
+		<a href="hoffman.html">Mount Hoffman <br />and Tenaya Lake</a>
+	</div>
+	<div id="mapTuolomneMeadows" class="mapIcon">
+		<a href="tuolomne_meadows.html">Tuolomne Meadows</a>
+	</div>
+	<div id="mapSouth" class="mapIcon">
+		<a href="map_sequoia.html"><i class="fa fa-arrow-down"></i> <em> Sequoia National Park</em></a>
+	</div>
+</div>
+
+</body>
+</html>

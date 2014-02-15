@@ -21,11 +21,13 @@ var pop;
 
 audioLoader({
     // Audio embeds and hidden elements
-    //track1: "audio/range_of_light/track1",
-    //track2: "audio/range_of_light/track2",
-    //track3: "audio/range_of_light/track3",
-    //track4: "audio/range_of_light/track4",
-    //track5: "audio/range_of_light/track5"
+    track1: "audio/range_of_light/track1",
+    track2: "audio/range_of_light/track2",
+    track3: "audio/range_of_light/track3",
+    track4: "audio/range_of_light/track4",
+    track5: "audio/range_of_light/track5",
+    track6: "audio/range_of_light/track6",
+    track7: "audio/range_of_light/track7"
 }, function() {
     // After all the audio and DOM has loaded
 
@@ -64,7 +66,7 @@ audioLoader({
 
 	// Slide 1
 	slideBuilder(1, function onStart() {
-		audioManager($("#track1, #track2"));
+		audioManager($("#track1, #track2, #track3, #track4"));
 		// start playing all audio and video
 		$("audio, video").trigger("play");
 		// get rid of title page stuff
@@ -76,31 +78,19 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1"), 1, 0.5);
+		audioManager($("#track5, #track6"));
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1"), 1, 1);
+		audioManager($("#track3, #track5, #track6"));
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#track1"));
+		audioManager($("#track1, #track3, #track6, #track7"));
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
-		audioManager($("#track1"));
-	});
-	// Slide 6
-	slideBuilder(6, function onStart() {
-		audioManager($("#track1"));
-	});
-	// Slide 7
-	slideBuilder(7, function onStart() {
-		audioManager($("#track1"));
-	});
-	// Slide 8
-	slideBuilder(8, function onStart() {
-		audioManager($("#track1"));
+		audioManager($("#track5, #track6"));
 	});
   
 });
@@ -113,7 +103,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="#">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -200,12 +190,12 @@ audioLoader({
 		<img src="img/range_of_light/glacierpt_1.jpg" />
 	</div>
 	<div class="infoText fadeOut">
-		<h1><i class="icon-info-sign"></i> The Range of Light and John Muir's First Journey into the Sierra</h1>
+		<h1><i class="icon-info-sign"></i> John Muir's First Journey into the Sierra Nevada</h1>
 		<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
 		<img src="img/range_of_light/muir_portrait.jpg" />John Muir. <a href="#" target="_blank">Source</em> <i class="icon-external-link"></i></a></span>
 	</div>
 	<div class="endNav topRight fadeOut">
-		<i class="icon-arrow-right"></i> Continue east to <a href="#">Bridalveil Falls</a>
+		<i class="icon-arrow-right"></i> Continue east to <a href="#">Yosemite Valley</a>
 		<br /><i class="icon-arrow-up"></i> Continue north to <a href="#">Hetch Hetchy</a>
 		<br /><i class="icon-home"></i> Return to the <a href="#">Introduction</a>
 	</div>

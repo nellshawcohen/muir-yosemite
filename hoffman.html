@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore John Muir's Yosemite: Mount Hoffman and Tenaya Lake</title>
+<!--CSS-->
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" >
+<!--JavaScript-->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/slideBuilder.js"></script>
+<script src="js/popcorn-complete.js"></script>
+<script src="js/popcorn.player.js"></script>
+<script src="js/popcorn._MediaElementProto.js"></script>
+<script src="js/popcorn.HTMLNullVideoElement.js"></script>
+<script>
+
+// create global variable "pop"
+var pop;
+
+audioLoader({
+    // Audio embeds and hidden elements
+    // track1: "audio/hoffman/track1",
+    //track2: "audio/hoffman/track2",
+    //track3: "audio/hoffman/track3",
+    //track4: "audio/hoffman/track4",
+   // track5: "audio/hoffman/track5",
+    //track6: "audio/hoffman/track6"
+}, function() {
+    // After all the audio and DOM has loaded
+
+    // Hide the loading indicator
+    $("#loading").hide();
+
+    // Show the next/begin link
+    $("#next").removeClass("fadeOut");
+
+	// mute all audio, to start with
+	var $allAudioVideo = $("audio, video");
+	$allAudioVideo.prop("volume", 0);
+
+	// create popcorn timeline (independent of media elements)
+	Popcorn.player( "baseplayer" );
+	// assign Popcorn timeline to global variable "pop"
+	pop = Popcorn.smart("#base", "#t=,100");
+
+	/* show timer
+	pop.on( "timeupdate", function() {
+    	document.getElementById( "foo" ).innerHTML = this.currentTime();
+	}); */
+
+	// timeline navigation buttons
+	$("#next").click(function() {
+		pop.play();
+		return false;
+	});
+	$("#previous").click(function() {
+		var currentTime = pop.currentTime();
+		pop.play(currentTime - 7);
+		return false;
+	});
+
+	// Using Popcorn timeline, cue slides
+
+	// Slide 1
+	slideBuilder(1, function onStart() {
+		audioManager($("#track1, #track2"));
+		// start playing all audio and video
+		$("audio, video").trigger("play");
+		// get rid of title page stuff
+		$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
+		$("#begin").addClass("fadeOut");
+		$("#titleBG").removeClass("transparent").addClass("fadeOut");
+		$("#titleText").addClass("fadeOut");
+		$("#buttonsNav").removeClass("fadeOut");
+	});
+	// Slide 2
+	slideBuilder(2, function onStart() {
+		audioManager($("#track1, #track2, #track3"), 1, 0.5);
+	});
+	// Slide 3
+	slideBuilder(3, function onStart() {
+		audioManager($("#track1, #track2, #track3"), 1, 1);
+	});
+	// Slide 4
+	slideBuilder(4, function onStart() {
+		audioManager($("#track1, #track3, #track4"));
+	});
+	// Slide 5
+	slideBuilder(5, function onStart() {
+		audioManager($("#track1, #track3, #track4"));
+	});
+	// Slide 6
+	slideBuilder(6, function onStart() {
+		audioManager($("#track1, #track3, #track4"));
+	});
+	// Slide 7
+	slideBuilder(7, function onStart() {
+		audioManager($("#track4, #track5"));
+	});
+	// Slide 8
+	slideBuilder(8, function onStart() {
+		audioManager($("#track4, #track5"));
+	});
+  
+});
+</script>
+<body>
+
+<div id="base"></div><!--base div for Popcorn timeline-->
+<div id="foo"></div><!--timer-->
+
+<!--Header and navigation-->
+<div id="header">
+	<div id="titleNav">
+		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+	</div>
+	<span id="buttonsNav" class="fadeOut">
+		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide2" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide3" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide4" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide5" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide6" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide7" class="button"><a href="#"><i class="icon-info-sign"></i></a></span>
+	</span>
+</div>
+<div id="previous" class="button fadeOut"><a href="#"><i class="icon-chevron-left icon-3x"></i></a></div>
+
+<div id="next" class="button beginPosition fadeOut"><a href="#"><span id="begin">Begin </span><i class="icon-chevron-right icon-3x"></i></a></div>
+
+<div id="loading" class="button beginPosition"><span id="loadingText">Loading... </span></div>
+
+<!--Title (Splash)-->
+<div id="titleBG" class="fullscreen transparent">
+	<!--<img src="img/john-muir.jpg" />-->
+	<video id="May" loop muted autoplay class="video">
+			<source src="video/hoffman/May.mp4" type="video/mp4">
+			<!--<source src="video/hoffman/May.webm" type="video/webm">-->
+		</video>
+</div>
+<div id="titleText">
+	<h1>Mount Hoffman and Tenaya Lake</h1>
+</div>
+
+<!--Slide 1-->
+<div id="slide1" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="May" loop class="video">
+			<source src="video/hoffman/May.mp4" type="video/mp4">
+			<!--<source src="video/hoffman/May.webm" type="video/webm">-->
+		</video>
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"…I would go straight to Mount Hoffman, spend the night on the summit, [and] next morning go down by May Lake to Tenaya Lake."
+		</div>
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			"Mount Hoffman is a mass of gray granite that rises almost in the center of the Yosemite Park, about eight or ten miles in a straight line from the Valley. Its southern slopes are low and easily climbed, and adorned here and there with castle-like crumbling piles and long jagged crests that look like artificial masonry; but on the north side it is abruptly precipitous and banked with lasting snow."
+		</div>
+	</div>
+	<div class="caption fadeOut">
+		Foreground: May Lake. Background: Mount Hoffman.
+	</div>
+</div>
+
+<!--Slide 2-->
+<div id="slide2" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/hoffman/trees_mountains.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"How boundless the day seems as we revel in these <span class="highlight">storm-beaten sky gardens amid so vast a congregation of onlooking mountains!</span> Strange and admirable it is that the more savage and chilly and storm-chafed the mountains, the finer the glow on their faces and the finer the plants they bear."
+		</div>
+	</div>
+	<div class="caption fadeOut">
+		View from near May Lake.
+	</div>
+</div>
+
+<!--Slide 3-->
+<div id="slide3" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/hoffman/flowers.jpg" />
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			"The surface of the ground, so dull and forbidding at first sight, besides being rich in plants, shines and sparkles with crystals: mica, hornblende, feldspar, quartz, tourmaline. The radiance in some places is so great as to be fairly dazzling, keen lance rays of every color flashing, sparkling in glorious abundance, joining the plants in their fine, brave beauty-work--every crystal, every flower a window opening into heaven, a mirror reflecting the Creator."
+		</div>
+	</div>
+</div>
+
+<!--Slide 4-->
+<div id="slide4" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/hoffman/hoffman_view_PSHiker.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"From garden to garden, ridge to ridge, <span class="highlight">I drifted enchanted,</span> now on my knees gazing into the face of a daisy, now climbing again and again among the purple and azure flowers of the hemlocks, now down into the treasuries of the snow, or gazing afar over domes and peaks, lakes and woods, and the billowy glaciated fields of the upper Tuolumne, and trying to sketch them."
+		</div>
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			"In the midst of such beauty, pierced with its rays, one's body is all one tingling palate. Who wouldn't be a mountaineer! <span class="highlight">Up here all the world's prizes seem nothing.</span>"
+		</div>
+	</div>
+	<div class="caption fadeOut">
+		View from Mount Hoffman. Photo by PSHiker. <a href="http://www.flickr.com/photos/pshiker/3787115782/" target="_blank">Source</em> <i class="icon-external-link"></i></a>
+	</div>
+</div>
+
+<!--Slide 5-->
+<div id="slide5" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/hoffman/tenaya_trees.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"At the west end of Lake Tenaya. Arriving early, I took a walk on the glacier-polished pavements along the north shore, and climbed the magnificent mountain rock at the east end of the lake, now shining in the late afternoon light."
+		</div>
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			"Almost every yard of its surface shows the scoring and polishing action of a great glacier that enveloped it and swept heavily over its summit, though it is about two thousand feet high above the lake and ten thousand above sea-level."
+		</div>
+	</div>
+</div>
+
+<!--Slide 6-->
+<div id="slide6" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="Tenaya" loop class="video">
+			<source src="video/hoffman/Tenaya.mp4" type="video/mp4">
+			<!--<source src="video/hoffman/Tenaya.webm" type="video/webm">-->
+		</video>
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"This majestic, ancient ice-flood came from the eastward, as the scoring and crushing of the surface shows. Even below the waters of the lake the rock in some places is still grooved and polished; the lapping of the waves and their disintegrating action have not as yet obliterated even the superficial marks of glaciation."
+		</div>
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			Source: <a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_12.aspx#two_day_1" target="_blank"><em>The Yosemite</em>, Chapter 12 <i class="icon-external-link"></i></a> and 
+			<a href="http://www.sierraclub.org/john_muir_exhibit/writings/my_first_summer_in_the_sierra/chapter_6.aspx" target="_blank"><em>My First Summer in the Sierra</em>, Chapter 6. <i class="icon-external-link"></i></a>
+		</div>
+	</div>
+</div>
+
+<!--Slide 7-->
+<div id="slide7" class="slide">
+	<div class="fullscreen transparent fadeOut">
+		<img src="img/hoffman/trees_cathedral.jpg" />
+	</div>
+	<div class="infoText fadeOut">
+		<h1><i class="icon-info-sign"></i> Mount Hoffman and Tenaya Lake</h1>
+		<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
+	</div>
+	<div class="endNav topRight fadeOut">
+		<i class="icon-arrow-left"></i> Continue west to <a href="#">May Lake</a>
+		<br /><i class="icon-home"></i> Return to the <a href="#">Introduction</a>
+	</div>
+</div>
+
+</body>
+</html>

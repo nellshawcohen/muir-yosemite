@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore John Muir's Yosemite: Mount bridalveil and Tenaya Lake</title>
+<!--CSS-->
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" >
+<!--JavaScript-->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/slideBuilder.js"></script>
+<script src="js/popcorn-complete.js"></script>
+<script src="js/popcorn.player.js"></script>
+<script src="js/popcorn._MediaElementProto.js"></script>
+<script src="js/popcorn.HTMLNullVideoElement.js"></script>
+<script>
+
+// create global variable "pop"
+var pop;
+
+audioLoader({
+    // Audio embeds and hidden elements
+    // track1: "audio/bridalveil/track1",
+    //track2: "audio/bridalveil/track2",
+    //track3: "audio/bridalveil/track3",
+    //track4: "audio/bridalveil/track4",
+   // track5: "audio/bridalveil/track5",
+    //track6: "audio/bridalveil/track6"
+}, function() {
+    // After all the audio and DOM has loaded
+
+    // Hide the loading indicator
+    $("#loading").hide();
+
+    // Show the next/begin link
+    $("#next").removeClass("fadeOut");
+
+	// mute all audio, to start with
+	var $allAudioVideo = $("audio, video");
+	$allAudioVideo.prop("volume", 0);
+
+	// create popcorn timeline (independent of media elements)
+	Popcorn.player( "baseplayer" );
+	// assign Popcorn timeline to global variable "pop"
+	pop = Popcorn.smart("#base", "#t=,100");
+
+	/* show timer
+	pop.on( "timeupdate", function() {
+    	document.getElementById( "foo" ).innerHTML = this.currentTime();
+	}); */
+
+	// timeline navigation buttons
+	$("#next").click(function() {
+		pop.play();
+		return false;
+	});
+	$("#previous").click(function() {
+		var currentTime = pop.currentTime();
+		pop.play(currentTime - 7);
+		return false;
+	});
+
+	// Using Popcorn timeline, cue slides
+
+	// Slide 1
+	slideBuilder(1, function onStart() {
+		audioManager($("#track1, #track2"));
+		// start playing all audio and video
+		$("audio, video").trigger("play");
+		// get rid of title page stuff
+		$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
+		$("#begin").addClass("fadeOut");
+		$("#titleBG").removeClass("transparent").addClass("fadeOut");
+		$("#titleText").addClass("fadeOut");
+		$("#buttonsNav").removeClass("fadeOut");
+	});
+	// Slide 2
+	slideBuilder(2, function onStart() {
+		audioManager($("#track1, #track2, #track3"), 1, 0.5);
+	});
+	// Slide 3
+	slideBuilder(3, function onStart() {
+		audioManager($("#track1, #track2, #track3"), 1, 1);
+	});
+	// Slide 4
+	slideBuilder(4, function onStart() {
+		audioManager($("#track1, #track3, #track4"));
+	});
+	// Slide 5
+	slideBuilder(5, function onStart() {
+		audioManager($("#track1, #track3, #track4"));
+	});
+	// Slide 6
+	slideBuilder(6, function onStart() {
+		audioManager($("#track1, #track3, #track4"));
+	});
+	// Slide 7
+	slideBuilder(7, function onStart() {
+		audioManager($("#track4, #track5"));
+	});
+	// Slide 8
+	slideBuilder(8, function onStart() {
+		audioManager($("#track4, #track5"));
+	});
+  
+});
+</script>
+<body>
+
+<div id="base"></div><!--base div for Popcorn timeline-->
+<div id="foo"></div><!--timer-->
+
+<!--Header and navigation-->
+<div id="header">
+	<div id="titleNav">
+		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+	</div>
+	<span id="buttonsNav" class="fadeOut">
+		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide2" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide3" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide4" class="button"><a href="#"><i class="icon-info-sign"></i></a></span>
+	</span>
+</div>
+<div id="previous" class="button fadeOut"><a href="#"><i class="icon-chevron-left icon-3x"></i></a></div>
+
+<div id="next" class="button beginPosition fadeOut"><a href="#"><span id="begin">Begin </span><i class="icon-chevron-right icon-3x"></i></a></div>
+
+<div id="loading" class="button beginPosition"><span id="loadingText">Loading... </span></div>
+
+<!--Title (Splash)-->
+<div id="titleBG" class="fullscreen transparent">
+	<!--<img src="img/john-muir.jpg" />-->
+	<video id="May" loop muted autoplay class="video">
+			<source src="video/bridalveil/far.mp4" type="video/mp4">
+			<!--<source src="video/bridalveil/May.webm" type="video/webm">-->
+		</video>
+</div>
+<div id="titleText">
+	<h1>Bridalveil Fall</h1>
+</div>
+
+<!--Slide 1-->
+<div id="slide1" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="May" loop class="video">
+			<source src="video/bridalveil/far.mp4" type="video/mp4">
+			<!--<source src="video/bridalveil/far.webm" type="video/webm">-->
+		</video>
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"Entering the Valley, gazing overwhelmed with the multitude of grand objects about us, perhaps the first to fix our attention will be the Bridal Veil, a beautiful waterfall on our right."
+		</div>
+	</div>
+</div>
+
+<!--Slide 2-->
+<div id="slide2" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="May" loop class="video">
+			<source src="video/bridalveil/cliff.mp4" type="video/mp4">
+			<!--<source src="video/bridalveil/cliff.webm" type="video/webm">-->
+		</video>
+	</div>
+	<div class="boxWrap topRight fadeOut">
+		<div class="boxText">
+			"Its brow, where it first leaps free from the cliff, is about 900 feet above us; and as it sways and sings in the wind, <span class="highlight">clad in gauzy, sun-sifted spray, half falling, half floating, it seems infinitely gentle and fine;</span> but the hymns it sings tell the solemn fateful power hidden beneath its soft clothing."
+		</div>
+	</div>
+</div>
+
+<!--Slide 3-->
+<div id="slide3" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="May" loop class="video">
+			<source src="video/bridalveil/near.mp4" type="video/mp4">
+			<!--<source src="video/bridalveil/near.webm" type="video/webm">-->
+		</video>
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"The rainbows of the Veil, or rather the spray- and foam-bows, are superb, because the waters are dashed among angular blocks of granite at the foot, producing abundance of spray of the best quality for iris effects, and also for a luxuriant growth of grass and maiden-hair on the side of the talus, which lower down is planted with oak, laurel and willows."
+		</div>
+	</div>
+
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			Source: <a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_1.aspx" target="_blank"><em>The Yosemite</em>, Chapter 1. <i class="icon-external-link"></i></a>
+		</div>
+	</div>
+</div>
+
+<!--Slide 4-->
+<div id="slide4" class="slide">
+	<div class="fullscreen transparent fadeOut">
+		<video id="May" loop class="video">
+			<source src="video/bridalveil/near.mp4" type="video/mp4">
+			<!--<source src="video/bridalveil/near.webm" type="video/webm">-->
+		</video>
+	</div>
+	<div class="infoText fadeOut">
+		<h1><i class="icon-info-sign"></i> Bridalveil Fall</h1>
+		<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
+	</div>
+	<div class="endNav topRight fadeOut">
+		<i class="icon-arrow-right"></i> Continue east to <a href="#">Yosemite Falls</a>
+		<br /><i class="icon-arrow-left"></i> Return to <a href="#">Yosemite Valley</a>
+		<br /><i class="icon-home"></i> Return to the <a href="#">Introduction</a>
+	</div>
+</div>
+
+</body>
+</html>

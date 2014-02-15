@@ -23,11 +23,19 @@ var pop;
 
 audioLoader({
     // Audio embeds and hidden elements
-    //track1: "audio/hetch_hetchy/track1",
-    //track2: "audio/hetch_hetchy/track2",
-    //track3: "audio/hetch_hetchy/track3",
-    //track4: "audio/hetch_hetchy/track4",
-    //track5: "audio/hetch_hetchy/track5"
+    track1: "audio/hetch_hetchy/track1",
+    track2: "audio/hetch_hetchy/track2",
+    track3: "audio/hetch_hetchy/track3",
+    track4: "audio/hetch_hetchy/track4",
+    track5: "audio/hetch_hetchy/track5",
+    track6: "audio/hetch_hetchy/track6",
+    track7: "audio/hetch_hetchy/track7",
+    track8: "audio/hetch_hetchy/track8",
+    track9: "audio/hetch_hetchy/track9",
+    track10: "audio/hetch_hetchy/track10",
+    track11: "audio/hetch_hetchy/track11",
+    track12: "audio/hetch_hetchy/track12",
+    track13: "audio/hetch_hetchy/track13"
 }, function() {
     // After all the audio and DOM has loaded
 
@@ -78,32 +86,32 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1"), 1, 0.5);
+		audioManager($("#track1, #track2, #track3"), 1, 1);
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1"), 1, 1);
+		audioManager($("#track2, #track4"), 1, 1);
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#track1, #Wapama"));
+		audioManager($("#track4, #track6, #track7, #Wapama"), 1, 0.7);
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
-		audioManager($("#track1"));
+		audioManager($("#track8, #track9"));
 	});
 	// Slide 6
 	slideBuilder(6, function onStart() {
-		audioManager($("#track1"));
+		audioManager($("#track8, #track9, #track10"));
 	});
 	// Slide 7
 	slideBuilder(7, function onStart() {
-		audioManager($("#track1, #Reservoir"));
+		audioManager($("#track10, #track11, #track12, #track13, #Reservoir"));
 		$("#Reservoir")[0].currentTime = 0;
 	});
 	// Slide 8
 	slideBuilder(8, function onStart() {
-		audioManager($("#track1"));
+		audioManager($("#track10, #track11, #track12, #track13"));
 	});
   
 });
@@ -116,7 +124,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="#">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -274,15 +282,16 @@ audioLoader({
 		<p>Hetch Hetchy was the subject of controversy within Congress in 1908-13, after which this valley north of the Yosemite Valley—to which it bears great resemblance—was ultimately dammed and turned into a reservoir providing water to the San Francisco Bay Area, to the great distress of John Muir.</p>
 		<p>Currently, the organization <a href="http://www.hetchhetchy.org/" target="_blank">Restore Hetch Hetchy <i class="icon-external-link"></i></a> is fighting to have the reservoir removed and the valley restored.</p>
 	</div>
-	<div class="infoPics fadeOut">
+	<!--<div class="infoPics fadeOut">
 		<img src="img/hetch_hetchy/1900_valley.jpg" class="infoPicsImg" />
 		<img src="img/hetch_hetchy/2013_valley.jpg" class="infoPicsImg" />
-	</div>
+	</div>-->
 	<div class="endNav topRight fadeOut">
-		<i class="icon-arrow-right"></i> Continue east to <a href="#">Bridalveil Falls</a>
-		<br /><i class="icon-arrow-up"></i> Continue north to <a href="#">Hetch Hetchy</a>
+		<i class="icon-arrow-right"></i> Continue east to <a href="#">Tuolomne Meadows</a>
+		<br /><i class="icon-arrow-up"></i> Continue south to <a href="#">Yosemite Valley</a>
 		<br /><i class="icon-home"></i> Return to the <a href="#">Introduction</a>
 	</div>
+
 </div>
 
 </body>

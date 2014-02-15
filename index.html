@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Explore John Muir's Yosemite - Introduction</title>
+<title>Explore John Muir's Yosemite: Introduction</title>
 <!--CSS-->
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" >
@@ -16,30 +16,29 @@
 <script src="js/popcorn.HTMLNullVideoElement.js"></script>
 <script>
 
-// TO DO: create master volume control (and put a notice on the splash screen to turn up computer volume)
-
 // create global variable "pop"
 var pop;
 
 audioLoader({
     // Audio embeds and hidden elements
-    //track1: "audio/hetch_hetchy/track1",
-    //track2: "audio/hetch_hetchy/track2",
-    //track3: "audio/hetch_hetchy/track3",
-    //track4: "audio/hetch_hetchy/track4",
-    //track5: "audio/hetch_hetchy/track5"
+    track1: "audio/introduction_2/track1",
+    track2: "audio/introduction_2/track2",
+    track3: "audio/introduction_2/track3"
 }, function() {
     // After all the audio and DOM has loaded
 
     // Hide the loading indicator
     $("#loading").hide();
 
+	// volume up on all audio, to start with
+	var $allAudioVideo = $("audio, video");
+	$allAudioVideo.prop("volume", 1);
+
+    // start playing all audio and video
+	$("audio, video").trigger("play");
+
     // Show the next/begin link
     $("#next").removeClass("fadeOut");
-
-	// mute all audio, to start with
-	var $allAudioVideo = $("audio, video");
-	$allAudioVideo.prop("volume", 0);
 
 	// create popcorn timeline (independent of media elements)
 	Popcorn.player( "baseplayer" );
@@ -66,9 +65,7 @@ audioLoader({
 
 	// Slide 1
 	slideBuilder(1, function onStart() {
-		audioManager($("#track1, #track2"));
-		// start playing all audio and video
-		$("audio, video").trigger("play");
+		audioManager($("#track1, #track2, #track3"));
 		// get rid of title page stuff
 		$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
 		$("#begin").addClass("fadeOut");
@@ -79,11 +76,11 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1, #track2, #track3, #merced-video2"), 1, 0.5);
+		audioManager($("#track1, #track2, #track3"));
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1, #track2, #track3, #merced-video2"), 1, 1);
+		audioManager($("#track1, #track2, #track3"));
 	});
   
 });
@@ -97,7 +94,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="#">Map</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="about.html">About</a> - <a href="#">Share</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -109,8 +106,12 @@ audioLoader({
 <div id="next" class="button beginPosition"><a href="#"><span id="begin">Begin </span><i class="icon-chevron-right icon-3x"></i></a></div>
 
 <!--Title (Splash)-->
-<div id="titleBG" class="fullscreen transparent">
-	<img src="img/mirror_lake.jpg" />
+<div class="fullscreen transparent">
+		<!--<img src="img/john-muir.jpg" />-->
+	<video id="River" loop muted class="video">
+			<source src="video/yosemite_valley/Mirror.mp4" type="video/mp4">
+			<!--<source src="video/yosemite_valley/Mirror.webm" type="video/webm">-->
+		</video>
 </div>
 <div id="titleText">
 	<h1>Explore John Muir's Yosemite</h1>
@@ -144,8 +145,11 @@ audioLoader({
 	</div>
 	<div class="boxWrap topRight fadeOut">
 		<div class="boxText">
-			Through his advocacy and teaching, whether he was publishing essays, greeting tourists to Yosemite Valley, or taking President Theodore Roosevelt on a life-changing camping trip, John Muir helped the public to understand and appreciate both the scientific workings and the spiritual glory of the natural world around them.
+			Through his advocacy and teaching, whether he was publishing essays, greeting tourists to Yosemite Valley, or taking President Theodore Roosevelt on a life-changing camping trip, John Muir helped people to understand and appreciate both the scientific workings and the spiritual power of the natural world around them.
 		</div>
+	</div>
+	<div class="caption fadeOut">
+		Photo by Carleton Watkins, 1878-1881. <a href="http://commons.wikimedia.org/wiki/File:The_Yosemite_Valley_From_The_Mariposa_Trail_Yosemite_California_by_Carleton_Watkins.jpg" target="_blank">Source <i class="icon-external-link"></i></a>
 	</div>
 </div>
 
@@ -156,12 +160,12 @@ audioLoader({
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
-			Now you can explore today's Yosemite with Muir as your guide. Use the "Map" button above to visit one of several locations in Yosemite National Park or the neighboring Sequoia National Park.
+			Explore today's Yosemite with Muir as your guide. Use the "Map" link above to visit one of several locations in Yosemite National Park and the neighboring Sequoia National Park.
 		</div>
 	</div>
 	<div class="boxWrap topRight fadeOut">
 		<div class="boxText">
-			To get started, open the map and select "Range of Light." Then sit back, relax, and breath in the fresh Sierra Nevada air.
+			Or, to get started, jump right into <a href="range_of_light.html">Range of Light</a>. Then sit back, relax, and breath in the fresh Sierra Nevada air.
 		</div>
 	</div>
 </div>

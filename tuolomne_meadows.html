@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore John Muir's Yosemite: Tuolomne Meadows</title>
+<!--CSS-->
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" >
+<!--JavaScript-->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/slideBuilder.js"></script>
+<script src="js/popcorn-complete.js"></script>
+<script src="js/popcorn.player.js"></script>
+<script src="js/popcorn._MediaElementProto.js"></script>
+<script src="js/popcorn.HTMLNullVideoElement.js"></script>
+<script>
+
+// create global variable "pop"
+var pop;
+
+audioLoader({
+    // Audio embeds and hidden elements
+    track1: "audio/tuolomne_meadows/track1",
+    track2: "audio/tuolomne_meadows/track2",
+    track3: "audio/tuolomne_meadows/track3",
+    track4: "audio/tuolomne_meadows/track4",
+    track5: "audio/tuolomne_meadows/track5",
+    track6: "audio/tuolomne_meadows/track6"
+}, function() {
+    // After all the audio and DOM has loaded
+
+    // Hide the loading indicator
+    $("#loading").hide();
+
+    // Show the next/begin link
+    $("#next").removeClass("fadeOut");
+
+	// mute all audio, to start with
+	var $allAudioVideo = $("audio, video");
+	$allAudioVideo.prop("volume", 0);
+
+	// create popcorn timeline (independent of media elements)
+	Popcorn.player( "baseplayer" );
+	// assign Popcorn timeline to global variable "pop"
+	pop = Popcorn.smart("#base", "#t=,100");
+
+	/* show timer
+	pop.on( "timeupdate", function() {
+    	document.getElementById( "foo" ).innerHTML = this.currentTime();
+	}); */
+
+	// timeline navigation buttons
+	$("#next").click(function() {
+		pop.play();
+		return false;
+	});
+	$("#previous").click(function() {
+		var currentTime = pop.currentTime();
+		pop.play(currentTime - 7);
+		return false;
+	});
+
+	// Using Popcorn timeline, cue slides
+
+	// Slide 1
+	slideBuilder(1, function onStart() {
+		audioManager($("#track1, #track3"));
+		// start playing all audio and video
+		$("audio, video").trigger("play");
+		// get rid of title page stuff
+		$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
+		$("#begin").addClass("fadeOut");
+		$("#titleBG").removeClass("transparent").addClass("fadeOut");
+		$("#titleText").addClass("fadeOut");
+		$("#buttonsNav").removeClass("fadeOut");
+	});
+	// Slide 2
+	slideBuilder(2, function onStart() {
+		audioManager($("#track1, #track2, #track3"));
+	});
+	// Slide 3
+	slideBuilder(3, function onStart() {
+		audioManager($("#track1, #track2, #track3, #track4"));
+		$("#River")[0].currentTime = 4;
+	});
+	// Slide 4
+	slideBuilder(4, function onStart() {
+		audioManager($("#track4, #track5, #track6"));
+	});
+	// Slide 5
+	slideBuilder(5, function onStart() {
+		audioManager($("#track4, #track5, #track6"));
+	});
+	// Slide 6
+	slideBuilder(6, function onStart() {
+		audioManager($("#track3, #track4"));
+	});
+  
+});
+</script>
+<body>
+
+<div id="base"></div><!--base div for Popcorn timeline-->
+<div id="foo"></div><!--timer-->
+
+<!--Header and navigation-->
+<div id="header">
+	<div id="titleNav">
+		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+	</div>
+	<span id="buttonsNav" class="fadeOut">
+		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide2" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide3" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide4" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide5" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide6" class="button"><a href="#"><i class="icon-info-sign"></i></a></span>
+	</span>
+</div>
+<div id="previous" class="button fadeOut"><a href="#"><i class="icon-chevron-left icon-3x"></i></a></div>
+
+<div id="next" class="button beginPosition fadeOut"><a href="#"><span id="begin">Begin </span><i class="icon-chevron-right icon-3x"></i></a></div>
+
+<div id="loading" class="button beginPosition"><span id="loadingText">Loading... </span></div>
+
+<!--Title (Splash)-->
+<div id="titleBG" class="fullscreen transparent">
+	<img src="img/tuolomne_meadows/lembert.jpg" />
+</div>
+<div id="titleText">
+	<h1>Tuolomne Meadows</h1>
+</div>
+
+<!--Slide 1-->
+<div id="slide1" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/tuolomne_meadows/lembert.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"Here in this upper Tuolumne Valley is the widest, smoothest, most serenely spacious, and in every way the <span class="highlight"> most delightful summer pleasure-park in all the High Sierra.</span>"
+		</div>
+	</div>
+	<div class="caption fadeOut">
+		Foreground: Lembert Dome. Background: Mount Dana.
+	</div>
+</div>
+
+<!--Slide 2-->
+<div id="slide2" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/tuolomne_meadows/cathedral.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"It is in the heart of the High Sierra east of Yosemite, 8500 to 9000 feet above the level of the sea. The gray, picturesque Cathedral Range bounds it on the south; a similar range or spur, the highest peak of which is Mount Conness, on the north; the noble Mounts Dana, Gibbs, Mammoth, Lyell, McClure and others on the axis of the Range on the east; a heaving, billowing crowd of glacier-polished rocks and Mount Hoffman on the west."
+		</div>
+	</div>
+	<div class="caption fadeOut">
+		Background: Cathedral Range.
+	</div>
+</div>
+
+<!--Slide 3-->
+<div id="slide3" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="River" loop class="video">
+			<source src="video/tuolomne_meadows/River.mp4" type="video/mp4">
+			<!--<source src="video/tuolomne_meadows/River.webm" type="video/webm">-->
+		</video>
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"Down through the open sunny meadow-levels of the Valley flows the <span class="highlight">Tuolumne River, fresh and cool from its many glacial fountains,</span> the highest of which are the glaciers that lie on the north sides of Mount Lyell and Mount McClure."
+		</div>
+	</div>
+</div>
+
+<!--Slide 4-->
+<div id="slide4" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/tuolomne_meadows/soda_springs_2.jpg" />
+	</div>
+	<div class="boxWrap topRight fadeOut">
+		<div class="boxText">
+			"The groves about the Soda Springs are favorite camping-grounds on account of the cold, pleasant-tasting water charged with carbonic acid, and because of the views of the mountains across the meadow..."
+		</div>
+	</div>
+</div>
+
+<!--Slide 5-->
+<div id="slide5" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/tuolomne_meadows/soda_springs_1.jpg" />
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"...the Glacier Monument, Cathedral Peak, Cathedral Spires, Unicorn Peak and a series of ornamental nameless companions, rising in striking forms and nearness above a dense forest growing on the left lateral moraine of the ancient Tuolumne glacier, which, broad, deep, and far-reaching, exerted vast influence on the scenery of this portion of the Sierra."
+		</div>
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText"><a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_12.aspx#tuolumne" target="_blank">Source: <em>The Yosemite,</em> Chapter 12. "The Upper Tuolomne Excursion." <i class="icon-external-link"></i></a>
+		</div>
+	</div>
+</div>
+
+<!--Slide 6-->
+<div id="slide6" class="slide">
+	<div class="fullscreen transparent fadeOut">
+		<img src="img/tuolomne_meadows/trees_cathedral.jpg" />
+	</div>
+	<div class="infoText fadeOut">
+		<h1><i class="icon-info-sign"></i> Tuolomne Meadows</h1>
+		<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
+	</div>
+	<div class="endNav topRight fadeOut">
+		<i class="icon-arrow-left"></i> Continue west to <a href="#">May Lake</a>
+		<br /><i class="icon-home"></i> Return to the <a href="#">Introduction</a>
+	</div>
+</div>
+
+</body>
+</html>

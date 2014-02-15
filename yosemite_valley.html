@@ -90,10 +90,18 @@ audioLoader({
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
+		audioManager($("#track1, #track3, #track4"));
+	});
+	// Slide 6
+	slideBuilder(6, function onStart() {
+		audioManager($("#track1, #track3, #track4"));
+	});
+	// Slide 7
+	slideBuilder(7, function onStart() {
 		audioManager($("#track4, #track5"));
 	});
-	// Slide 6 (About)
-	slideBuilder(6, function onStart() {
+	// Slide 8
+	slideBuilder(8, function onStart() {
 		audioManager($("#track4, #track5"));
 	});
   
@@ -107,7 +115,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="#">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -115,7 +123,9 @@ audioLoader({
 		<span id="jumpSlide3" class="button"><a href="#"><i class="icon-circle"></i></a></span>
 		<span id="jumpSlide4" class="button"><a href="#"><i class="icon-circle"></i></a></span>
 		<span id="jumpSlide5" class="button"><a href="#"><i class="icon-circle"></i></a></span>
-		<span id="jumpSlide6" class="button"><a href="#"><i class="icon-info-sign"></i></a></span>
+		<span id="jumpSlide6" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide7" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide8" class="button"><a href="#"><i class="icon-info-sign"></i></a></span>
 	</span>
 </div>
 <div id="previous" class="button fadeOut"><a href="#"><i class="icon-chevron-left icon-3x"></i></a></div>
@@ -164,8 +174,13 @@ audioLoader({
 	</div>
 </div>
 
-<!--Slide 3-->
 <div id="slide3" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/yosemite_valley/tree.jpg" />
+	</div>
+</div>
+
+<div id="slide4" class="slide">
 	<div class="fullscreen fadeOut">
 		<video id="merced-video2" loop class="video">
 			<source src="video/yosemite_valley/Merced_Close.mp4" type="video/mp4">
@@ -179,8 +194,8 @@ audioLoader({
 	</div>
 </div>
 
-<!--Slide 4-->
-<div id="slide4" class="slide">
+
+<div id="slide5" class="slide">
 	<div class="fullscreen fadeOut">
 		<img src="img/yosemite_valley/halfdome.jpg" />
 	</div>
@@ -191,10 +206,15 @@ audioLoader({
 	</div>
 </div>
 
-<!--Slide 5-->
-<div id="slide5" class="slide">
+<div id="slide6" class="slide">
 	<div class="fullscreen fadeOut">
-		<img src="img/yosemite_valley/cathedral.jpg" />
+		<img src="img/yosemite_valley/halfdome_close.jpg" />
+	</div>
+</div>
+
+<div id="slide7" class="slide">
+	<div class="fullscreen fadeOut">
+		<img src="img/yosemite_valley/granite.jpg" />
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
@@ -204,14 +224,14 @@ audioLoader({
 	</div>
 </div>
 
-<!--Slide 6 (About)-->
-<div id="slide6" class="slide">
+<div id="slide8" class="slide">
 	<div class="fullscreen transparent fadeOut">
 		<img src="img/yosemite_valley/valley.jpg" />
 	</div>
 	<div class="infoText fadeOut">
 		<h1><i class="icon-info-sign"></i> Yosemite Valley</h1>
 		<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
+		<img src="img/yosemite_valley/roosevelt.jpg" /><br />Plaque commemorating the site of President Theodore Roosevelt's camping trip with Muir.
 	</div>
 	<div class="endNav topRight fadeOut">
 		<i class="icon-arrow-right"></i> Continue east to <a href="#">Bridalveil Falls</a>
