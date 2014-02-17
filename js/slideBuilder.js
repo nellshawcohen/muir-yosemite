@@ -1,5 +1,5 @@
 /* 
-Special functions for building popcorn scenes and managing audio tracks
+Special functions for building popcorn.js scenes and managing audio tracks
 Written by Nell Shaw Cohen (nell@nellshawcohen.com) with help from John Resig (jeresig@gmail.com)
 for use in "Explore John Muir's Yosemite" (http://beyondthenotes.org/yosemite)
 */
@@ -132,7 +132,7 @@ function audioManager($toUnmute, audioVolume, videoVolume) {
 	});
 }
 
-// audio loading
+// audio pre-loading
 
 function audioLoader(files, callback) {
     var loaded = 0;
@@ -166,6 +166,22 @@ function audioLoader(files, callback) {
  			callback();
  		}
     });
+}
+
+// audio playback when hovering over map links
+
+function mapHoverAudio(sceneName) {
+	$("#map_" + sceneName).hover(
+		  	function() {
+		  	// Once you enter
+		  	$("#audio_" + sceneName).animate({volume: 1}, 1000)[0].play();
+		  	}, function() {
+		  	// Once you leave
+		  	$("#audio_" + sceneName).animate({volume: 0}, 750, function() {
+		  		this.pause();
+		  	});
+		  }
+		);
 }
 
 /*

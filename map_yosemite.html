@@ -16,32 +16,24 @@
 <script src="js/popcorn.HTMLNullVideoElement.js"></script>
 <script>
 
-/* this stuff isn't working yet
-
 audioLoader({
     // Audio embeds and hidden elements
-    track1: "audio/giant_forest/track1",
-    track2: "audio/giant_forest/track2",
-    track3: "audio/giant_forest/track3",
-    track4: "audio/giant_forest/track4",
-    track5: "audio/giant_forest/track5",
-    track6: "audio/giant_forest/track6",
-    track7: "audio/giant_forest/track7"
+    audio_range: "audio/range_of_light/track1",
+    audio_hetch_hetchy: "audio/hetch_hetchy/track1",
+    audio_yosemite_valley: "audio/yosemite_valley/track1",
+    // audio_yosemite_falls: "audio/yosemite_falls/track1",
+    //audio_bridalveil: "audio/bridalveil/track1",
+    //audio_hoffman: "audio/hoffman/track1",
+    audio_tuolomne_meadows: "audio/tuolomne_meadows/track1"
 }, function() {
     // After all the audio and DOM has loaded
 
-	$("#mapHetchHetchy").hover(
-	  	function() {
-	  	// Once you enter
-	  	$(track1).trigger("play");
-	  	}, function() {
-	  	// Once you leave
-	  	$(track1).trigger("pause");
-	  }
-	);
+	mapHoverAudio("range");
+	mapHoverAudio("hetch_hetchy");
+	mapHoverAudio("yosemite_valley");
+	mapHoverAudio("tuolomne_meadows");
 
 });
-*/
 
 </script>
 
@@ -55,33 +47,47 @@ audioLoader({
 
 <!--Map-->
 <div class="mapOverlay" id="mapYosemite">
-	<div id="mapTitleYosemite" class="mapTitle">
+	<div id="mapTitle_yosemite" class="mapTitle">
 		<h1>Yosemite National Park</h1>
 		<p>(Detail view)</p>
 	</div>
 	<!--Map Links-->
-	<div id="mapRange" class="mapIcon">
-		<a href="range_of_light.html"><i class="fa fa-star"></i> Begin: Range of Light</a>
-	</div>
-	<div id="mapHetchHetchy" class="mapIcon">
-		<a href="hetch_hetchy.html">Hetch Hetchy</a>
-	</div>
-	<div id="mapYosemiteValley" class="mapIcon">
-		<a href="yosemite_valley.html">Yosemite Valley</a>
-	</div>
-	<!--<div id="mapYosemiteFalls" class="mapIcon">
-		<<a href="yosemite_falls.html">Yosemite Falls</a>
-	</div>-->
-	<div id="mapBridalveil" class="mapIcon">
-		<a href="bridalveil.html">Bridalveil Fall</a>
-	</div>
-	<div id="mapHoffman" class="mapIcon">
-		<a href="hoffman.html">Mount Hoffman <br />and Tenaya Lake</a>
-	</div>
-	<div id="mapTuolomneMeadows" class="mapIcon">
-		<a href="tuolomne_meadows.html">Tuolomne Meadows</a>
-	</div>
-	<div id="mapSouth" class="mapIcon">
+	<a href="range_of_light.html" class="mapCaption">
+		<div id="map_range" class="mapIcon">
+			<p><i class="fa fa-star"></i> Begin: Range of Light</p>
+		</div>
+	</a>
+	<a href="hetch_hetchy.html" class="mapCaption">
+		<div id="map_hetch_hetchy" class="mapIcon">
+			<p>Hetch Hetchy</p>
+		</div>
+	</a>
+	<a href="yosemite_valley.html" class="mapCaption">
+		<div id="map_yosemite_valley" class="mapIcon">
+			<p>Yosemite Valley</p>
+		</div>
+	</a>
+	<a href="yosemite_falls.html" class="mapCaption">
+		<div id="map_yosemite_falls" class="mapIcon">
+		<p>Yosemite Falls</p>
+		</div>
+	</a>
+	<a href="bridalveil.html" class="mapCaption">
+		<div id="map_bridalveil" class="mapIcon">
+			<p>Bridalveil Fall</p>
+		</div>
+	</a>
+	<a href="hoffman.html" class="mapCaption">
+		<div id="map_hoffman" class="mapIcon">
+			<p>Mount Hoffman and Tenaya Lake</p>
+		</div>
+	</a>
+	<a href="tuolomne_meadows.html" class="mapCaption">
+		<div id="map_tuolomne_meadows" class="mapIcon">
+			<p>Tuolomne Meadows</p>
+		</div>
+	</a>
+	<div id="map_south" class="mapNav">
 		<a href="map_sequoia.html"><i class="fa fa-arrow-down"></i> <em> Sequoia National Park</em></a>
 	</div>
 </div>

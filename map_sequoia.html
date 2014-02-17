@@ -14,6 +14,22 @@
 <script src="js/popcorn.player.js"></script>
 <script src="js/popcorn._MediaElementProto.js"></script>
 <script src="js/popcorn.HTMLNullVideoElement.js"></script>
+<script>
+
+audioLoader({
+    // Audio embeds and hidden elements
+    // audio_squirrel: "audio/squirrel/track1",
+    audio_giant_forest: "audio/giant_forest/track1",
+    audio_crescent_meadow: "audio/crescent_meadow/track1"
+}, function() {
+    // After all the audio and DOM has loaded
+
+	mapHoverAudio("giant_forest");
+	mapHoverAudio("crescent_meadow");
+
+});
+
+</script>
 
 <!--Header and navigation-->
 <div id="header">
@@ -24,23 +40,30 @@
 
 <!--Map-->
 <div class="mapOverlay" id="mapSequoia">
-	<div id="mapTitleSequoia" class="mapTitle">
+	<div id="mapTitle_sequoia" class="mapTitle">
 		<h1>Sequoia National Park</h1>
 		<p>(Detail view)</p>
 	</div>
 	<!--Map Links-->
-	<div id="mapDouglasSquirrel" class="mapIcon">
-		<a href="squirrel.html"><i class="fa fa-star"></i> Wildlife: The Douglas Squirrel</a>
+	<a href="squirrel.html" class="mapCaption">
+		<div id="map_squirrel" class="mapIcon">
+			<p>Douglas Squirrel</p>
+		</div>
+	</a>
+	<a href="giant_forest.html" class="mapCaption">
+		<div id="map_giant_forest" class="mapIcon">
+			<p>Giant Forest</p>
+		</div>
+	</a>
+	<a href="crescent_meadow.html" class="mapCaption">
+		<div id="map_crescent_meadow" class="mapIcon">
+			<p>Crescent Meadow</p>
+		</div>
+	</a>
+	<div id="map_north" class="mapNav">
+		<a href="map_yosemite.html"><i class="fa fa-arrow-up"></i> <em> Yosemite National Park</em>
 	</div>
-	<div id="mapGiantForest" class="mapIcon">
-		<a href="giant_forest.html">Giant Forest</a>
-	</div>
-	<div id="mapCrescentMeadow" class="mapIcon">
-		<a href="crescent_meadow.html">Crescent Meadow</a>
-	</div>
-	<div id="mapNorth" class="mapIcon">
-		<a href="map_yosemite.html"><i class="fa fa-arrow-up"></i> <em> Yosemite National Park</em></a>
-	</div>
+	</a>
 </div>
 
 </body>

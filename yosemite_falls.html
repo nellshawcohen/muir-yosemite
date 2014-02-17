@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore John Muir's Yosemite: Yosemite Falls</title>
+<!--CSS-->
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" >
+<!--JavaScript-->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/slideBuilder.js"></script>
+<script src="js/popcorn-complete.js"></script>
+<script src="js/popcorn.player.js"></script>
+<script src="js/popcorn._MediaElementProto.js"></script>
+<script src="js/popcorn.HTMLNullVideoElement.js"></script>
+<script>
+
+// create global variable "pop"
+var pop;
+
+audioLoader({
+    // Audio embeds and hidden elements
+    falls: "audio/yosemite_falls/waterfall",
+    //track2: "audio/yosemite_falls/track2",
+    //track3: "audio/yosemite_falls/track3",
+    //track4: "audio/yosemite_falls/track4",
+   // track5: "audio/yosemite_falls/track5",
+    //track6: "audio/yosemite_falls/track6"
+}, function() {
+    // After all the audio and DOM has loaded
+
+    // Hide the loading indicator
+    $("#loading").hide();
+
+    // Show the next/begin link
+    $("#next").removeClass("fadeOut");
+
+	// mute all audio, to start with
+	var $allAudioVideo = $("audio, video");
+	$allAudioVideo.prop("volume", 0);
+
+	// create popcorn timeline (independent of media elements)
+	Popcorn.player( "baseplayer" );
+	// assign Popcorn timeline to global variable "pop"
+	pop = Popcorn.smart("#base", "#t=,100");
+
+	/* show timer
+	pop.on( "timeupdate", function() {
+    	document.getElementById( "foo" ).innerHTML = this.currentTime();
+	}); */
+
+	// timeline navigation buttons
+	$("#next").click(function() {
+		pop.play();
+		return false;
+	});
+	$("#previous").click(function() {
+		var currentTime = pop.currentTime();
+		pop.play(currentTime - 7);
+		return false;
+	});
+
+	// Using Popcorn timeline, cue slides
+
+	// Slide 1
+	slideBuilder(1, function onStart() {
+		audioManager($("#falls"), .5);
+		// start playing all audio and video
+		$("audio, video").trigger("play");
+		// get rid of title page stuff
+		$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
+		$("#begin").addClass("fadeOut");
+		$("#titleBG").removeClass("transparent").addClass("fadeOut");
+		$("#titleText").addClass("fadeOut");
+		$("#buttonsNav").removeClass("fadeOut");
+	});
+	// Slide 2
+	slideBuilder(2, function onStart() {
+		audioManager($("#falls"), .3);
+	});
+	// Slide 3
+	slideBuilder(3, function onStart() {
+		audioManager($("#falls"), 1);
+	});
+	// Slide 4
+	slideBuilder(4, function onStart() {
+		audioManager($("#falls"), .2);
+	});
+	// Slide 5
+	slideBuilder(5, function onStart() {
+		audioManager($("#falls"), .2);
+	});
+});
+</script>
+<body>
+
+<div id="base"></div><!--base div for Popcorn timeline-->
+<div id="foo"></div><!--timer-->
+
+<!--Header and navigation-->
+<div id="header">
+	<div id="titleNav">
+		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+	</div>
+	<span id="buttonsNav" class="fadeOut">
+		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide2" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide3" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide4" class="button"><a href="#"><i class="icon-circle"></i></a></span>
+		<span id="jumpSlide5" class="button"><a href="#"><i class="icon-info-sign"></i></a></span>
+	</span>
+</div>
+<div id="previous" class="button fadeOut"><a href="#"><i class="icon-chevron-left icon-3x"></i></a></div>
+
+<div id="next" class="button beginPosition fadeOut"><a href="#"><span id="begin">Begin </span><i class="icon-chevron-right icon-3x"></i></a></div>
+
+<div id="loading" class="button beginPosition"><span id="loadingText">Loading... </span></div>
+
+<!--Title (Splash)-->
+<div id="titleBG" class="fullscreen transparent">
+	<img src="img/yosemite_falls/falls_meadow.jpg" />
+</div>
+<div id="titleText">
+	<h1>Yosemite Falls</h1>
+</div>
+
+<!--Slide 1-->
+<div id="slide1" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="upper_lower" loop muted autoplay class="video">
+			<source src="video/yosemite_falls/upper_lower.mp4" type="video/mp4">
+			<source src="video/yosemite_falls/upper_lower.webm" type="video/webm">
+		</video>
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"When the afternoon sunshine is streaming through the throng of comets, ever wasting, ever renewed, fineness, firmness and variety of their forms are beautifully revealed."
+		</div>
+	</div>
+</div>
+
+<!--Slide 2-->
+<div id="slide2" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="upper" loop class="video">
+			<source src="video/yosemite_falls/upper.mp4" type="video/mp4">
+			<source src="video/yosemite_falls/upper.webm" type="video/webm">
+		</video>
+	</div>
+	<div class="boxWrap bottomLeft fadeOut">
+		<div class="boxText">
+			"The heads of these comet-like masses are composed of nearly solid water, and are dense white in color like pressed snow, from the friction they suffer in rushing through the air, the portion worn off forming the tail between the white lustrous threads and films of which faint, grayish pencilings appear, while the outer, finer sprays of water-dust, whirling in sunny eddies, are pearly gray throughout."
+		</div>
+	</div>
+	<div class="boxWrap topRight fadeOut">
+		<div class="boxText">
+			"At the top of the fall they seem to burst forth in irregular spurts from some grand, <span class="highlight">throbbing mountain heart.</a>"
+		</div>
+	</div>
+</div>
+
+<!--Slide 3-->
+<div id="slide3" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="lower" loop class="video">
+			<source src="video/yosemite_falls/lower.mp4" type="video/mp4">
+			<source src="video/yosemite_falls/lower.webm" type="video/webm">
+		</video>
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"At the bottom of the fall there is but little distinction of form visible. It is mostly a hissing, clashing, seething, upwhirling mass of scud and spray, through which the light sifts in gray and purple tones while at times when the sun strikes at the required angle, the whole wild and apparently lawless, stormy, striving mass is changed to brilliant rainbow hues, manifesting finest harmony."
+		</div>
+	</div>
+</div>
+
+<!--Slide 4-->
+<div id="slide4" class="slide">
+	<div class="fullscreen fadeOut">
+		<video id="trees" loop class="video">
+			<source src="video/yosemite_falls/trees.mp4" type="video/mp4">
+			<source src="video/yosemite_falls/trees.webm" type="video/webm">
+		</video>
+	</div>
+	<div class="boxWrap topLeft fadeOut">
+		<div class="boxText">
+			"Now and then one mighty throb sends forth a mass of solid water into the free air far beyond the others which rushes alone to the bottom of the fall with long streaming tail, like combed silk, while the others, descending in clusters, gradually mingle and lose their identity."
+		</div>
+	</div>
+	<div class="boxWrap bottomRight fadeOut">
+		<div class="boxText">
+			Source: <a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_1.aspx" target="_blank"><em>The Yosemite</em>, Chapter 1. <i class="icon-external-link"></i></a>
+		</div>
+	</div>
+</div>
+
+<!--Slide 5-->
+<div id="slide5" class="slide">
+	<div class="fullscreen transparent fadeOut">
+		<video id="creek" loop class="video">
+			<source src="video/yosemite_falls/creek.mp4" type="video/mp4">
+			<source src="video/yosemite_falls/creek.webm" type="video/webm">
+		</video>
+	</div>
+	<div class="infoText fadeOut">
+		<h1><i class="icon-info-sign"></i> Yosemite Falls</h1>
+		<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
+	</div>
+	<div class="endNav topRight fadeOut">
+		<i class="icon-arrow-up"></i> Go northeast to <a href="hoffman.html">Mount Hoffman and Tenaya Lake</a>
+		<br /><i class="icon-arrow-down"></i> Go southeast to <a href="bridalveil.html">Bridalveil Fall</a>
+		<br /><i class="icon-arrow-left"></i> Go west to the entrance to <a href="yosemite_valley.html">Yosemite Valley</a>
+		<br /><i class="icon-compass"></i> View the <a href="map_yosemite.html">map of Yosemite National Park</a>
+		<br /><i class="icon-home"></i> Return to the <a href="index.html">Introduction</a>
+	</div>
+</div>
+
+</body>
+</html>

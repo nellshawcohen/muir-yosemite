@@ -362,7 +362,7 @@ h2 {
 	padding: 10px;
 }
 
-/* map elements */
+/* Map elements */
 
 .mapOverlay {
 	position: absolute; 
@@ -380,22 +380,40 @@ h2 {
 	background-image: url(../img/maps/yosemite.jpg);
 }
 #mapSequoia {
-	background-image: url(../img/maps/sequoia.jpg);
+	background-image: url(../img/maps/sequoia_2.jpg);
 }
-.mapIcon {
-	z-index: 10;
+.mapNav {
 	position: absolute;
-	background: rgba(0, 0, 0, 0.7); /* transparent black */
+	padding: 0;
+	background: rgba(0, 0, 0, 0.5);
 	border-radius: 20px;
 	padding: 3px 7px 3px 10px;
 	font-family: ChaparralPro-Regular;
 	font-size: 18px;
 	font-weight: bold;
 	text-shadow: 1px 1px #000;
-	text-align: center;
 }
-.mapIcon:hover {
-	background: rgba(102, 51, 0, 0.7); /* transparent dark orange */
+.mapIcon {
+	position: absolute;
+	padding: 0;
+	margin: 0 auto;
+	width: 150px;
+	height: 100px;
+}
+.mapIcon p {
+	position: absolute;
+	bottom: -10px;
+	left: 12px;
+	font-family: ChaparralPro-Regular;
+	font-size: 15px;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px #000;
+}
+a.mapCaption, a.mapCaption:visited {
+	color: #fff;
+}
+a.mapCaption:hover {
+	color: #fff800; /* pale yellow */
 }
 .mapTitle {
 	z-index: 10;
@@ -420,91 +438,134 @@ h2 {
 	font-weight: bold;
 }
 
-/* Yosemite map elements */
+/* Yosemite map links */
 
-#mapTitleYosemite {
+#mapTitle_yosemite {
 	right: 20px;
 	top: 50px;
 }
-#mapRange {
+#map_range {
+	background-image: url(../img/maps/tn_range_off.png);
+	background-repeat: no-repeat;
 	left: 10px;
 	top: 50%;
 }
-#mapHetchHetchy {
+#map_range:hover {
+	background-image: url(../img/maps/tn_range_on.png);
+}
+#map_hetch_hetchy {
+	background-image: url(../img/maps/tn_hetch_hetchy_off.png);
+	background-repeat: no-repeat;
 	left: 9.7%;
 	top: 10.5%;
 	/* left: 100px;
 	top: 70px; */
 }
-#mapYosemiteValley {
+#map_hetch_hetchy:hover {
+	background-image: url(../img/maps/tn_hetch_hetchy_on.png);
+}
+#map_yosemite_valley {
+	background-image: url(../img/maps/tn_yosemite_valley_off.png);
+	background-repeat: no-repeat;
 	left: 20%;
 	bottom: 20%;
 	/* left: 260px;
 	bottom: 170px; */
 }
-#mapYosemiteFalls {
+#map_yosemite_valley:hover {
+	background-image: url(../img/maps/tn_yosemite_valley_on.png);
+}
+#map_yosemite_falls {
+	background-image: url(../img/maps/tn_yosemite_falls_off.png);
+	background-repeat: no-repeat;
 	left: 39%;
 	bottom: 33%;
 	/* left: 400px;
 	bottom: 230px; */
 }
-#mapBridalveil {
+#map_yosemite_falls:hover {
+	background-image: url(../img/maps/tn_yosemite_falls_on.png);
+}
+#map_bridalveil {
+	background-image: url(../img/maps/tn_bridalveil_off.png);
+	background-repeat: no-repeat;
 	left: 33%;
 	bottom: 16%;
 	/* left: 340px;
 	bottom: 110px; */
 }
-#mapHoffman {
+#map_bridalveil:hover {
+	background-image: url(../img/maps/tn_bridalveil_on.png);
+}
+#map_hoffman {
+	background-image: url(../img/maps/tn_hoffman_off.png);
+	background-repeat: no-repeat;
 	right: 28%;
 	top: 38%;
 	/* top: 280px;
 	left: 570px; */
 }
-#mapTuolomneMeadows {
+#map_hoffman:hover {
+	background-image: url(../img/maps/tn_hoffman_on.png);
+}
+#map_tuolomne_meadows {
+	background-image: url(../img/maps/tn_tuolomne_meadows_off.png);
+	background-repeat: no-repeat;
 	right: 10%;
 	top: 30%;
 	/* top: 210px;
 	left: 750px; */
 }
-#mapSouth {
+#map_tuolomne_meadows:hover {
+	background-image: url(../img/maps/tn_tuolomne_meadows_on.png);
+}
+#map_south {
 	right: 10px;
 	bottom: 10px;
 }
 
-/* Sequoia map elements */
+/* Sequoia map links */
 
-#mapTitleSequoia {
+#mapTitle_sequoia {
 	right: 20px;
 	bottom: 10px;
 }
-#mapDouglasSquirrel {
-	left: 10px;
-	top: 50%;
-}
-#mapGiantForest {
+#map_squirrel {
+	background-image: url(../img/maps/tn_squirrel_off.png);
+	background-repeat: no-repeat;
+	left: 30px;
 	top: 20%;
-	right: 40%;
 }
-#mapCrescentMeadow {
-	bottom: 20%;
-	left: 30%;
+#map_squirrel:hover {
+	background-image: url(../img/maps/tn_squirrel_on.png);
 }
-#mapNorth {
+#map_giant_forest {
+	background-image: url(../img/maps/tn_giant_forest_off.png);
+	background-repeat: no-repeat;
+	top: 30%;
+	right: 50%;
+	/* top: 20%;
+	right: 40%; */
+}
+#map_giant_forest:hover {
+	background-image: url(../img/maps/tn_giant_forest_on.png);
+}
+#map_crescent_meadow {
+	background-image: url(../img/maps/tn_crescent_meadow_off.png);
+	background-repeat: no-repeat;
+	bottom: 40%;
+	left: 45%;
+}
+#map_crescent_meadow:hover {
+	background-image: url(../img/maps/tn_crescent_meadow_on.png);
+}
+#map_north {
 	top: 50px;
 	right: 10px;
 }
 
 /* not currently being used */
 
-#map {
-	z-index: 5;
-	position: absolute;
-	top: 2px;
-	right: 20px;
-	font-family: ChaparralPro-Regular;
-	font-size: 18px;
-	text-shadow: 2px 2px #000;
-}
 #foo {
 	z-index: 100;
 	position: fixed;
