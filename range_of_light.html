@@ -24,10 +24,7 @@ audioLoader({
     track1: "audio/range_of_light/track1",
     track2: "audio/range_of_light/track2",
     track3: "audio/range_of_light/track3",
-    track4: "audio/range_of_light/track4",
-    track5: "audio/range_of_light/track5",
-    track6: "audio/range_of_light/track6",
-    track7: "audio/range_of_light/track7"
+    track4: "audio/range_of_light/track4"
 }, function() {
     // After all the audio and DOM has loaded
 
@@ -66,7 +63,7 @@ audioLoader({
 
 	// Slide 1
 	slideBuilder(1, function onStart() {
-		audioManager($("#track1, #track2, #track3, #track4"));
+		audioManager($("#track1"));
 		// start playing all audio and video
 		$("audio, video").trigger("play");
 		// get rid of title page stuff
@@ -78,19 +75,19 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track5, #track6"));
+		audioManager($("#track2"));
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track3, #track5, #track6"));
+		audioManager($("#track3"));
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#track1, #track3, #track6, #track7"));
+		audioManager($("#track4"));
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
-		audioManager($("#track5, #track6"));
+		audioManager($("#track2"));
 	});
   
 });
@@ -103,7 +100,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite (BETA) - <a href="map_yosemite.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -139,7 +136,7 @@ audioLoader({
 	</div>
 	<div class="boxWrap bottomRight fadeOut">
 		<div class="boxText">
-			"...on the first of April, 1868, I set out afoot for Yosemite...I wandered enchanted in long wavering curves, knowing by my pocket map that <span class="highlight">Yosemite Valley lay to the east</span> and that I should surely find it."</span>
+			"On the first of April, 1868, I set out afoot for Yosemite...I wandered enchanted in long wavering curves, knowing by my pocket map that <span class="highlight">Yosemite Valley lay to the east</span> and that I should surely find it."</span>
 		</div>
 	</div>
 	<div class="caption fadeOut">
@@ -178,8 +175,8 @@ audioLoader({
 	</div>
 	<div class="boxWrap topRight fadeOut">
 		<div class="boxText">
-			"After ten years of wandering and wondering in the heart of it, rejoicing in its glorious floods of light, the white beams of the morning streaming through the passes, the noonday radiance on the crystal rocks, the flush of the alpenglow, and the irised spray of countless waterfalls, it still seems above all others the Range of Light."
-			<br /><a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_1.aspx" target="_blank">Source: <em>The Yosemite</em>, Chapter 1. <i class="icon-external-link"></i></a>
+			"After ten years of wandering and wondering in the heart of it, rejoicing in its glorious floods of light, the white beams of the morning streaming through the passes, the noonday radiance on the crystal rocks, the flush of the alpenglow, and the irised spray of countless waterfalls, it still seems above all others the Range of Light." 
+			<br />Source: <a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_1.aspx" target="_blank"><em>The Yosemite</em>, Chapter 1. <i class="icon-external-link"></i></a>
 		</div>
 	</div>
 </div>
@@ -192,7 +189,7 @@ audioLoader({
 	<div class="infoText fadeOut">
 		<h1><i class="icon-info-sign"></i> John Muir's First Journey into the Sierra Nevada</h1>
 		<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
-		<img src="img/range_of_light/muir_portrait.jpg" />John Muir. <a href="#" target="_blank">Source</em> <i class="icon-external-link"></i></a></span>
+		<!--<img src="img/range_of_light/muir_portrait.jpg" />John Muir. <a href="#" target="_blank">Source</em> <i class="icon-external-link"></i></a></span>-->
 	</div>
 	<div class="endNav topRight fadeOut">
 		<i class="icon-arrow-right"></i> Go east to the entrance to <a href="yosemite_valley.html">Yosemite Valley</a>

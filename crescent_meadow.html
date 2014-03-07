@@ -25,8 +25,8 @@ audioLoader({
     track2: "audio/crescent_meadow/track2",
     track3: "audio/crescent_meadow/track3",
     track4: "audio/crescent_meadow/track4",
-    track5: "audio/crescent_meadow/track5",
-    track6: "audio/crescent_meadow/track6"
+    //track5: "audio/crescent_meadow/track5",
+    //track6: "audio/crescent_meadow/track6"
 }, function() {
     // After all the audio and DOM has loaded
 
@@ -65,7 +65,7 @@ audioLoader({
 
 	// Slide 1
 	slideBuilder(1, function onStart() {
-		audioManager($("#track1, #track2"));
+		audioManager($("#track1"));
 		// start playing all audio and video
 		$("audio, video").trigger("play");
 		// get rid of title page stuff
@@ -77,27 +77,27 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1, #track2, #track3"));
+		audioManager($("#track2"));
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1, #track4"));
+		audioManager($("#track3"));
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#track1, #track4"));
+		audioManager($("#track3"));
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
-		audioManager($("#track2, #track3, #track5"));
+		audioManager($("#track4"));
 	});
 	// Slide 6
 	slideBuilder(6, function onStart() {
-		audioManager($("#track1, #track2, #track3, #track6"));
+		audioManager($("#track2"));
 	});
 	// Slide 7
 	slideBuilder(7, function onStart() {
-		audioManager($("#track1, #track4"));
+		audioManager($("#track1"));
 	});
   
 });
@@ -110,7 +110,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite (BETA) - <a href="map_yosemite.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -167,7 +167,7 @@ audioLoader({
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
-			"An aged lightning-smitten patriarch standing a little forward beyond the general line with knotty arms outspread was covered with gray and yellow lichens and surrounded by a group of saplings whose slender spires seemed to lack not a single leaf or spray in their wondrous perfection. Such was the Kaweah meadow picture that golden afternoon..."
+			"An aged lightning-smitten patriarch standing a little forward beyond the general line with knotty arms outspread was covered with gray and yellow lichens and surrounded by a group of saplings whose slender spires seemed to lack not a single leaf or spray in their wondrous perfection. <span class="highlight">Such was the Kaweah meadow picture that golden afternoon...</span>"
 		</div>
 	</div>
 </div>
@@ -211,8 +211,7 @@ audioLoader({
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
-			<span class="highlight">"A free man revels in a scene like this and time goes by unmeasured."</span>
-			<br /><a href="http://www.sierraclub.org/john_muir_exhibit/writings/our_national_parks/chapter_9.aspx" target="_blank">Source: <em>Our National Parks</em>, Chapter 9. <i class="icon-external-link"></i></a>
+			"<span class="highlight">A free man revels in a scene like this and time goes by unmeasured.</span>"" Source: <a href="http://www.sierraclub.org/john_muir_exhibit/writings/our_national_parks/chapter_9.aspx" target="_blank"><em>Our National Parks</em>, Chapter 9. <i class="icon-external-link"></i></a>
 		</div>
 	</div>
 </div>

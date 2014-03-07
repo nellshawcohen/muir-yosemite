@@ -21,18 +21,17 @@ var pop;
 
 audioLoader({
     // Audio embeds and hidden elements
-    track1: "audio/introduction_2/track1",
-    track2: "audio/introduction_2/track2",
-    track3: "audio/introduction_2/track3"
+    track1: "audio/introduction/track1",
+    track2: "audio/introduction/track2"
 }, function() {
     // After all the audio and DOM has loaded
 
     // Hide the loading indicator
     $("#loading").hide();
 
-	// volume up on all audio, to start with
-	var $allAudioVideo = $("audio, video");
-	$allAudioVideo.prop("volume", 1);
+	// volume up on first audio, to start with
+	$("#track1").prop("volume", 1);
+	$("#track2").prop("volume", 0);
 
     // start playing all audio and video
 	$("audio, video").trigger("play");
@@ -65,22 +64,20 @@ audioLoader({
 
 	// Slide 1
 	slideBuilder(1, function onStart() {
-		audioManager($("#track1, #track2, #track3"));
+		audioManager($("#track1"));
 		// get rid of title page stuff
 		$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
-		$("#begin").addClass("fadeOut");
 		$("#titleBG").removeClass("transparent").addClass("fadeOut");
-		$("#titleText").addClass("fadeOut");
-		$("#titleCard").addClass("fadeOut");
+		$("#begin, #titleText, #titleCard, #titleCaption").addClass("fadeOut");
 		$("#buttonsNav").removeClass("fadeOut");
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1, #track2, #track3"));
+		audioManager($("#track1"));
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1, #track2, #track3"));
+		audioManager($("#track2"));
 	});
   
 });
@@ -94,7 +91,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite (BETA) - <a href="map_yosemite.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -117,10 +114,13 @@ audioLoader({
 	<h1>Explore John Muir's Yosemite</h1>
 </div>
 <div id="titleCard">
-	<p>An Interactive Web Installation
+	<p>An Interactive Multimedia Installation
 	<br />Featuring Excerpts from the Writings of John Muir (1838-1914)</p>
 	<p>Photography, Video, Music, and Media Design by Nell Shaw Cohen<br />
 	<p>Turn up your volume  <br /><i class="icon-volume-up icon-2x"></i></p>
+	<div class="caption" id="titleCaption">
+		For the best experience, view this site with an up-to-date web browser in a fullscreen window.
+	</div> 
 </div>
 
 <!--Slide 1-->
@@ -130,16 +130,16 @@ audioLoader({
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
-			Scottish-born American naturalist John Muir (1838-1914) was instrumental in the preservation of wilderness in the United States, including Yosemite and Sequoia National Parks. He was also a prolific author and published accounts of his adventures trekking through the Sierra Nevada.
+			Scottish-born American naturalist John Muir (1838-1914) was instrumental in the preservation of wilderness in the United States. He was also a prolific author and published accounts of his adventures trekking through the Sierra Nevada.
 		</div>
 	</div>
+	<div class="caption fadeOut">
+		Photo by Francis M. Fritz, 1907. <a href="http://en.wikipedia.org/wiki/File:John_Muir_Cane.JPG" target="_blank">Source <i class="icon-external-link"></i></a>
+	</div> 
 </div>
 
 <!--Slide 2-->
 <div id="slide2" class="slide">
-	<div class="caption fadeOut">
-		Photo by Carleton Watkins, 1878-1881. <a href="http://commons.wikimedia.org/wiki/File:The_Yosemite_Valley_From_The_Mariposa_Trail_Yosemite_California_by_Carleton_Watkins.jpg" target="_blank">Source <i class="icon-external-link"></i></a>
-	</div>
 	<div class="fullscreen fadeOut">
 		<img src="img/valley_then.jpg" />
 	</div>
@@ -160,12 +160,12 @@ audioLoader({
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
-			Explore today's Yosemite with Muir as your guide. Use the "Map" link above to visit one of several locations in Yosemite National Park and the neighboring Sequoia National Park.
+			Explore today's Yosemite with John Muir as your guide. Use the <a href="map_yosemite.html">Map</a> at any time (from the link in the header) to visit one of ten places in Yosemite National Park and the nearby Sequoia National Park, each of which were significant to Muir.
 		</div>
 	</div>
 	<div class="boxWrap topRight fadeOut">
 		<div class="boxText">
-			Or, to get started, jump right into <a href="range_of_light.html">Range of Light</a>. Then sit back, relax, and breath in the fresh Sierra Nevada air.
+			Begin by taking a journey into the <a href="range_of_light.html">Range of Light</a>. Then sit back, relax, and breathe the fresh Sierra Nevada air.
 		</div>
 	</div>
 </div>

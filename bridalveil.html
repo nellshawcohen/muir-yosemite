@@ -21,12 +21,10 @@ var pop;
 
 audioLoader({
     // Audio embeds and hidden elements
-    // track1: "audio/bridalveil/track1",
-    //track2: "audio/bridalveil/track2",
-    //track3: "audio/bridalveil/track3",
-    //track4: "audio/bridalveil/track4",
-   // track5: "audio/bridalveil/track5",
-    //track6: "audio/bridalveil/track6"
+    falls: "audio/yosemite_falls/waterfall",
+    track1: "audio/bridalveil/track1",
+    track2: "audio/bridalveil/track2",
+    track3: "audio/bridalveil/track3"
 }, function() {
     // After all the audio and DOM has loaded
 
@@ -65,7 +63,7 @@ audioLoader({
 
 	// Slide 1
 	slideBuilder(1, function onStart() {
-		audioManager($("#track1, #track2"));
+		audioManager($("#track1"));
 		// start playing all audio and video
 		$("audio, video").trigger("play");
 		// get rid of title page stuff
@@ -77,33 +75,16 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1, #track2, #track3"), 1, 0.5);
+		audioManager($("#track2"));
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1, #track2, #track3"), 1, 1);
+		audioManager($("#track3, #falls"));
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#track1, #track3, #track4"));
+		audioManager($("#track3, #falls"));
 	});
-	// Slide 5
-	slideBuilder(5, function onStart() {
-		audioManager($("#track1, #track3, #track4"));
-	});
-	// Slide 6
-	slideBuilder(6, function onStart() {
-		audioManager($("#track1, #track3, #track4"));
-	});
-	// Slide 7
-	slideBuilder(7, function onStart() {
-		audioManager($("#track4, #track5"));
-	});
-	// Slide 8
-	slideBuilder(8, function onStart() {
-		audioManager($("#track4, #track5"));
-	});
-  
 });
 </script>
 <body>
@@ -114,7 +95,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite (BETA) - <a href="map_yosemite.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -131,11 +112,10 @@ audioLoader({
 
 <!--Title (Splash)-->
 <div id="titleBG" class="fullscreen transparent">
-	<!--<img src="img/john-muir.jpg" />-->
-	<video id="May" loop muted autoplay class="video">
-			<source src="video/bridalveil/far.mp4" type="video/mp4">
-			<!--<source src="video/bridalveil/May.webm" type="video/webm">-->
-		</video>
+	<video loop muted autoplay class="video">
+		<source src="video/bridalveil/far.mp4" type="video/mp4">
+		<source src="video/bridalveil/far.webm" type="video/webm">
+	</video>
 </div>
 <div id="titleText">
 	<h1>Bridalveil Fall</h1>
@@ -144,14 +124,14 @@ audioLoader({
 <!--Slide 1-->
 <div id="slide1" class="slide">
 	<div class="fullscreen fadeOut">
-		<video id="May" loop class="video">
+		<video loop class="video">
 			<source src="video/bridalveil/far.mp4" type="video/mp4">
-			<!--<source src="video/bridalveil/far.webm" type="video/webm">-->
+			<source src="video/bridalveil/far.webm" type="video/webm">
 		</video>
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
-			"Entering the Valley, gazing overwhelmed with the multitude of grand objects about us, perhaps the first to fix our attention will be the Bridal Veil, a beautiful waterfall on our right."
+			"Entering the Valley, gazing overwhelmed with the multitude of grand objects about us, perhaps the first to fix our attention will be the Bridal Veil, <span class="highlight">a beautiful waterfall on our right.</span>"
 		</div>
 	</div>
 </div>
@@ -159,12 +139,12 @@ audioLoader({
 <!--Slide 2-->
 <div id="slide2" class="slide">
 	<div class="fullscreen fadeOut">
-		<video id="May" loop class="video">
+		<video loop class="video">
 			<source src="video/bridalveil/cliff.mp4" type="video/mp4">
-			<!--<source src="video/bridalveil/cliff.webm" type="video/webm">-->
+			<source src="video/bridalveil/cliff.webm" type="video/webm">
 		</video>
 	</div>
-	<div class="boxWrap topRight fadeOut">
+	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
 			"Its brow, where it first leaps free from the cliff, is about 900 feet above us; and as it sways and sings in the wind, <span class="highlight">clad in gauzy, sun-sifted spray, half falling, half floating, it seems infinitely gentle and fine;</span> but the hymns it sings tell the solemn fateful power hidden beneath its soft clothing."
 		</div>
@@ -174,9 +154,9 @@ audioLoader({
 <!--Slide 3-->
 <div id="slide3" class="slide">
 	<div class="fullscreen fadeOut">
-		<video id="May" loop class="video">
+		<video loop class="video">
 			<source src="video/bridalveil/near.mp4" type="video/mp4">
-			<!--<source src="video/bridalveil/near.webm" type="video/webm">-->
+			<source src="video/bridalveil/near.webm" type="video/webm">
 		</video>
 	</div>
 	<div class="boxWrap topLeft fadeOut">
@@ -195,9 +175,9 @@ audioLoader({
 <!--Slide 4-->
 <div id="slide4" class="slide">
 	<div class="fullscreen transparent fadeOut">
-		<video id="May" loop class="video">
+		<video loop class="video">
 			<source src="video/bridalveil/near.mp4" type="video/mp4">
-			<!--<source src="video/bridalveil/near.webm" type="video/webm">-->
+			<source src="video/bridalveil/near.webm" type="video/webm">
 		</video>
 	</div>
 	<div class="infoText fadeOut">

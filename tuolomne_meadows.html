@@ -25,8 +25,7 @@ audioLoader({
     track2: "audio/tuolomne_meadows/track2",
     track3: "audio/tuolomne_meadows/track3",
     track4: "audio/tuolomne_meadows/track4",
-    track5: "audio/tuolomne_meadows/track5",
-    track6: "audio/tuolomne_meadows/track6"
+    track5: "audio/tuolomne_meadows/track5"
 }, function() {
     // After all the audio and DOM has loaded
 
@@ -65,7 +64,7 @@ audioLoader({
 
 	// Slide 1
 	slideBuilder(1, function onStart() {
-		audioManager($("#track1, #track3"));
+		audioManager($("#track1"));
 		// start playing all audio and video
 		$("audio, video").trigger("play");
 		// get rid of title page stuff
@@ -77,24 +76,24 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1, #track2, #track3"));
+		audioManager($("#track2"));
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1, #track2, #track3, #track4"));
+		audioManager($("#track3"));
 		$("#River")[0].currentTime = 4;
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#track4, #track5, #track6"));
+		audioManager($("#track4"));
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
-		audioManager($("#track4, #track5, #track6"));
+		audioManager($("#track4"));
 	});
 	// Slide 6
 	slideBuilder(6, function onStart() {
-		audioManager($("#track3, #track4"));
+		audioManager($("#track5"));
 	});
   
 });
@@ -107,7 +106,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite (BETA) - <a href="map_yosemite.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -200,7 +199,7 @@ audioLoader({
 		</div>
 	</div>
 	<div class="boxWrap bottomRight fadeOut">
-		<div class="boxText"><a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_12.aspx#tuolumne" target="_blank">Source: <em>The Yosemite,</em> Chapter 12. "The Upper Tuolomne Excursion." <i class="icon-external-link"></i></a>
+		Source: <div class="boxText"><a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_12.aspx#tuolumne" target="_blank"><em>The Yosemite,</em> Chapter 12. "The Upper Tuolomne Excursion." <i class="icon-external-link"></i></a>
 		</div>
 	</div>
 </div>

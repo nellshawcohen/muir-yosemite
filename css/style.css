@@ -75,7 +75,7 @@ h2 {
 	text-shadow: 2px 2px #000;
 }
 .button {
-	z-index: 6;
+	z-index: 100;
 	text-shadow: 2px 2px #000;
 	margin-left: 10px;
 	font-size: 18px;
@@ -141,7 +141,7 @@ h2 {
 	width: 100%;
 	margin: 0 auto;
 	left: 0;
-	bottom: 10px;
+	bottom: 20px;
 	text-align: center;
 	font-size: 20px;
 	font-family: ChaparralPro-Regular;
@@ -247,7 +247,7 @@ h2 {
 	padding: 10px;
 }
 .caption {
-	z-index: 5;
+	z-index: 30;
 	position: fixed;
 	background: rgba(0, 0, 0, .7);
 	color: #fff;
@@ -295,7 +295,7 @@ h2 {
 	height: 100%;
 }
 .endNav {
-	z-index: 4;
+	z-index: 100;
 	position: fixed;
 	margin: 10px;
 	padding: 10px;
@@ -340,7 +340,7 @@ h2 {
 }
 .columnLeft {
 	float: left;
-	width: 50%;
+	width: 49%;
 }
 .columnRight {
 	float: right;
@@ -360,6 +360,7 @@ h2 {
 	font-size: 18px;
 	text-shadow: 2px 2px #000;
 	padding: 10px;
+	overflow: scroll;
 }
 
 /* Map elements */
@@ -489,7 +490,7 @@ a.mapCaption:hover {
 #map_bridalveil {
 	background-image: url(../img/maps/tn_bridalveil_off.png);
 	background-repeat: no-repeat;
-	left: 33%;
+	left: 35%;
 	bottom: 16%;
 	/* left: 340px;
 	bottom: 110px; */

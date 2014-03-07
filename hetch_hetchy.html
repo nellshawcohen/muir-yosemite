@@ -29,13 +29,7 @@ audioLoader({
     track4: "audio/hetch_hetchy/track4",
     track5: "audio/hetch_hetchy/track5",
     track6: "audio/hetch_hetchy/track6",
-    track7: "audio/hetch_hetchy/track7",
-    track8: "audio/hetch_hetchy/track8",
-    track9: "audio/hetch_hetchy/track9",
-    track10: "audio/hetch_hetchy/track10",
-    track11: "audio/hetch_hetchy/track11",
-    track12: "audio/hetch_hetchy/track12",
-    track13: "audio/hetch_hetchy/track13"
+    track7: "audio/hetch_hetchy/track7"
 }, function() {
     // After all the audio and DOM has loaded
 
@@ -74,7 +68,7 @@ audioLoader({
 
 	// Slide 1
 	slideBuilder(1, function onStart() {
-		audioManager($("#track1, #track2"));
+		audioManager($("#track1"));
 		// start playing all audio and video
 		$("audio, video").trigger("play");
 		// get rid of title page stuff
@@ -86,32 +80,32 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1, #track2, #track3"), 1, 1);
+		audioManager($("#track2"));
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track2, #track4"), 1, 1);
+		audioManager($("#track3, #Wapama"), 1, 0.3);
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#track4, #track6, #track7, #Wapama"), 1, 0.7);
+		audioManager($("#track4, #Wapama"), 1, 1);
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
-		audioManager($("#track8, #track9"));
+		audioManager($("#track5"), 1);
 	});
 	// Slide 6
 	slideBuilder(6, function onStart() {
-		audioManager($("#track8, #track9, #track10"));
+		audioManager($("#track6"));
 	});
 	// Slide 7
 	slideBuilder(7, function onStart() {
-		audioManager($("#track10, #track11, #track12, #track13, #Reservoir"));
+		audioManager($("#track7"));
 		$("#Reservoir")[0].currentTime = 0;
 	});
 	// Slide 8
 	slideBuilder(8, function onStart() {
-		audioManager($("#track10, #track11, #track12, #track13"));
+		audioManager($("#track7"));
 	});
   
 });
@@ -124,7 +118,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite (BETA) - <a href="map_yosemite.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -230,7 +224,7 @@ audioLoader({
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
-			"Sad to say, this most precious and sublime feature of the Yosemite National Park, one of the greatest of all our natural resources for the uplifting joy and peace and health of the people, is in danger of being dammed and made into a reservoir to help supply San Francisco with water and light..."</span>
+			"<span class="highlight">Sad to say,</span> this most precious and sublime feature of the Yosemite National Park, one of the greatest of all our natural resources for the uplifting joy and peace and health of the people, is in danger of being dammed and made into a reservoir to help supply San Francisco with water and light..."</span>
 		</div>
 	</div>
 	<div class="boxWrap bottomRight fadeOut">
@@ -265,8 +259,8 @@ audioLoader({
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
-			"Dam Hetch Hetchy! As well dam for water-tanks the people's cathedrals and churches, for <span class="highlight">no holier temple has ever been consecrated by the heart of man."</span>
-			<br /><a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_16.aspx" target="_blank">Source: <em>The Yosemite</em>, Chapter 16. <i class="icon-external-link"></i></a>
+			"Dam Hetch Hetchy?! As well dam for water-tanks the people's cathedrals and churches, for <span class="highlight">no holier temple has ever been consecrated by the heart of man."</span> 
+			<br />Source: <a href="http://www.sierraclub.org/john_muir_exhibit/writings/the_yosemite/chapter_16.aspx" target="_blank"><em>The Yosemite</em>, Chapter 16. <i class="icon-external-link"></i></a>
 		</div>
 	</div>
 </div>
@@ -287,7 +281,7 @@ audioLoader({
 		<img src="img/hetch_hetchy/2013_valley.jpg" class="infoPicsImg" />
 	</div>-->
 	<div class="endNav topRight fadeOut">
-		<i class="icon-arrow-south"></i> Go south to the <a href="range_of_light.html">Range of Light</a>
+		<i class="icon-arrow-down"></i> Go south to the <a href="range_of_light.html">Range of Light</a>
 		<br /><i class="icon-arrow-down"></i> Go south to the entrance to <a href="yosemite_valley.html">Yosemite Valley</a>
 		<br /><i class="icon-compass"></i> View the <a href="map_yosemite.html">map of Yosemite National Park</a>
 		<br /><i class="icon-home"></i> Return to the <a href="index.html">Introduction</a>

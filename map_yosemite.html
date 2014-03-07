@@ -18,12 +18,12 @@
 
 audioLoader({
     // Audio embeds and hidden elements
-    audio_range: "audio/range_of_light/track1",
+    audio_range: "audio/range_of_light/rollover",
     audio_hetch_hetchy: "audio/hetch_hetchy/track1",
-    audio_yosemite_valley: "audio/yosemite_valley/track1",
-    // audio_yosemite_falls: "audio/yosemite_falls/track1",
-    //audio_bridalveil: "audio/bridalveil/track1",
-    //audio_hoffman: "audio/hoffman/track1",
+    //audio_yosemite_valley: "audio/yosemite_valley/rollover",
+    audio_bridalveil: "audio/bridalveil/track1",
+    audio_yosemite_falls: "audio/yosemite_falls/track1",
+    audio_hoffman: "audio/hoffman/track6",
     audio_tuolomne_meadows: "audio/tuolomne_meadows/track1"
 }, function() {
     // After all the audio and DOM has loaded
@@ -31,7 +31,11 @@ audioLoader({
 	mapHoverAudio("range");
 	mapHoverAudio("hetch_hetchy");
 	mapHoverAudio("yosemite_valley");
+	mapHoverAudio("bridalveil");
+	mapHoverAudio("yosemite_falls");
+	mapHoverAudio("hoffman");
 	mapHoverAudio("tuolomne_meadows");
+
 
 });
 
@@ -40,7 +44,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite (BETA) - <a href="map_yosemite.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
 	</div>
 </div>
 
@@ -54,7 +58,7 @@ audioLoader({
 	<!--Map Links-->
 	<a href="range_of_light.html" class="mapCaption">
 		<div id="map_range" class="mapIcon">
-			<p><i class="fa fa-star"></i> Begin: Range of Light</p>
+			<p><i class="fa fa-star"></i> BEGIN: <br />Range of Light</p>
 		</div>
 	</a>
 	<a href="hetch_hetchy.html" class="mapCaption">

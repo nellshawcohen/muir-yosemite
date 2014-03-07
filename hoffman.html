@@ -21,12 +21,12 @@ var pop;
 
 audioLoader({
     // Audio embeds and hidden elements
-    // track1: "audio/hoffman/track1",
-    //track2: "audio/hoffman/track2",
-    //track3: "audio/hoffman/track3",
-    //track4: "audio/hoffman/track4",
-   // track5: "audio/hoffman/track5",
-    //track6: "audio/hoffman/track6"
+    track1: "audio/hoffman/track1",
+    track2: "audio/hoffman/track2",
+    track3: "audio/hoffman/track3",
+    track4: "audio/hoffman/track4",
+    track5: "audio/hoffman/track5",
+    track6: "audio/hoffman/track6"
 }, function() {
     // After all the audio and DOM has loaded
 
@@ -65,7 +65,7 @@ audioLoader({
 
 	// Slide 1
 	slideBuilder(1, function onStart() {
-		audioManager($("#track1, #track2"));
+		audioManager($("#track1"));
 		// start playing all audio and video
 		$("audio, video").trigger("play");
 		// get rid of title page stuff
@@ -77,31 +77,27 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1, #track2, #track3"), 1, 0.5);
+		audioManager($("#track2"));
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1, #track2, #track3"), 1, 1);
+		audioManager($("#track3"));
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#track1, #track3, #track4"));
+		audioManager($("#track4"));
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
-		audioManager($("#track1, #track3, #track4"));
+		audioManager($("#track5"));
 	});
 	// Slide 6
 	slideBuilder(6, function onStart() {
-		audioManager($("#track1, #track3, #track4"));
+		audioManager($("#track5"));
 	});
 	// Slide 7
 	slideBuilder(7, function onStart() {
-		audioManager($("#track4, #track5"));
-	});
-	// Slide 8
-	slideBuilder(8, function onStart() {
-		audioManager($("#track4, #track5"));
+		audioManager($("#track6"));
 	});
   
 });
@@ -114,7 +110,7 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="map.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a> - <a href="#">Share</a>
+		Explore John Muir's Yosemite (BETA) - <a href="map_yosemite.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
@@ -134,11 +130,10 @@ audioLoader({
 
 <!--Title (Splash)-->
 <div id="titleBG" class="fullscreen transparent">
-	<!--<img src="img/john-muir.jpg" />-->
-	<video id="May" loop muted autoplay class="video">
-			<source src="video/hoffman/May.mp4" type="video/mp4">
-			<!--<source src="video/hoffman/May.webm" type="video/webm">-->
-		</video>
+	<video loop muted autoplay class="video">
+		<source src="video/hoffman/may.mp4" type="video/mp4">
+		<source src="video/hoffman/may.webm" type="video/webm">
+	</video>
 </div>
 <div id="titleText">
 	<h1>Mount Hoffman and Tenaya Lake</h1>
@@ -147,12 +142,12 @@ audioLoader({
 <!--Slide 1-->
 <div id="slide1" class="slide">
 	<div class="fullscreen fadeOut">
-		<video id="May" loop class="video">
-			<source src="video/hoffman/May.mp4" type="video/mp4">
-			<!--<source src="video/hoffman/May.webm" type="video/webm">-->
+		<video loop muted autoplay class="video">
+			<source src="video/hoffman/may.mp4" type="video/mp4">
+			<source src="video/hoffman/may.webm" type="video/webm">
 		</video>
 	</div>
-	<div class="boxWrap topLeft fadeOut">
+	<div class="boxWrap topRight fadeOut">
 		<div class="boxText">
 			"…I would go straight to Mount Hoffman, spend the night on the summit, [and] next morning go down by May Lake to Tenaya Lake."
 		</div>
@@ -217,7 +212,10 @@ audioLoader({
 <!--Slide 5-->
 <div id="slide5" class="slide">
 	<div class="fullscreen fadeOut">
-		<img src="img/hoffman/tenaya_trees.jpg" />
+		<video loop class="video">
+			<source src="video/hoffman/tenaya_01.mp4" type="video/mp4">
+			<source src="video/hoffman/tenaya_01.webm" type="video/webm">
+		</video>
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
@@ -234,9 +232,9 @@ audioLoader({
 <!--Slide 6-->
 <div id="slide6" class="slide">
 	<div class="fullscreen fadeOut">
-		<video id="Tenaya" loop class="video">
-			<source src="video/hoffman/Tenaya.mp4" type="video/mp4">
-			<!--<source src="video/hoffman/Tenaya.webm" type="video/webm">-->
+		<video loop class="video">
+			<source src="video/hoffman/tenaya_02.mp4" type="video/mp4">
+			<source src="video/hoffman/tenaya_02.webm" type="video/webm">
 		</video>
 	</div>
 	<div class="boxWrap topLeft fadeOut">
@@ -255,7 +253,10 @@ audioLoader({
 <!--Slide 7-->
 <div id="slide7" class="slide">
 	<div class="fullscreen transparent fadeOut">
-		<img src="img/hoffman/trees_cathedral.jpg" />
+		<video loop class="video">
+			<source src="video/hoffman/tenaya_02.mp4" type="video/mp4">
+			<source src="video/hoffman/tenaya_02.webm" type="video/webm">
+		</video>
 	</div>
 	<div class="infoText fadeOut">
 		<h1><i class="icon-info-sign"></i> Mount Hoffman and Tenaya Lake</h1>
