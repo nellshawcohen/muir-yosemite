@@ -52,6 +52,10 @@ function slideBuilder(slideNum, onStart, onEnd) {
 			if (slideNum < totalSlides) {
 				$("#next").removeClass("fadeOut");
 			}
+			// if this slide is the last (info) slide, hide the previous and next buttons
+			if (slideNum == totalSlides) {
+				$("#next, #previous").addClass("fadeOut");
+			}
 		},
 		onEnd: function(){
 			// if a custom function for onEnd is defined, then call it
@@ -76,6 +80,8 @@ function slideBuilder(slideNum, onStart, onEnd) {
 			// fade in the divs with class of .boxWrap inside this slide
 			slide.find(".boxWrap").removeClass("fadeOut");
 			slide.find(".endNav").removeClass("fadeOut");
+			slide.find(".columnLeft").removeClass("fadeOut");
+			slide.find(".columnRight").removeClass("fadeOut");
 			slide.find(".infoText").removeClass("fadeOut");
 			slide.find(".infoPics").removeClass("fadeOut");
 		},
@@ -83,6 +89,8 @@ function slideBuilder(slideNum, onStart, onEnd) {
 			// fade back out again
 			slide.find(".boxWrap").addClass("fadeOut");
 			slide.find(".endNav").addClass("fadeOut");
+			slide.find(".columnLeft").addClass("fadeOut");
+			slide.find(".columnRight").addClass("fadeOut");
 			slide.find(".infoText").addClass("fadeOut");
 			slide.find(".infoPics").addClass("fadeOut");
 		}

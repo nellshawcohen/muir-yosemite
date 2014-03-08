@@ -21,11 +21,10 @@ var pop;
 
 audioLoader({
     // Audio embeds and hidden elements
-    //track1: "audio/crescent_meadow/track1",
-    //track2: "audio/crescent_meadow/track2",
-    //track3: "audio/crescent_meadow/track3",
-    //track4: "audio/crescent_meadow/track4",
-    //track5: "audio/crescent_meadow/track5"
+    track1: "audio/squirrel/track1",
+    track2: "audio/squirrel/track2",
+    track3: "audio/squirrel/track3",
+    track4: "audio/squirrel/track4"
 }, function() {
     // After all the audio and DOM has loaded
 
@@ -65,8 +64,9 @@ audioLoader({
 	// Slide 1
 	slideBuilder(1, function onStart() {
 		audioManager($("#track1"));
-		// start playing all audio and video
-		$("audio, video").trigger("play");
+		// start playing track1 only
+		$("#track1")[0].currentTime = 0;
+		$("#track1").trigger("play");
 		// get rid of title page stuff
 		$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
 		$("#begin").addClass("fadeOut");
@@ -76,32 +76,25 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1"));
+		audioManager($("#track2"));
+		$("#track2")[0].currentTime = 0;
+		$("#track2").trigger("play");
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1, #Squirrel"));
-		$("#Squirrel")[0].currentTime = 0;
+		audioManager($("#track3"));
+		$("#track3")[0].currentTime = 0;
+		$("#track3").trigger("play");
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#Squirrel"), 1, .7);
+		audioManager($("#track4, #Squirrel"));
+		$("#track4")[0].currentTime = 0;
+		$("#track4, #Squirrel").trigger("play");
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
-		audioManager($("#track1"));
-	});
-	// Slide 6
-	slideBuilder(6, function onStart() {
-		audioManager($("#track1"));
-	});
-	// Slide 7
-	slideBuilder(7, function onStart() {
-		audioManager($("#track1"));
-	});
-	// Slide 8
-	slideBuilder(8, function onStart() {
-		audioManager($("#track1"));
+		audioManager($("#track5, #Squirrel"));
 	});
   
 });
@@ -114,15 +107,14 @@ audioLoader({
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
-		Explore John Muir's Yosemite (BETA) - <a href="map_yosemite.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
+		Explore John Muir's Yosemite [<em>beta</em>] - <a href="map_yosemite.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
 		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
 		<span id="jumpSlide2" class="button"><a href="#"><i class="icon-circle"></i></a></span>
 		<span id="jumpSlide3" class="button"><a href="#"><i class="icon-circle"></i></a></span>
 		<span id="jumpSlide4" class="button"><a href="#"><i class="icon-circle"></i></a></span>
-		<span id="jumpSlide5" class="button"><a href="#"><i class="icon-circle"></i></a></span>
-		<span id="jumpSlide6" class="button"><a href="#"><i class="icon-info-sign"></i></a></span>
+		<span id="jumpSlide5" class="button"><a href="#"><i class="icon-info-sign"></i></a></span>
 	</span>
 </div>
 <div id="previous" class="button fadeOut"><a href="#"><i class="icon-chevron-left icon-3x"></i></a></div>
@@ -197,7 +189,10 @@ audioLoader({
 <!--Slide 4-->
 <div id="slide4" class="slide">
 	<div class="fullscreen fadeOut">
-		<img src="img/squirrel/squirrel_grass.jpg" />
+		<video id="Squirrel" loop class="video">
+			<source src="video/squirrel/Squirrel.mp4" type="video/mp4">
+			<!--<source src="video/squirrel/Squirrel.webm" type="video/webm">-->
+		</video>
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
@@ -210,31 +205,21 @@ audioLoader({
 		</div>
 	</div>
 	<div class="caption fadeOut">
-		Photo by Walter Siegmund. <a href="http://commons.wikimedia.org/wiki/File:Tamiasciurus_douglasii_4427.JPG" target="_blank">Source</em> <i class="icon-external-link"></i></a>
+		A douglas squirrel collects bark for its nest in Mariposa Grove, Yosemite.
 	</div>
 </div>
 
 <!--Slide 5-->
 <div id="slide5" class="slide">
-	<div class="fullscreen fadeOut">
-		<video id="Squirrel" loop class="video">
-			<source src="video/squirrel/Squirrel.mp4" type="video/mp4">
-			<!--<source src="video/squirrel/Squirrel.webm" type="video/webm">-->
-		</video>
-	</div>
-	<div class="caption fadeOut">
-		A douglas squirrel collects bark for its nest in Mariposa Grove, Yosemite.
-	</div>
-</div>
-
-<!--Slide 6-->
-<div id="slide6" class="slide">
 	<div class="fullscreen transparent fadeOut">
 		<img src="img/squirrel/squirrel_grass.jpg" />
 	</div>
 	<div class="infoText fadeOut">
 		<h1><i class="icon-info-sign"></i> The Douglas Squirrel</h1>
 		<p>Nullam laoreet imperdiet ligula et blandit. Sed porttitor venenatis porttitor. Ut vestibulum risus ornare felis sollicitudin, in sollicitudin arcu bibendum. Nulla pulvinar nisi nulla, non malesuada ante mattis eget. Sed posuere nisi eget neque vestibulum tempor. Vestibulum nec neque auctor, aliquet purus eleifend, elementum ante. Duis egestas tellus non fringilla suscipit. Morbi dictum bibendum venenatis.</p>
+	</div>
+	<div class="caption fadeOut">
+		Photo by Walter Siegmund. <a href="http://commons.wikimedia.org/wiki/File:Tamiasciurus_douglasii_4427.JPG" target="_blank">Source</em> <i class="icon-external-link"></i></a>
 	</div>
 	<div class="endNav topRight fadeOut">
 		<i class="icon-arrow-up"></i> Go north to <a href="map_yosemite.html">Yosemite</a>
