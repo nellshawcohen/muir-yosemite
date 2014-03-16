@@ -6,7 +6,23 @@
 <title>Explore John Muir's Yosemite: Map of Seqouia National Park (Detail View)</title>
 <!--CSS-->
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" >
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome-4.0.3/css/font-awesome.min.css" >
+<!--Google analytics-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23759871-1']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 <!--JavaScript-->
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/slideBuilder.js"></script>
@@ -18,12 +34,12 @@
 
 audioLoader({
     // Audio embeds and hidden elements
-    // audio_squirrel: "audio/squirrel/track1",
+    audio_squirrel: "audio/squirrel/track4",
     audio_giant_forest: "audio/giant_forest/track1",
     audio_crescent_meadow: "audio/crescent_meadow/track1"
 }, function() {
     // After all the audio and DOM has loaded
-
+    mapHoverAudio("squirrel");
 	mapHoverAudio("giant_forest");
 	mapHoverAudio("crescent_meadow");
 
@@ -61,7 +77,7 @@ audioLoader({
 		</div>
 	</a>
 	<div id="map_north" class="mapNav">
-		<a href="map_yosemite.html"><i class="fa fa-arrow-up"></i> <em> Yosemite National Park</em>
+		<a href="map_yosemite.html"><i class="fa fa-arrow-circle-o-up"></i> <em> Go to Yosemite National Park</em>
 	</div>
 	</a>
 </div>

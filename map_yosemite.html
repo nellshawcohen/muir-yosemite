@@ -6,7 +6,23 @@
 <title>Explore John Muir's Yosemite: Map of Yosemite National Park (Detail View)</title>
 <!--CSS-->
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" >
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome-4.0.3/css/font-awesome.min.css" />
+<!--Google analytics-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23759871-1']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 <!--JavaScript-->
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/slideBuilder.js"></script>
@@ -20,22 +36,20 @@ audioLoader({
     // Audio embeds and hidden elements
     audio_range: "audio/range_of_light/rollover",
     audio_hetch_hetchy: "audio/hetch_hetchy/track1",
-    //audio_yosemite_valley: "audio/yosemite_valley/rollover",
+    audio_yosemite_valley: "audio/yosemite_valley/track1",
     audio_bridalveil: "audio/bridalveil/track1",
     audio_yosemite_falls: "audio/yosemite_falls/track1",
     audio_hoffman: "audio/hoffman/track6",
     audio_tuolomne_meadows: "audio/tuolomne_meadows/track1"
 }, function() {
     // After all the audio and DOM has loaded
-
 	mapHoverAudio("range");
 	mapHoverAudio("hetch_hetchy");
-	//mapHoverAudio("yosemite_valley");
+	mapHoverAudio("yosemite_valley");
 	mapHoverAudio("bridalveil");
 	mapHoverAudio("yosemite_falls");
 	mapHoverAudio("hoffman");
 	mapHoverAudio("tuolomne_meadows");
-
 
 });
 
@@ -92,7 +106,7 @@ audioLoader({
 		</div>
 	</a>
 	<div id="map_south" class="mapNav">
-		<a href="map_sequoia.html"><i class="fa fa-arrow-down"></i> <em> Sequoia National Park</em></a>
+		<a href="map_sequoia.html"><i class="fa fa-arrow-down"></i> <em> Go to Sequoia National Park</em></a>
 	</div>
 </div>
 

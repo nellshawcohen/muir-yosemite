@@ -6,7 +6,23 @@
 <title>Explore John Muir's Yosemite: Yosemite Valley</title>
 <!--CSS-->
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" >
+<link rel="stylesheet" href="css/font-awesome-4.0.3/css/font-awesome.min.css" >
+<!--Google analytics-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23759871-1']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 <!--JavaScript-->
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/slideBuilder.js"></script>
@@ -24,8 +40,7 @@ audioLoader({
     track1: "audio/yosemite_valley/track1",
     track2: "audio/yosemite_valley/track2",
     track3: "audio/yosemite_valley/track3",
-    track4: "audio/yosemite_valley/track4",
-    track5: "audio/yosemite_valley/track5"
+    track4: "audio/yosemite_valley/track4"
 }, function() {
     // After all the audio and DOM has loaded
 
@@ -64,7 +79,7 @@ audioLoader({
 
 	// Slide 1
 	slideBuilder(1, function onStart() {
-		audioManager($("#track1, #track2"));
+		audioManager($("#track1"));
 		// start playing all audio and video
 		$("audio, video").trigger("play");
 		// get rid of title page stuff
@@ -76,31 +91,23 @@ audioLoader({
 	});
 	// Slide 2
 	slideBuilder(2, function onStart() {
-		audioManager($("#track1, #track2, #track3, #merced-video2"), 1, 0.5);
+		audioManager($("#track2, #merced-video2"), 1, 0.5);
 	});
 	// Slide 3
 	slideBuilder(3, function onStart() {
-		audioManager($("#track1, #track2, #track3, #merced-video2"), 1, 1);
+		audioManager($("#track2, #merced-video2"), 1, 1);
 	});
 	// Slide 4
 	slideBuilder(4, function onStart() {
-		audioManager($("#track1, #track3, #track4"));
+		audioManager($("#track3"));
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
-		audioManager($("#track1, #track3, #track4"));
+		audioManager($("#track4"));
 	});
 	// Slide 6
 	slideBuilder(6, function onStart() {
-		audioManager($("#track1, #track3, #track4"));
-	});
-	// Slide 7
-	slideBuilder(7, function onStart() {
-		audioManager($("#track4, #track5"));
-	});
-	// Slide 8
-	slideBuilder(8, function onStart() {
-		audioManager($("#track4, #track5"));
+		audioManager($("#track4"));
 	});
   
 });
@@ -116,19 +123,17 @@ audioLoader({
 		Explore John Muir's Yosemite [<em>beta</em>] - <a href="map_yosemite.html">Map</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
 	</div>
 	<span id="buttonsNav" class="fadeOut">
-		<span id="jumpSlide1" class="button"><a href="#"><i class="icon-circle"></i></a></span>
-		<span id="jumpSlide2" class="button"><a href="#"><i class="icon-circle"></i></a></span>
-		<span id="jumpSlide3" class="button"><a href="#"><i class="icon-circle"></i></a></span>
-		<span id="jumpSlide4" class="button"><a href="#"><i class="icon-circle"></i></a></span>
-		<span id="jumpSlide5" class="button"><a href="#"><i class="icon-circle"></i></a></span>
-		<span id="jumpSlide6" class="button"><a href="#"><i class="icon-circle"></i></a></span>
-		<span id="jumpSlide7" class="button"><a href="#"><i class="icon-circle"></i></a></span>
-		<span id="jumpSlide8" class="button"><a href="#"><i class="icon-info-sign"></i></a></span>
+		<span id="jumpSlide1" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
+		<span id="jumpSlide2" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
+		<span id="jumpSlide3" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
+		<span id="jumpSlide4" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
+		<span id="jumpSlide5" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
+		<span id="jumpSlide6" class="button"><a href="#"><i class="fa fa-info-circle"></i></a></span>
 	</span>
 </div>
-<div id="previous" class="button fadeOut"><a href="#"><i class="icon-chevron-left icon-3x"></i></a></div>
+<div id="previous" class="button fadeOut"><a href="#"><i class="fa fa-chevron-left fa-3x"></i></a></div>
 
-<div id="next" class="button beginPosition fadeOut"><a href="#"><span id="begin">Begin </span><i class="icon-chevron-right icon-3x"></i></a></div>
+<div id="next" class="button beginPosition fadeOut"><a href="#"><span id="begin">Begin </span><i class="fa fa-chevron-right fa-3x"></i></a></div>
 
 <div id="loading" class="button beginPosition"><span id="loadingText">Loading... </span></div>
 
@@ -140,7 +145,6 @@ audioLoader({
 	<h1>Yosemite Valley</h1>
 </div>
 
-<!--Slide 1-->
 <div id="slide1" class="slide">
 	<div class="fullscreen fadeOut">
 		<img src="img/yosemite_valley/tunnel_view.jpg" />
@@ -157,7 +161,6 @@ audioLoader({
 	</div>
 </div>
 
-<!--Slide 2-->
 <div id="slide2" class="slide">
 	<div class="fullscreen fadeOut">
 		<video id="merced-video1" loop class="video">
@@ -174,12 +177,6 @@ audioLoader({
 
 <div id="slide3" class="slide">
 	<div class="fullscreen fadeOut">
-		<img src="img/yosemite_valley/tree.jpg" />
-	</div>
-</div>
-
-<div id="slide4" class="slide">
-	<div class="fullscreen fadeOut">
 		<video id="merced-video2" loop class="video">
 			<source src="video/yosemite_valley/Merced_Close.mp4" type="video/mp4">
 			<source src="video/yosemite_valley/Merced_Close.webm" type="video/webm">
@@ -192,8 +189,7 @@ audioLoader({
 	</div>
 </div>
 
-
-<div id="slide5" class="slide">
+<div id="slide4" class="slide">
 	<div class="fullscreen fadeOut">
 		<img src="img/yosemite_valley/halfdome.jpg" />
 	</div>
@@ -204,35 +200,29 @@ audioLoader({
 	</div>
 </div>
 
-<div id="slide6" class="slide">
-	<div class="fullscreen fadeOut">
-		<img src="img/yosemite_valley/halfdome_close.jpg" />
-	</div>
-</div>
-
-<div id="slide7" class="slide">
+<div id="slide5" class="slide">
 	<div class="fullscreen fadeOut">
 		<img src="img/yosemite_valley/granite.jpg" />
 	</div>
 	<div class="boxWrap topLeft fadeOut">
 		<div class="boxText">
 			"Marvelous cliffs, <span class="highlight">marvelous in sheer dizzy depth and sculpture.</span> Thousands of years have they stood in the sky exposed to rain, snow, frost, earthquake and avalanche, yet they still wear the bloom of youth."</span>
-			<br /><a href="http://www.sierraclub.org/john_muir_exhibit/writings/my_first_summer_in_the_sierra/chapter_5.aspx" target="_blank">Source: <em>My First Summer in the Sierra</em>, Chapter 5. <i class="icon-external-link"></i></a>
+			<br />Source: <a href="http://www.sierraclub.org/john_muir_exhibit/writings/my_first_summer_in_the_sierra/chapter_5.aspx" target="_blank"><em>My First Summer in the Sierra</em>, Chapter 5. <i class="fa fa-external-link"></i></a>
 		</div>
 	</div>
 </div>
 
-<div id="slide8" class="slide">
+<div id="slide6" class="slide">
 	<div class="fullscreen transparent fadeOut">
 		<img src="img/yosemite_valley/valley.jpg" />
 	</div>
 	<div class="columns">
 		<div class="columnLeft fadeOut">
 			<div class="endNav">
-				<i class="icon-arrow-left"></i> Go west to the <a href="range_of_light.html">Range of Light</a>
-				<br /><i class="icon-arrow-right"></i> Go east to <a href="bridalveil.html">Bridalveil Fall</a>
-				<br /><i class="icon-compass"></i> View the <a href="map_yosemite.html">map of Yosemite National Park</a>
-				<br /><i class="icon-home"></i> Return to the <a href="index.html">Introduction</a>
+				<i class="fa fa-arrow-left"></i> Go west to the <a href="range_of_light.html">Range of Light</a>
+				<br /><i class="fa fa-arrow-right"></i> Go east to <a href="bridalveil.html">Bridalveil Fall</a>
+				<br /><i class="fa fa-compass"></i> View the <a href="map_yosemite.html">map of Yosemite National Park</a>
+				<br /><i class="fa fa-home"></i> Return to the <a href="index.html">Introduction</a>
 			</div>
 		</div>
 		<div class="columnRight fadeOut">

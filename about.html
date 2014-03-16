@@ -6,7 +6,7 @@
 <title>Explore John Muir's Yosemite: About</title>
 <!--CSS-->
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" >
+<link rel="stylesheet" href="css/font-awesome-4.0.3/css/font-awesome.min.css" >
 <!--JavaScript-->
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/slideBuilder.js"></script>
@@ -14,7 +14,22 @@
 <script src="js/popcorn.player.js"></script>
 <script src="js/popcorn._MediaElementProto.js"></script>
 <script src="js/popcorn.HTMLNullVideoElement.js"></script>
+<!--Google analytics-->
+<script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23759871-1']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 <!--Header and navigation-->
 <div id="header">
 	<div id="titleNav">
@@ -25,19 +40,19 @@
 <!--Title (Splash)-->
 <div id="titleBG" class="fullscreen transparent">
 	<!--<img src="img/john-muir.jpg" />-->
-	<video id="River" loop muted autoplay class="video">
+	<video loop muted autoplay class="video">
 			<source src="video/yosemite_valley/Mirror.mp4" type="video/mp4">
-			<!--<source src="video/yosemite_valley/Mirror.webm" type="video/webm">-->
+			<source src="video/yosemite_valley/Mirror.webm" type="video/webm">
 		</video>
 </div>
 
 <div id="about">
 	<div class="columnLeft">
 		<h1>About</h1>
-		<p><em>Explore John Muir's Yosemite</em> is an interactive multimedia installation for the web. The beta version of the site was launched in March 2014.</p>
-		<p>This site is still in beta, so you might come across errors or unfinished content. If you have any questions or suggestions, please contact <a href="mailto:nell@beyondthenotes.org" target="_blank">nell@beyondthenotes.org</a>.</p>
+		<p><em>Explore John Muir's Yosemite</em> is an interactive multimedia installation for the web created by composer and multimedia artist-producer, Nell Shaw Cohen. Synthesizing historical texts by John Muir with interactive photography and music, this installation offers a multi-disciplinary, multi-sensory interpretation of John Muir's vision of nature.</p>
+		<p>The beta version of <em>Explore John Muir's Yosemite</em> was launched in March 2014. Since this website is still in beta, it is actively undergoing improvements. If you have any questions or suggestions, please email <a href="mailto:nell@nellshawcohen.com" target="_blank">nell@nellshawcohen.com</a>.</p>
 		<img src="img/nell.jpg" />
-		<br /><em>Nell Shaw Cohen at Yosemite Falls</em>
+		<br /><em>Nell Shaw Cohen at the site of John Muir's cabin at Yosemite Falls</em>
 	</div>
 	<div class="columnRight">
 		<h1>Credits</h1>
@@ -48,7 +63,7 @@
 		<p>Special thanks to <a href="http://www.benmoskowitz.com" target="_blank">Ben Moskowitz</a> and Herschel Garfein.</p>
 		<p>Production of <em>Explore John Muir's Yosemite</em> was supported in part by a Challenge Grant from New York University's Steinhardt School of Culture, Education, and Human Development.</p>
 		<h1>Attributions</h1>
-		<p>All photographs, video, audio, and text was produced for this web site and are © 2014 Nell Shaw Cohen, unless explicitly attributed to an outside source. Photograph attributions, where applicable, are located in the lower left of the screen. Attributions for quotations from John Muir's books are located at the end of each scene.</p>
+		<p>All photographs, video, audio, and text was produced for this web site and are © 2014 Nell Shaw Cohen, unless explicitly attributed to an outside source. Attributions for third-party photographs, where applicable, are located in the lower left of the screen or directly below the image. Attributions for quotations from John Muir's books are located at the end of each scene.</p>
 		<p>Icons from <a href="http://fontawesome.io" target="_blank">Font Awesome</a> by Dave Gandy.</p>
 		<p>Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.</p>
 		<p>All materials from outside sources are either in the public domain or released under a Creative Commons license.</p>
