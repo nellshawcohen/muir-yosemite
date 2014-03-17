@@ -106,7 +106,8 @@ audioLoader({
 	slideBuilder(4, function onStart() {
 		audioManager($("#track4, #squirrel"));
 		$("#track4")[0].currentTime = 0;
-		$("#track4, #Squirrel").trigger("play");
+		$("#squirrel")[0].currentTime = 0;
+		$("#track4, #squirrel").trigger("play");
 	});
 	// Slide 5
 	slideBuilder(5, function onStart() {
@@ -205,7 +206,7 @@ audioLoader({
 <!--Slide 4-->
 <div id="slide4" class="slide">
 	<div class="fullscreen fadeOut">
-		<video id="squirrel" loop class="video">
+		<video id="squirrel" autoplay loop class="video">
 			<source src="video/squirrel/squirrel.mp4" type="video/mp4">
 			<source src="video/squirrel/squirrel.webm" type="video/webm">
 		</video>
