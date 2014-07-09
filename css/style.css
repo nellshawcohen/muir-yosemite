@@ -79,7 +79,7 @@ li {
 	text-shadow: 2px 2px #000;
 }
 .button {
-	z-index: 100;
+	z-index: 150;
 	text-shadow: 2px 2px #000;
 	margin-left: 10px;
 	font-size: 18px;
