@@ -166,10 +166,10 @@ li {
 	line-height: 55px;
 	vertical-align: bottom;
 	opacity: 1;
-	-webkit-transition: all 2s ease-in-out;
-	-moz-transition: all 2s ease-in-out;
-	-o-transition: all 2s ease-in-out;
-	transition: all 2s ease-in-out;
+	-webkit-transition: opacity 2s ease-in-out;
+	-moz-transition: opacity 2s ease-in-out;
+	-o-transition: opacity 2s ease-in-out;
+	transition: opacity 2s ease-in-out;
 }
 
 #begin.fadeOut, #begin.loadingText {
