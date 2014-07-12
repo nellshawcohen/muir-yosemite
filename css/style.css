@@ -396,7 +396,7 @@ li {
 	position: fixed;
 	top: 40px;
 	left: 0;
-	width: 100%;
+	right: 0;
 	height: 100%;
 	color: white;
 	font-family: ChaparralPro-Regular;
