@@ -1,6 +1,6 @@
 /* 
 Special functions for building popcorn.js scenes and managing audio tracks
-Written by Nell Shaw Cohen (nell@nellshawcohen.com) with help from John Resig (jeresig@gmail.com)
+Written by John Resig (jeresig@gmail.com) and Nell Shaw Cohen (nell@nellshawcohen.com)
 for use in "Explore John Muir's Yosemite" (http://beyondthenotes.org/yosemite)
 */
 
@@ -201,40 +201,3 @@ function mapHoverAudio(sceneName) {
 		  }
 		);
 }
-
-/*
-volume = 1
-masterVolume = 1
-
-volume * masterVolume === 1
-
-volume = 1
-masterVolume = 0.7
-
-volume * masterVolume === 0.7
-
-volume = 0.5
-masterVolume = 0.7
-
-volume * masterVolume === 0.35
-*/
-
-
-/*
-e.g.
-audioManager($("#track1, #track2, #video"), .7);
-*/
-
-/* to explain:
-
-var current = $("#track1, #track2, #video") =>
-	[<track1>, <track2>, <video>]
-
-var all = $("audio, video") =>
-	[<track1>, <track2>, <video>, <track1>, <track2>, <video>, <track1>, <track2>, <video>]
-
-all[0].volume = 0;
-all[1].volume = 0;
-all[2].volume = 0;
-// ...
-*/

@@ -386,7 +386,8 @@ li {
   	transition: all 2s ease-in-out;
 }
 .columnLeft img, .columnRight img {
-	width: 100%;
+	max-width: 100%;
+
 }
 
 /* specific divs for other pages */
