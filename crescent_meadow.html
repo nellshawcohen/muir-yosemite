@@ -45,7 +45,7 @@ audioLoader({
     // After all the audio and DOM has loaded
 
     // Hide the loading indicator
-    $("#loading").hide();
+    $("#loading").addClass("fadeOut");
 
     // Show the next/begin link
     $("#next").removeClass("fadeOut");
@@ -114,6 +114,7 @@ audioLoader({
 		audioManager($("#track1"));
 	});
   
+    $("#next").click();
 });
 </script>
 <body>
@@ -138,7 +139,7 @@ audioLoader({
 </div>
 <div id="previous" class="button fadeOut"><a href="#"><i class="fa fa-chevron-left fa-3x"></i></a></div>
 
-<div id="next" class="button beginPosition fadeOut"><a href="#"><span id="begin">Begin </span><i class="fa fa-chevron-right fa-3x"></i></a></div>
+<div id="next" class="button beginPosition fadeOut"><a href="#"><span id="begin">Explore </span><i class="fa fa-chevron-right fa-3x"></i></a></div>
 
 <div id="loading" class="button beginPosition"><span id="loadingText">Loading... </span></div>
 
