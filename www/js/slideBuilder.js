@@ -99,48 +99,52 @@ function slideBuilder(slideNum, onStart, onEnd) {
 
 var masterVolume = 1;
 
-function audioManager($toUnmute, audioVolume, videoVolume) {
+function audioManager(toUnmute, audioVolume, videoVolume) {
 	// manages which audio (including video) is muted or unmuted (faded in)
 	// also uses variable volume levels based on user-manipulated masterVolume
 
-	// if no audioVolume argument in defined in function, make it 1
+	// if no audioVolume argument in defined in function, make it 100
 	if (audioVolume === undefined) {
 		audioVolume = 1;
 	}
 
-	// if no videoVolume argument in defined in function, make it 1
+	// if no videoVolume argument in defined in function, make it 100
 	if (videoVolume === undefined) {
 		videoVolume = 1;
 	}
 
-	// multiply audioVolume and videoVolume by masterVolume (allowing user to set vol levels)
+	// multiply audioVolume and videoVolume by masterVolume (allowing user to
+	// set volume levels)
 	audioVolume = audioVolume * masterVolume;
 	videoVolume = videoVolume * masterVolume;
 
-	// all audio and video elements in the page included in $allAudioVideo array
-	var $allAudioVideo = $("audio, video");
-
-	$allAudioVideo.each(function(i, audioVideoElem) {
-		// if the audioVideoElem is a video, set var "volume" to videoVolume. If not, set
-		// var "volume" to audioVolume.
-		if ($(audioVideoElem).is("video")) {
-			var volume = videoVolume;
-		} else {
-			var volume = audioVolume;
-		}
+	// all video elements in the page included in $allVideo array
+	$("video").each(function(i, videoElem) {
 		// If the element that we're currently looking at is one of the elements
 		// that we want to unmute, then animate to maxVolume over 200 ms
-		if ($toUnmute.index(audioVideoElem) >= 0) {
-			$(audioVideoElem).animate({volume: volume}, 1000);
-
+		if (toUnmute.indexOf(videoElem.id) >= 0) {
+			$(videoElem).animate({volume: videoVolume}, 1000);
 		// If it's not one of the audio/video elements we care about, mute it
 		} else {
-			$(audioVideoElem).animate({volume: 0}, 1000);
+			$(videoElem).animate({volume: 0}, 1000);
 		}
+	});
+
+	$.each(Object.keys(allSounds), function(i, id) {
+		var sound = allSounds[id];
+		var start = sound.volume();
+		var end = audioVolume;
+
+		if (toUnmute.indexOf(id) < 0) {
+			end = 0;
+		}
+
+		sound.fade(start, end, 1000);
 	});
 }
 
 // audio pre-loading
+var allSounds = {};
 
 function audioLoader(files, callback) {
 	var loaded = 0;
@@ -159,21 +163,15 @@ function audioLoader(files, callback) {
 
 	$(document).ready(function() {
 		for (var name in files) {
-			var filePath = files[name];
-			var elem = document.createElement("audio");
-			elem.id = name;
-			elem.loop = true;
-			elem.volume = 0;
-			elem.preload = "auto";
-			elem.className = "hidden";
-			if (elem.canPlayType("audio/mpeg")) {
-				elem.src = filePath + ".mp3";
-			} else {
-				elem.src = filePath + ".ogg";
-			}
-			elem.oncanplay = isLoaded;
 			total += 1;
-			document.body.appendChild(elem);
+			var filePath = files[name];
+			allSounds[name] = new Howl({
+				urls: [filePath + ".mp3", filePath + ".ogg"],
+				autoplay: false,
+				loop: true,
+				volume: 0,
+				onload: isLoaded
+			});
 		}
 
 		var otherMedia = $("img, video");
