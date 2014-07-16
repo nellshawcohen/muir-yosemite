@@ -30,37 +30,39 @@
 <script src="js/slideBuilder.js"></script>
 <script src="js/howler.js"></script>
 <script>
-// Slide 1
-Slides.add(function() {
-	audioManager(["track1"]);
-	$(".columns").addClass("hidden");
-});
-
-// Slide 2
-Slides.add(function() {
-	audioManager(["track1"]);
-	$(".columns").addClass("hidden");
-});
-
-// Slide 3
-Slides.add(function() {
-	audioManager(["track1"]);
-	$(".columns").addClass("hidden");
-});
-
-// Slide 4
-Slides.add(function() {
-	audioManager(["track2"]);
-	$(".columns").removeClass("hidden");
-});
-
 $(function() {
     Slides.init({
+        startOnLoad: false,
+        loadAudio: ["track1"],
         tracks: {
         	// Audio embeds and hidden elements
         	track1: "audio/introduction/track1",
         	track2: "audio/introduction/track2"
         }
+    });
+
+    // Slide 1
+    Slides.add(function() {
+    	audioManager(["track1"]);
+    	$(".columns").addClass("hidden");
+    });
+
+    // Slide 2
+    Slides.add(function() {
+    	audioManager(["track1"]);
+    	$(".columns").addClass("hidden");
+    });
+
+    // Slide 3
+    Slides.add(function() {
+    	audioManager(["track1"]);
+    	$(".columns").addClass("hidden");
+    });
+
+    // Slide 4
+    Slides.add(function() {
+    	audioManager(["track2"]);
+    	$(".columns").removeClass("hidden");
     });
 });
 
@@ -74,6 +76,9 @@ audioLoader({
 	// Hide the loading indicator
 	$("#loading").addClass("fadeOut");
 
+	// Show the next/begin link
+	$("#next").removeClass("fadeOut");
+
 	// volume up on first audio, to start with
 	allSounds.track1.volume(1);
 	allSounds.track2.volume(0);
@@ -82,9 +87,6 @@ audioLoader({
 	$("video").trigger("play");
 	allSounds.track1.play();
 	allSounds.track2.play();
-
-	// Show the next/begin link
-	$("#next").removeClass("fadeOut");
 });
 </script>
 <body>
