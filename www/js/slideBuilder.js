@@ -4,100 +4,144 @@ Written by John Resig (jeresig@gmail.com) and Nell Shaw Cohen (nell@nellshawcohe
 for use in "Explore John Muir's Yosemite" (http://beyondthenotes.org/yosemite)
 */
 
-function slideBuilder(slideNum, onStart, onEnd) {
-	// use some math to determine the start time based solely on slide number 
-	// (e.g. slide 3 starts at 11 seconds)
-	var start = ((slideNum - 1) * 5) + 1;
-	// find unique div ids in code (e.g. #slide3) by combining #slide with the slide number
-	var slide = $("#slide" + slideNum);
-	// find unique span ids for circlular buttons used to jump between scenes (e.g. #jumpSlide3)
-	var jumpSlide = $("#jumpSlide" + slideNum);
-	// find the total number of slides (i.e. divs with class of .slide) in document to use to 
-	// determine when "next" button should disappear
-	var totalSlides = $(".slide").length;
-	// function for clicking scene-jumping buttons
-	$(jumpSlide).click(function() {
-		pop.play(start);
-		return false;
-	});
-	// create pause cue in slide; e.g. slide 3 is paused at 15 seconds
-	pop.cue(slideNum * 5, function() {
-		pop.pause();
-	});
-	// manipulate page elements to construct slide
-	pop.code({
-		start: start,
-		// slides are always 5 seconds long
-		end: start + 5,
-		onStart: function(){
-			// Bring the current slide into view
-			slide.addClass("activeSlide");
-			// if a custom function for onStart is defined, then call it
-			if (onStart) {
-				onStart();
-			}
-			setTimeout(function() {
-				// fade in the divs with class of .fullscreen inside this slide
-				slide.find(".fullscreen").removeClass("fadeOut");
-				slide.find(".caption").removeClass("fadeOut");
-			}, 0);
-			// highlight the circular button for the active slide
-			$(jumpSlide).addClass("buttonCurrent");
-			// if this slide is 2 or higher, show the previous button
-			if (slideNum > 1) {
-				$("#previous").removeClass("fadeOut");
-			}
-			// if this slide is before the last slide (less than the total number of slides),
-			// then show the next button
-			if (slideNum < totalSlides) {
-				$("#next").removeClass("fadeOut");
-			}
-			// if this slide is the last (info) slide, hide the previous and next buttons
-			if (slideNum == totalSlides) {
-				$("#next, #previous").addClass("fadeOut");
-			}
-		},
-		onEnd: function(){
-			// if a custom function for onEnd is defined, then call it
-			if (onEnd) {
-				onEnd();
-			}
-			// Hide the other active slide (the slide we're transitioning out of)
-			// "Hide" means to put it off the side of the page.
-			$(".activeSlide").not(slide).removeClass("activeSlide");
-			// fade back out again
-			slide.find(".fullscreen").addClass("fadeOut");
-			slide.find(".caption").addClass("fadeOut");
-			$(jumpSlide).removeClass("buttonCurrent");
+// audio pre-loading
+var allSounds = {};
+var masterVolume = 1;
+
+var Slides = {
+    slides: [null],
+    activeSlideNum: 0,
+    activeSlide: null,
+
+    init: function() {
+    	$("#next").on("click", function() {
+    		Slides.next();
+    		return false;
+    	});
+
+    	$("#previous").on("click", function() {
+    		Slides.previous();
+    		return false;
+    	});
+
+    	// find unique span ids for circlular buttons used to jump between
+        // scenes (e.g. #jumpSlide3)
+        // TODO: Generate this dynamically
+    	var jumpSlide = $("#jumpSlide" + slideNum);
+
+    	// function for clicking scene-jumping buttons
+        // TODO: Delegate
+    	$(jumpSlide).click(function() {
+            Slides.jump(slideNum);
+    		return false;
+    	});
+    },
+
+    add: function(onStart, onEnd) {
+        var slideNum = this.slides.length + 1;
+
+        // TODO: Add jump thing here
+
+        this.slides.push({
+            $el: $("#slide" + slideNum),
+            $jump: $("#jumpSlide" + slideNum),
+            onStart: onStart,
+            onEnd: onEnd
+        });
+    },
+
+    next: function() {
+        if (this.activeSlideNum + 1 < this.slides.length) {
+            this.jump(this.activeSlideNum + 1);
+        }
+    },
+
+    previous: function() {
+        if (this.activeSlideNum > 1) {
+            this.jump(this.activeSlideNum - 1);
+        }
+    },
+
+    jump: function(slideNum) {
+        var totalSlides = this.slides.length;
+        var prevSlide = this.activeSlide;
+
+        this.activeSlideNum = slideNum;
+        var slide = this.activeSlide = this.slides[slideNum];
+
+        if (prevSlide) {
+    		// Fade out the contents of the slide
+    		prevSlide.$el.find(".boxWrap, .endNav, .columnLeft, .caption, " +
+                    ".columnRight, .infoText, .infoPics, .fullscreen")
+                .addClass("fadeOut");
+
+    		// if a custom function for onEnd is defined, then call it
+    		if (prevSlide.onEnd) {
+    			prevSlide.onEnd();
+    		}
+
+    		// Hide the other active slide (the slide we're transitioning out
+            // of) "Hide" means to put it off the side of the page.
+            prevSlide.$el.removeClass("activeSlide");
+
+            // Remove highlight on the jump button
+    		slide.$jump.removeClass("buttonCurrent");
+
+            // Fade out the navigation buttons
+    		$("#next, #previous").addClass("fadeOut");
+        } else {
+        	// get rid of title page stuff
+        	$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
+        	$("#titleBG").removeClass("transparent");
+        	var $hiding = $("#begin, #titleText, #titleCard, #titleCaption, #titleBG");
+            $hiding.addClass("fadeOut");
+            setTimeout(function() {
+                $hiding.hide();
+            }, 2000);
+        	$("#buttonsNav").removeClass("fadeOut");
+        }
+
+		// Bring the current slide into view
+		slide.$el.addClass("activeSlide");
+
+		// if a custom function for onStart is defined, then call it
+		if (slide.onStart) {
+			slide.onStart();
+		}
+
+		setTimeout(function() {
+			// fade in the divs with class of .fullscreen inside this slide
+			slide.$el.find(".fullscreen, .caption").removeClass("fadeOut");
+		}, 0);
+
+		// highlight the circular button for the active slide
+		slide.$jump.addClass("buttonCurrent");
+
+		// if this slide is 2 or higher, show the previous button
+		if (this.activeSlideNum > 1) {
+			$("#previous").removeClass("fadeOut");
+		}
+
+		// if this slide is before the last slide (less than the total number
+        // of slides), then show the next button
+		if (this.activeSlideNum < totalSlides) {
+			$("#next").removeClass("fadeOut");
+		}
+
+		// if this slide is the last (info) slide, hide the previous and next
+        // buttons
+		if (this.activeSlideNum === totalSlides) {
 			$("#next, #previous").addClass("fadeOut");
 		}
-	});
-	pop.code({
-		// after a delay of 3 seconds, start
-		start: start + 3,
-		end: start + 5,
-		onStart: function(){
-			// fade in the divs with class of .boxWrap inside this slide
-			slide.find(".boxWrap").removeClass("fadeOut");
-			slide.find(".endNav").removeClass("fadeOut");
-			slide.find(".columnLeft").removeClass("fadeOut");
-			slide.find(".columnRight").removeClass("fadeOut");
-			slide.find(".infoText").removeClass("fadeOut");
-			slide.find(".infoPics").removeClass("fadeOut");
-		},
-		onEnd: function(){
-			// fade back out again
-			slide.find(".boxWrap").addClass("fadeOut");
-			slide.find(".endNav").addClass("fadeOut");
-			slide.find(".columnLeft").addClass("fadeOut");
-			slide.find(".columnRight").addClass("fadeOut");
-			slide.find(".infoText").addClass("fadeOut");
-			slide.find(".infoPics").addClass("fadeOut");
-		}
-	});	
-}
 
-var masterVolume = 1;
+        setTimeout(function() {
+			// fade in the divs with class of .boxWrap inside this slide
+    		slide.$el.find(".boxWrap, .endNav, .columnLeft, .caption, " +
+                    ".columnRight, .infoText, .infoPics, .fullscreen")
+                .removeClass("fadeOut");
+        }, 3000);
+    }
+}
 
 function audioManager(toUnmute, audioVolume, videoVolume) {
 	// manages which audio (including video) is muted or unmuted (faded in)
@@ -142,9 +186,6 @@ function audioManager(toUnmute, audioVolume, videoVolume) {
 		sound.fade(start, end, 1000);
 	});
 }
-
-// audio pre-loading
-var allSounds = {};
 
 function audioLoader(files, callback) {
 	var loaded = 0;
