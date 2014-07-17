@@ -12,52 +12,60 @@ var Slides = {
     tracks: {},
 
     init: function(options) {
-        this.tracks = options.tracks;
+        var self = this;
 
-        this.bind();
+        this.tracks = options.tracks;
+        this.initialAudio = options.initialAudio;
+        this.startOnLoad = options.startOnLoad;
+
+        this.bindEventListeners();
 
         this.loadAudio(this.tracks, function() {
-            this.afterPreload();
-        }.bind(this))
+            self.onPreload();
+        });
+
+        if (options.slides) {
+            $.each(options.slides, function(i, slide) {
+                self.add(slide);
+            });
+        }
     },
 
-    bind: function() {
-        $("#next").on("click", function() {
-            Slides.next();
+    bindEventListeners: function() {
+        var self = this;
+
+        $(document).on("click", "#next", function() {
+            self.next();
             return false;
         });
 
-        $("#previous").on("click", function() {
-            Slides.previous();
+        $(document).on("click", "#previous", function() {
+            self.previous();
             return false;
         });
 
-        /*
-        // find unique span ids for circlular buttons used to jump between
-        // scenes (e.g. #jumpSlide3)
-        // TODO: Generate this dynamically
-        var jumpSlide = $("#jumpSlide" + slideNum);
-
-        // function for clicking scene-jumping buttons
-        // TODO: Delegate
-        $(jumpSlide).click(function() {
-            Slides.jump(slideNum);
+        $(document).on("click", "#buttonsNav .button", function() {
+            var slideNum = parseFloat(/\d+$/.exec(this.id)[0]);
+            self.jump(slideNum);
             return false;
         });
-        */
     },
 
-    add: function(onStart, onEnd) {
-        var slideNum = this.slides.length + 1;
+    add: function(options) {
+        var slideNum = this.slides.length;
+        var $el = $("#slide" + slideNum);
+        var icon = $el.find(".columns").length > 0 ? "fa-info-circle" : "fa-circle";
 
-        // TODO: Add jump thing here
+        var $jump = $('<span id="jumpSlide' + slideNum +
+            '" class="button"><a href="#"><i class="fa ' + icon + '">' +
+            '</i></a></span>').appendTo("#buttonsNav");
 
-        this.slides.push({
-            $el: $("#slide" + slideNum),
-            $jump: $("#jumpSlide" + slideNum),
-            onStart: onStart,
-            onEnd: onEnd
-        });
+        options = $.extend({
+            $el: $el,
+            $jump: $jump
+        }, options);
+
+        this.slides.push(options);
     },
 
     next: function() {
@@ -91,6 +99,18 @@ var Slides = {
         // if a custom function for onStart is defined, then call it
         if (slide.onStart) {
             slide.onStart();
+        }
+
+        if (slide.audio) {
+            this.playTracks(slide.audio);
+        }
+
+        var $columns = slide.$el.find(".columns");
+
+        if ($columns.length > 0) {
+            $columns.removeClass("hidden");
+        } else {
+            $(".columns").addClass("hidden");
         }
 
         setTimeout(function() {
@@ -140,8 +160,8 @@ var Slides = {
         // start playing all audio and video
         $("video").trigger("play");
 
-        for (var name in tracks) {
-            tracks[name].play();
+        for (var name in this.tracks) {
+            this.tracks[name].play();
         }
 
         if (this.startOnLoad) {
@@ -160,15 +180,17 @@ var Slides = {
             prevSlide.onEnd();
         }
 
-        // Hide the other active slide (the slide we're transitioning out
-        // of) "Hide" means to put it off the side of the page.
-        prevSlide.$el.removeClass("activeSlide");
-
         // Remove highlight on the jump button
         prevSlide.$jump.removeClass("buttonCurrent");
 
         // Fade out the navigation buttons
         $("#next, #previous").addClass("fadeOut");
+
+        // Hide the other active slide (the slide we're transitioning out
+        // of) "Hide" means to put it off the side of the page.
+        setTimeout(function() {
+            prevSlide.$el.removeClass("activeSlide");
+        }, 2000);
     },
 
     onTitleExit: function() {
@@ -184,6 +206,8 @@ var Slides = {
     },
 
     playTracks: function(toUnmute, audioVolume, videoVolume) {
+        var self = this;
+
         // manages which audio (including video) is muted or unmuted (faded in)
         // also uses variable volume levels based on user-manipulated
         // this.volume
@@ -217,7 +241,7 @@ var Slides = {
         });
 
         $.each(Object.keys(this.tracks), function(i, id) {
-            var sound = this.tracks[id];
+            var sound = self.tracks[id];
             var start = sound.volume();
             var end = audioVolume;
 
@@ -226,7 +250,7 @@ var Slides = {
             }
 
             sound.fade(start, end, 1000);
-        }.bind(this));
+        });
     },
 
     loadAudio: function(files, callback) {

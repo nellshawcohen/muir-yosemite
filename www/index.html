@@ -38,51 +38,24 @@ $(function() {
             // Audio tracks
             track1: "audio/introduction/track1",
             track2: "audio/introduction/track2"
-        }
-    });
-
-    // Slide 1
-    Slides.add(function() {
-        audioManager(["track1"]);
-        $(".columns").addClass("hidden");
-    });
-
-    // Slide 2
-    Slides.add(function() {
-        audioManager(["track1"]);
-        $(".columns").addClass("hidden");
-    });
-
-    // Slide 3
-    Slides.add(function() {
-        audioManager(["track1"]);
-        $(".columns").addClass("hidden");
-    });
-
-    // Slide 4
-    Slides.add(function() {
-        audioManager(["track2"]);
-        $(".columns").removeClass("hidden");
+        },
+        slides: [
+            { audio: ["track1"] },
+            { audio: ["track1"] },
+            { audio: ["track1"] },
+            { audio: ["track2"] }
+        ]
     });
 });
 </script>
 <body>
-
-<!--Audio embeds and hidden elements not yet created-->
-<div id="base"></div><!--base div for Popcorn timeline-->
-<div id="foo"></div><!--timer-->
 
 <!--Header and navigation-->
 <div id="header">
     <div id="titleNav">
         Explore John Muir's Yosemite - <a href="map_yosemite.html">Maps</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
     </div>
-    <span id="buttonsNav" class="fadeOut">
-        <span id="jumpSlide1" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
-        <span id="jumpSlide2" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
-        <span id="jumpSlide3" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
-        <span id="jumpSlide4" class="button"><a href="#"><i class="fa fa-info-circle"></i></a></span>
-    </span>
+    <span id="buttonsNav" class="fadeOut"></span>
 </div>
 <div id="previous" class="button fadeOut"><a href="#"><i class="fa fa-chevron-left fa-3x"></i></a></div>
 
