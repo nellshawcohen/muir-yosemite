@@ -19,180 +19,180 @@ src: url('../fonts/simplicity.ttf');
 /* text and colors */
 
 body {
-	margin: 0;
-	padding: 0;
-	background-color: #000;
-	color: #fff;
-	font: 14px arial,sans-serif;
-	overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font: 14px arial,sans-serif;
+    overflow: hidden;
 }
 a, a:visited {
-	color: #a1e2ff;
-	text-decoration: none;
+    color: #a1e2ff;
+    text-decoration: none;
 }
 a:hover {
-	color: #fff800; /* pale yellow */
+    color: #fff800; /* pale yellow */
 }
 
 h1 {
-	color: #fff;
-	font-family: ChaparralPro-Regular;
-	font-size: 32px;
-	text-shadow: 2px 2px #000;
-	margin: 2px;
+    color: #fff;
+    font-family: ChaparralPro-Regular;
+    font-size: 32px;
+    text-shadow: 2px 2px #000;
+    margin: 2px;
 }
 h2 {
-	color: #fff;
-	font-family: ChaparralPro-Regular;
-	font-size: 24px;
-	text-shadow: 2px 2px #000;
-	margin: 2px;
+    color: #fff;
+    font-family: ChaparralPro-Regular;
+    font-size: 24px;
+    text-shadow: 2px 2px #000;
+    margin: 2px;
 }
 li {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 /* header & navigation */
 
 #header {
-	opacity: 1;
-	z-index: 4;
-	position: absolute;
-	width: 100%;
-	min-width: 550px;
-	padding: 10px 0 10px 0;
-	height: 20px;
-	top: 0;
-	background: rgba(0, 0, 0, .5);
+    opacity: 1;
+    z-index: 4;
+    position: absolute;
+    width: 100%;
+    min-width: 550px;
+    padding: 10px 0 10px 0;
+    height: 20px;
+    top: 0;
+    background: rgba(0, 0, 0, .5);
 }
 #header:hover {
-	opacity: 1;
+    opacity: 1;
 }
 #titleNav {
-	position: absolute;
-	top: 5px;
-	left: 10px;
-	padding: 5px;
-	color: #fff;
-	/* color: #9e8b73; */
-	font-family: ChaparralPro-Regular;
-	font-size: 18px;
-	text-shadow: 2px 2px #000;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    padding: 5px;
+    color: #fff;
+    /* color: #9e8b73; */
+    font-family: ChaparralPro-Regular;
+    font-size: 18px;
+    text-shadow: 2px 2px #000;
 }
 .button {
-	z-index: 150;
-	text-shadow: 2px 2px #000;
-	margin-left: 10px;
-	font-size: 18px;
-	font-family: ChaparralPro-Regular;
-	-webkit-transition: all 2s ease-in-out;
-  	-moz-transition: all 2s ease-in-out;
-  	-o-transition: all 2s ease-in-out;
-  	transition: all 2s ease-in-out;
+    z-index: 150;
+    text-shadow: 2px 2px #000;
+    margin-left: 10px;
+    font-size: 18px;
+    font-family: ChaparralPro-Regular;
+    -webkit-transition: all 2s ease-in-out;
+      -moz-transition: all 2s ease-in-out;
+      -o-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
 }
 .button a {
-	color: #fff;
+    color: #fff;
 }
 .button a:hover {
-	color: #fff800; /* pale yellow */
+    color: #fff800; /* pale yellow */
 }
 .buttonCurrent a {
-	color: #a800db;
+    color: #a800db;
 }
 #buttonsNav {
-	position: absolute;
-	right: 10px;
-	-webkit-transition: all 2s ease-in-out;
-  	-moz-transition: all 2s ease-in-out;
-  	-o-transition: all 2s ease-in-out;
-  	transition: all 2s ease-in-out;
+    position: absolute;
+    right: 10px;
+    -webkit-transition: all 2s ease-in-out;
+      -moz-transition: all 2s ease-in-out;
+      -o-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
 }
 
 /* title screen */
 
 #titleText {
-	z-index: 10;
-	position: fixed;
-	width: 100%;
-	margin: 0 auto;
-	left: 0;
-	bottom: 50%;
-	text-align: center;
-	-webkit-transition: all 2s ease-in-out;
-  	-moz-transition: all 2s ease-in-out;
-  	-o-transition: all 2s ease-in-out;
-  	transition: all 2s ease-in-out;
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    bottom: 50%;
+    text-align: center;
+    -webkit-transition: all 2s ease-in-out;
+      -moz-transition: all 2s ease-in-out;
+      -o-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
 }
 #titleText p {
-	font-size: 18px;
-	font-family: ChaparralPro-Regular;
-	text-shadow: 2px 2px #000;
-	text-align: center;
+    font-size: 18px;
+    font-family: ChaparralPro-Regular;
+    text-shadow: 2px 2px #000;
+    text-align: center;
 }
 #titleText h1 {
-	font-family: NeverLetGo;
-	color: #fff;
-	font-size: 72px;
+    font-family: NeverLetGo;
+    color: #fff;
+    font-size: 72px;
 }
 #titleText h2 {
-	font-size: 22px;
-	font-family: ChaparralPro-Regular;
-	text-shadow: 2px 2px #000;
-	text-align: center;
+    font-size: 22px;
+    font-family: ChaparralPro-Regular;
+    text-shadow: 2px 2px #000;
+    text-align: center;
 }
 #titleCard {
-	z-index: 10;
-	position: fixed;
-	width: 100%;
-	margin: 0 auto;
-	left: 0;
-	bottom: 20px;
-	text-align: center;
-	font-size: 20px;
-	font-family: ChaparralPro-Regular;
-	text-shadow: 2px 2px #000;
-	text-align: center;
-	-webkit-transition: all 2s ease-in-out;
-  	-moz-transition: all 2s ease-in-out;
-  	-o-transition: all 2s ease-in-out;
-  	transition: all 2s ease-in-out;
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-family: ChaparralPro-Regular;
+    text-shadow: 2px 2px #000;
+    text-align: center;
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 2s ease-in-out;
 }
 
 #begin, #loadingText {
-	z-index: 4;
-	text-shadow: 2px 2px #000;
-	padding-bottom: 15px;
-	font-size: 40px;
-	font-family: ChaparralPro-Regular;
-	line-height: 55px;
-	vertical-align: bottom;
-	opacity: 1;
-	-webkit-transition: opacity 2s ease-in-out;
-	-moz-transition: opacity 2s ease-in-out;
-	-o-transition: opacity 2s ease-in-out;
-	transition: opacity 2s ease-in-out;
+    z-index: 4;
+    text-shadow: 2px 2px #000;
+    padding-bottom: 15px;
+    font-size: 40px;
+    font-family: ChaparralPro-Regular;
+    line-height: 55px;
+    vertical-align: bottom;
+    opacity: 1;
+    -webkit-transition: opacity 2s ease-in-out;
+    -moz-transition: opacity 2s ease-in-out;
+    -o-transition: opacity 2s ease-in-out;
+    transition: opacity 2s ease-in-out;
 }
 
 #begin.fadeOut, #begin.loadingText {
-	opacity: 0;
+    opacity: 0;
 }
 
 /*
 #loadingText {
-	@-webkit-keyframes pulse {
-	 from {
-	   opacity: 0;
-	 }
-	 to {
-	   opacity: 1;
-	 };
-	 @keyframes pulse {
-	 from {
-	   opacity: 0;
-	 }
-	 to {
-	   opacity: 1;
-	 }
+    @-webkit-keyframes pulse {
+     from {
+       opacity: 0;
+     }
+     to {
+       opacity: 1;
+     };
+     @keyframes pulse {
+     from {
+       opacity: 0;
+     }
+     to {
+       opacity: 1;
+     }
 }
 
 #loadingText {
@@ -205,25 +205,25 @@ li {
 */
 
 .beginPosition {
-	position: fixed;
-	right: 44%;
-	bottom: 40%;
+    position: fixed;
+    right: 44%;
+    bottom: 40%;
 }
 
 /* navigation arrows */
 
 .nextPosition {
-	position: fixed;
-	right: 5px;
-	bottom: 40%;
+    position: fixed;
+    right: 5px;
+    bottom: 40%;
 }
 #next {
-	position: fixed;
+    position: fixed;
 }
 #previous {
-	position: fixed;
-	left: 5px;
-	bottom: 40%;
+    position: fixed;
+    left: 5px;
+    bottom: 40%;
 }
 
 /* classes for animating visibility & positioning */
@@ -231,398 +231,398 @@ li {
 /* By default all slides are tucked away off the screen - but are still
 "visible" (in that they are not display: none). */
 .slide {
-	position: fixed;
-	left: 100%;
-	top: 100%;
-	width: 100%;
-	height: 100%;
+    position: fixed;
+    left: 100%;
+    top: 100%;
+    width: 100%;
+    height: 100%;
 }
 /* When a slide is active, the current slide, then we just position it normally. */
 .slide.activeSlide {
-	position: absolute;
-	left: 0;
-	top: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 .fadeOut, .fadeOut.transparent {
-	opacity: 0;
+    opacity: 0;
 }
 .hidden {
-	display: none;
+    display: none;
 }
 .transparent {
-	opacity: 0.3;
+    opacity: 0.3;
 }
 
 /* text overlays */
 
 .topLeft {
-	top: 40px;
-	left: 0;
+    top: 40px;
+    left: 0;
 }
 .topRight {
-	top: 40px;
-	right: 0;
+    top: 40px;
+    right: 0;
 }
 .bottomRight {
-	bottom: 20px;
-	right: 0;
+    bottom: 20px;
+    right: 0;
 }
 .bottomLeft {
-	bottom: 20px;
-	left: 0;
+    bottom: 20px;
+    left: 0;
 }
 .boxWrap {
-	z-index: 6;
-	position: fixed;
-	margin: 10px;
-	width: auto;
-	max-width: 48%;
-	overflow: hidden;
-	-webkit-transition: all 2s ease-in-out;
-  	-moz-transition: all 2s ease-in-out;
-  	-o-transition: all 2s ease-in-out;
-  	transition: all 2s ease-in-out;
+    z-index: 6;
+    position: fixed;
+    margin: 10px;
+    width: auto;
+    max-width: 48%;
+    overflow: hidden;
+    -webkit-transition: all 2s ease-in-out;
+      -moz-transition: all 2s ease-in-out;
+      -o-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
 }
 .boxText {
-	/* background: rgba(124, 107, 86, 0.7); /* tan */
-	background: rgba(0, 0, 0, 0.7); /* transparent black */
-	color: white;
-	font-family: ChaparralPro-Regular;
-	font-size: 22px;
-	text-shadow: 2px 2px #000;
-	border-radius: 20px;
-	padding: 10px;
+    /* background: rgba(124, 107, 86, 0.7); /* tan */
+    background: rgba(0, 0, 0, 0.7); /* transparent black */
+    color: white;
+    font-family: ChaparralPro-Regular;
+    font-size: 22px;
+    text-shadow: 2px 2px #000;
+    border-radius: 20px;
+    padding: 10px;
 }
 .caption {
-	z-index: 30;
-	position: fixed;
-	background: rgba(0, 0, 0, .7);
-	color: #fff;
-	bottom: 0;
-	left: 0;
-	padding: 10px;
-	font: 12px arial;
-	border-top-right-radius: 15px;
-	-webkit-transition: all 2s ease-in-out;
-  	-moz-transition: all 2s ease-in-out;
-  	-o-transition: all 2s ease-in-out;
-  	transition: all 2s ease-in-out;
+    z-index: 30;
+    position: fixed;
+    background: rgba(0, 0, 0, .7);
+    color: #fff;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    font: 12px arial;
+    border-top-right-radius: 15px;
+    -webkit-transition: all 2s ease-in-out;
+      -moz-transition: all 2s ease-in-out;
+      -o-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
 }
 .highlight {
-	font-size: 26px;
-	font-style: italic;
-	/* color: #a1e2ff; light blue */
+    font-size: 26px;
+    font-style: italic;
+    /* color: #a1e2ff; light blue */
 }
 
 /* full-bleed slide backgrounds */
 
 .fullscreen {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	-webkit-transition: all 2s ease-in-out;
-  	-moz-transition: all 2s ease-in-out;
-  	-o-transition: all 2s ease-in-out;
-  	transition: all 2s ease-in-out;
-  	overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all 2s ease-in-out;
+      -moz-transition: all 2s ease-in-out;
+      -o-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
+      overflow: hidden;
 }
 .fullscreen img {
-	min-width: 100%;
-	min-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
 }
 .fullscreen video {
-	min-width: 100%;
-	min-height: 100%;
-	-webkit-transform: scale(1.3);
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform: scale(1.3);
 }
 .infoText {
-	color: white;
-	font-family: ChaparralPro-Regular;
-	font-size: 18px;
-	text-shadow: 2px 2px #000;
-	padding: 10px;
+    color: white;
+    font-family: ChaparralPro-Regular;
+    font-size: 18px;
+    text-shadow: 2px 2px #000;
+    padding: 10px;
 }
 .infoPics {
-	z-index: 4;
-	position: fixed;
-	right: 0;
-	bottom: 10px;
-	width: 100%;
-	height: 40%;
-	text-align: center;
-	-webkit-transition: all 2s ease-in-out;
-  	-moz-transition: all 2s ease-in-out;
-  	-o-transition: all 2s ease-in-out;
-  	transition: all 2s ease-in-out;
+    z-index: 4;
+    position: fixed;
+    right: 0;
+    bottom: 10px;
+    width: 100%;
+    height: 40%;
+    text-align: center;
+    -webkit-transition: all 2s ease-in-out;
+      -moz-transition: all 2s ease-in-out;
+      -o-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
 }
 .infoPicsImg {
-	height: 100%;
+    height: 100%;
 }
 .endNav {
-	padding: 10px;
-	width: auto;
-	background: rgba(0, 0, 0, 0.7); /* transparent black */
-	color: white;
-	font-family: ChaparralPro-Regular;
-	font-size: 22px;
-	text-shadow: 2px 2px #000;
-	border-radius: 20px;
+    padding: 10px;
+    width: auto;
+    background: rgba(0, 0, 0, 0.7); /* transparent black */
+    color: white;
+    font-family: ChaparralPro-Regular;
+    font-size: 22px;
+    text-shadow: 2px 2px #000;
+    border-radius: 20px;
 }
 .columns {
-	z-index: 100;
-	position: absolute;
-	left: 10px;
-	right: 10px;
-	top: 40px;
-	padding-top: 10px;
-	height: 100%;
-	overflow: auto;
+    z-index: 100;
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 40px;
+    padding-top: 10px;
+    height: 100%;
+    overflow: auto;
 }
 .columnLeft {
-	margin-right: 2%;
+    margin-right: 2%;
 }
 .columnLeft, .columnRight {
-	float: left;
-	width: 48%;
-	margin-bottom: 70px;
-	-webkit-transition: all 2s ease-in-out;
-  	-moz-transition: all 2s ease-in-out;
-  	-o-transition: all 2s ease-in-out;
-  	transition: all 2s ease-in-out;
+    float: left;
+    width: 48%;
+    margin-bottom: 70px;
+    -webkit-transition: all 2s ease-in-out;
+      -moz-transition: all 2s ease-in-out;
+      -o-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
 }
 .columnLeft img, .columnRight img {
-	max-width: 100%;
+    max-width: 100%;
 
 }
 
 /* specific divs for other pages */
 
 #about {
-	z-index: 5;
-	position: fixed;
-	top: 40px;
-	left: 0;
-	right: 0;
-	height: 100%;
-	color: white;
-	font-family: ChaparralPro-Regular;
-	font-size: 18px;
-	text-shadow: 2px 2px #000;
-	padding: 10px;
-	overflow: auto;
+    z-index: 5;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    color: white;
+    font-family: ChaparralPro-Regular;
+    font-size: 18px;
+    text-shadow: 2px 2px #000;
+    padding: 10px;
+    overflow: auto;
 }
 
 /* Map elements */
 
 .mapOverlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	overflow: hidden;
-	margin: 0 auto;
-	width: 100%;
-	height: 100%;
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 #mapYosemite {
-	background-image: url(../img/maps/yosemite.jpg);
+    background-image: url(../img/maps/yosemite.jpg);
 }
 #mapSequoia {
-	background-image: url(../img/maps/sequoia_2.jpg);
+    background-image: url(../img/maps/sequoia_2.jpg);
 }
 .mapNav {
-	position: absolute;
-	padding: 0;
-	background: rgba(0, 0, 0, 0.5);
-	border-radius: 20px;
-	padding: 3px 7px 3px 10px;
-	font-family: ChaparralPro-Regular;
-	font-size: 22px;
-	font-weight: bold;
-	text-shadow: 1px 1px #000;
+    position: absolute;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 3px 7px 3px 10px;
+    font-family: ChaparralPro-Regular;
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 1px 1px #000;
 }
 .mapIcon {
-	position: absolute;
-	padding: 0;
-	margin: 0 auto;
-	width: 150px;
-	height: 100px;
+    position: absolute;
+    padding: 0;
+    margin: 0 auto;
+    width: 150px;
+    height: 100px;
 }
 .mapIcon p {
-	position: absolute;
-	bottom: -10px;
-	left: 12px;
-	font-family: ChaparralPro-Regular;
-	font-size: 15px;
-	font-weight: bold;
-	text-shadow: 1px 1px 1px #000;
+    position: absolute;
+    bottom: -10px;
+    left: 12px;
+    font-family: ChaparralPro-Regular;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
 }
 a.mapCaption, a.mapCaption:visited {
-	color: #fff;
+    color: #fff;
 }
 a.mapCaption:hover {
-	color: #fff800; /* pale yellow */
+    color: #fff800; /* pale yellow */
 }
 .mapTitle {
-	z-index: 10;
-	position: absolute;
-	text-align: center;
+    z-index: 10;
+    position: absolute;
+    text-align: center;
 }
 .mapTitle h1 {
-	color: #fff;
-	font-family: ChaparralPro-Regular;
-	font-size: 40px;
-	text-shadow:
-   	-1px -1px 5px #000,
-	1px -1px 5px #000,
-	-1px 1px 5px #000,
-	1px 1px 5px #000;
-	font-weight: bold;
+    color: #fff;
+    font-family: ChaparralPro-Regular;
+    font-size: 40px;
+    text-shadow:
+       -1px -1px 5px #000,
+    1px -1px 5px #000,
+    -1px 1px 5px #000,
+    1px 1px 5px #000;
+    font-weight: bold;
 }
 .mapTitle p {
-	color: #000;
-	font-family: arial;
-	font-size: 16px;
-	font-weight: bold;
+    color: #000;
+    font-family: arial;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /* Yosemite map links */
 
 #mapTitle_yosemite {
-	right: 20px;
-	top: 50px;
+    right: 20px;
+    top: 50px;
 }
 #map_range {
-	background-image: url(../img/maps/tn_range_off.png);
-	background-repeat: no-repeat;
-	left: 10px;
-	top: 50%;
+    background-image: url(../img/maps/tn_range_off.png);
+    background-repeat: no-repeat;
+    left: 10px;
+    top: 50%;
 }
 #map_range:hover {
-	background-image: url(../img/maps/tn_range_on.png);
+    background-image: url(../img/maps/tn_range_on.png);
 }
 #map_hetch_hetchy {
-	background-image: url(../img/maps/tn_hetch_hetchy_off.png);
-	background-repeat: no-repeat;
-	left: 9.7%;
-	top: 10.5%;
-	/* left: 100px;
-	top: 70px; */
+    background-image: url(../img/maps/tn_hetch_hetchy_off.png);
+    background-repeat: no-repeat;
+    left: 9.7%;
+    top: 10.5%;
+    /* left: 100px;
+    top: 70px; */
 }
 #map_hetch_hetchy:hover {
-	background-image: url(../img/maps/tn_hetch_hetchy_on.png);
+    background-image: url(../img/maps/tn_hetch_hetchy_on.png);
 }
 #map_yosemite_valley {
-	background-image: url(../img/maps/tn_yosemite_valley_off.png);
-	background-repeat: no-repeat;
-	left: 20%;
-	bottom: 20%;
-	/* left: 260px;
-	bottom: 170px; */
+    background-image: url(../img/maps/tn_yosemite_valley_off.png);
+    background-repeat: no-repeat;
+    left: 20%;
+    bottom: 20%;
+    /* left: 260px;
+    bottom: 170px; */
 }
 #map_yosemite_valley:hover {
-	background-image: url(../img/maps/tn_yosemite_valley_on.png);
+    background-image: url(../img/maps/tn_yosemite_valley_on.png);
 }
 #map_yosemite_falls {
-	background-image: url(../img/maps/tn_yosemite_falls_off.png);
-	background-repeat: no-repeat;
-	left: 39%;
-	bottom: 33%;
-	/* left: 400px;
-	bottom: 230px; */
+    background-image: url(../img/maps/tn_yosemite_falls_off.png);
+    background-repeat: no-repeat;
+    left: 39%;
+    bottom: 33%;
+    /* left: 400px;
+    bottom: 230px; */
 }
 #map_yosemite_falls:hover {
-	background-image: url(../img/maps/tn_yosemite_falls_on.png);
+    background-image: url(../img/maps/tn_yosemite_falls_on.png);
 }
 #map_bridalveil {
-	background-image: url(../img/maps/tn_bridalveil_off.png);
-	background-repeat: no-repeat;
-	left: 35%;
-	bottom: 16%;
-	/* left: 340px;
-	bottom: 110px; */
+    background-image: url(../img/maps/tn_bridalveil_off.png);
+    background-repeat: no-repeat;
+    left: 35%;
+    bottom: 16%;
+    /* left: 340px;
+    bottom: 110px; */
 }
 #map_bridalveil:hover {
-	background-image: url(../img/maps/tn_bridalveil_on.png);
+    background-image: url(../img/maps/tn_bridalveil_on.png);
 }
 #map_hoffman {
-	background-image: url(../img/maps/tn_hoffman_off.png);
-	background-repeat: no-repeat;
-	right: 28%;
-	top: 38%;
-	/* top: 280px;
-	left: 570px; */
+    background-image: url(../img/maps/tn_hoffman_off.png);
+    background-repeat: no-repeat;
+    right: 28%;
+    top: 38%;
+    /* top: 280px;
+    left: 570px; */
 }
 #map_hoffman:hover {
-	background-image: url(../img/maps/tn_hoffman_on.png);
+    background-image: url(../img/maps/tn_hoffman_on.png);
 }
 #map_tuolomne_meadows {
-	background-image: url(../img/maps/tn_tuolomne_meadows_off.png);
-	background-repeat: no-repeat;
-	right: 10%;
-	top: 30%;
-	/* top: 210px;
-	left: 750px; */
+    background-image: url(../img/maps/tn_tuolomne_meadows_off.png);
+    background-repeat: no-repeat;
+    right: 10%;
+    top: 30%;
+    /* top: 210px;
+    left: 750px; */
 }
 #map_tuolomne_meadows:hover {
-	background-image: url(../img/maps/tn_tuolomne_meadows_on.png);
+    background-image: url(../img/maps/tn_tuolomne_meadows_on.png);
 }
 #map_south {
-	right: 15%;
-	bottom: 15%;
+    right: 15%;
+    bottom: 15%;
 }
 
 /* Sequoia map links */
 
 #mapTitle_sequoia {
-	right: 20px;
-	bottom: 10px;
+    right: 20px;
+    bottom: 10px;
 }
 #map_squirrel {
-	background-image: url(../img/maps/tn_squirrel_off.png);
-	background-repeat: no-repeat;
-	left: 30px;
-	top: 20%;
+    background-image: url(../img/maps/tn_squirrel_off.png);
+    background-repeat: no-repeat;
+    left: 30px;
+    top: 20%;
 }
 #map_squirrel:hover {
-	background-image: url(../img/maps/tn_squirrel_on.png);
+    background-image: url(../img/maps/tn_squirrel_on.png);
 }
 #map_giant_forest {
-	background-image: url(../img/maps/tn_giant_forest_off.png);
-	background-repeat: no-repeat;
-	top: 30%;
-	right: 50%;
-	/* top: 20%;
-	right: 40%; */
+    background-image: url(../img/maps/tn_giant_forest_off.png);
+    background-repeat: no-repeat;
+    top: 30%;
+    right: 50%;
+    /* top: 20%;
+    right: 40%; */
 }
 #map_giant_forest:hover {
-	background-image: url(../img/maps/tn_giant_forest_on.png);
+    background-image: url(../img/maps/tn_giant_forest_on.png);
 }
 #map_crescent_meadow {
-	background-image: url(../img/maps/tn_crescent_meadow_off.png);
-	background-repeat: no-repeat;
-	bottom: 40%;
-	left: 45%;
+    background-image: url(../img/maps/tn_crescent_meadow_off.png);
+    background-repeat: no-repeat;
+    bottom: 40%;
+    left: 45%;
 }
 #map_crescent_meadow:hover {
-	background-image: url(../img/maps/tn_crescent_meadow_on.png);
+    background-image: url(../img/maps/tn_crescent_meadow_on.png);
 }
 #map_north {
-	top: 15%;
-	right: 15%;
+    top: 15%;
+    right: 15%;
 }
 
 /* not currently being used */
 
 #foo {
-	z-index: 100;
-	position: fixed;
-	right: 0;
-	top: 0;
-	width: auto;
-	height: 20px;
+    z-index: 100;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: auto;
+    height: 20px;
 }

@@ -19,9 +19,9 @@
   _gaq.push(['_trackPageview']);
 
   (function() {
-	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
 </script>
@@ -33,60 +33,37 @@
 $(function() {
     Slides.init({
         startOnLoad: false,
-        loadAudio: ["track1"],
+        initialAudio: ["track1"],
         tracks: {
-        	// Audio embeds and hidden elements
-        	track1: "audio/introduction/track1",
-        	track2: "audio/introduction/track2"
+            // Audio tracks
+            track1: "audio/introduction/track1",
+            track2: "audio/introduction/track2"
         }
     });
 
     // Slide 1
     Slides.add(function() {
-    	audioManager(["track1"]);
-    	$(".columns").addClass("hidden");
+        audioManager(["track1"]);
+        $(".columns").addClass("hidden");
     });
 
     // Slide 2
     Slides.add(function() {
-    	audioManager(["track1"]);
-    	$(".columns").addClass("hidden");
+        audioManager(["track1"]);
+        $(".columns").addClass("hidden");
     });
 
     // Slide 3
     Slides.add(function() {
-    	audioManager(["track1"]);
-    	$(".columns").addClass("hidden");
+        audioManager(["track1"]);
+        $(".columns").addClass("hidden");
     });
 
     // Slide 4
     Slides.add(function() {
-    	audioManager(["track2"]);
-    	$(".columns").removeClass("hidden");
+        audioManager(["track2"]);
+        $(".columns").removeClass("hidden");
     });
-});
-
-audioLoader({
-	// Audio embeds and hidden elements
-	track1: "audio/introduction/track1",
-	track2: "audio/introduction/track2"
-}, function() {
-	// After all the audio and DOM has loaded
-
-	// Hide the loading indicator
-	$("#loading").addClass("fadeOut");
-
-	// Show the next/begin link
-	$("#next").removeClass("fadeOut");
-
-	// volume up on first audio, to start with
-	allSounds.track1.volume(1);
-	allSounds.track2.volume(0);
-
-	// start playing all audio and video
-	$("video").trigger("play");
-	allSounds.track1.play();
-	allSounds.track2.play();
 });
 </script>
 <body>
@@ -97,15 +74,15 @@ audioLoader({
 
 <!--Header and navigation-->
 <div id="header">
-	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="map_yosemite.html">Maps</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
-	</div>
-	<span id="buttonsNav" class="fadeOut">
-		<span id="jumpSlide1" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
-		<span id="jumpSlide2" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
-		<span id="jumpSlide3" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
-		<span id="jumpSlide4" class="button"><a href="#"><i class="fa fa-info-circle"></i></a></span>
-	</span>
+    <div id="titleNav">
+        Explore John Muir's Yosemite - <a href="map_yosemite.html">Maps</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
+    </div>
+    <span id="buttonsNav" class="fadeOut">
+        <span id="jumpSlide1" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
+        <span id="jumpSlide2" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
+        <span id="jumpSlide3" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
+        <span id="jumpSlide4" class="button"><a href="#"><i class="fa fa-info-circle"></i></a></span>
+    </span>
 </div>
 <div id="previous" class="button fadeOut"><a href="#"><i class="fa fa-chevron-left fa-3x"></i></a></div>
 
@@ -116,99 +93,99 @@ audioLoader({
 
 <!--Title (Splash)-->
 <div id="titleBG" class="fullscreen transparent">
-	<video loop muted autoplay class="video">
-		<source src="video/yosemite_valley/mirror.mp4" type="video/mp4">
-		<source src="video/yosemite_valley/mirror.webm" type="video/webm">
-	</video>
+    <video loop muted autoplay class="video">
+        <source src="video/yosemite_valley/mirror.mp4" type="video/mp4">
+        <source src="video/yosemite_valley/mirror.webm" type="video/webm">
+    </video>
 </div>
 <div id="titleText">
-	<h1>Explore John Muir's Yosemite</h1>
+    <h1>Explore John Muir's Yosemite</h1>
 </div>
 <div id="titleCard">
-	<p>An Interactive Multimedia Installation by Nell Shaw Cohen
-	<br />Featuring Excerpts from the Writings of John Muir (1838-1914)</p>
-	<p>Turn up your volume  <br /><i class="fa fa-volume-up fa-2x"></i></p> 
+    <p>An Interactive Multimedia Installation by Nell Shaw Cohen
+    <br />Featuring Excerpts from the Writings of John Muir (1838-1914)</p>
+    <p>Turn up your volume  <br /><i class="fa fa-volume-up fa-2x"></i></p> 
 </div>
 
 <!--Slide 1-->
 <div id="slide1" class="slide">
-	<div class="fullscreen fadeOut">
-		<img src="img/john-muir.jpg" />
-	</div>
-	<div class="boxWrap topLeft fadeOut">
-		<div class="boxText">
-			Scottish-born naturalist John Muir (1838-1914) was instrumental in beginning the conversation about the preservation of natural environments in the United States. He was also a prolific author and published accounts of his adventures trekking through the Sierra Nevada.
-		</div>
-	</div>
-	<div class="boxWrap bottomRight fadeOut">
-		<div class="boxText">
-			Whether he was publishing essays or teaching visitors to Yosemite Valley, John Muir helped people to understand and appreciate the scientific workings and the spiritual power of the wild places around them. He placed the human experience in the context of the larger natural world.
-		</div>
-	</div>
-	<div class="caption fadeOut">
-		Photo by Francis M. Fritz, 1907. <a href="http://en.wikipedia.org/wiki/File:John_Muir_Cane.JPG" target="_blank">Source <i class="fa fa-external-link"></i></a>
-	</div> 
+    <div class="fullscreen fadeOut">
+        <img src="img/john-muir.jpg" />
+    </div>
+    <div class="boxWrap topLeft fadeOut">
+        <div class="boxText">
+            Scottish-born naturalist John Muir (1838-1914) was instrumental in beginning the conversation about the preservation of natural environments in the United States. He was also a prolific author and published accounts of his adventures trekking through the Sierra Nevada.
+        </div>
+    </div>
+    <div class="boxWrap bottomRight fadeOut">
+        <div class="boxText">
+            Whether he was publishing essays or teaching visitors to Yosemite Valley, John Muir helped people to understand and appreciate the scientific workings and the spiritual power of the wild places around them. He placed the human experience in the context of the larger natural world.
+        </div>
+    </div>
+    <div class="caption fadeOut">
+        Photo by Francis M. Fritz, 1907. <a href="http://en.wikipedia.org/wiki/File:John_Muir_Cane.JPG" target="_blank">Source <i class="fa fa-external-link"></i></a>
+    </div> 
 </div>
 
 <!--Slide 2-->
 <div id="slide2" class="slide">
-	<div class="fullscreen fadeOut">
-		<img src="img/valley_then.jpg" />
-	</div>
-	<div class="boxWrap bottomRight fadeOut">
-		<div class="boxText">
-			With the help of Muir's advocacy, Yosemite National Park was established in 1890. In 1906, protection of Yosemite Valley and Mariposa Grove was moved from the state of California to the federal government: a decision influenced by a life-changing camping trip that President Theodore Roosevelt shared with John Muir.
-		</div>
-	</div>
-	<div class="caption fadeOut">
-		Photo by Carleton Watkins, 1878-1881. <a href="http://commons.wikimedia.org/wiki/File:The_Yosemite_Valley_From_The_Mariposa_Trail_Yosemite_California_by_Carleton_Watkins.jpg" target="_blank">Source <i class="fa fa-external-link"></i></a>
-	</div>
+    <div class="fullscreen fadeOut">
+        <img src="img/valley_then.jpg" />
+    </div>
+    <div class="boxWrap bottomRight fadeOut">
+        <div class="boxText">
+            With the help of Muir's advocacy, Yosemite National Park was established in 1890. In 1906, protection of Yosemite Valley and Mariposa Grove was moved from the state of California to the federal government: a decision influenced by a life-changing camping trip that President Theodore Roosevelt shared with John Muir.
+        </div>
+    </div>
+    <div class="caption fadeOut">
+        Photo by Carleton Watkins, 1878-1881. <a href="http://commons.wikimedia.org/wiki/File:The_Yosemite_Valley_From_The_Mariposa_Trail_Yosemite_California_by_Carleton_Watkins.jpg" target="_blank">Source <i class="fa fa-external-link"></i></a>
+    </div>
 </div>
 
 <!--Slide 3-->
 <div id="slide3" class="slide">
-	<div class="fullscreen fadeOut">
-		<img src="img/valley_today.jpg" />
-	</div>
-	<div class="boxWrap topLeft fadeOut">
-		<div class="boxText">
-			Yosemite National Park has since become a hugely popular tourist destination, with over 3.7 million annual visitors. On a visit to today's Yosemite Valley, you'll encounter all kinds of people, vehicles, parking lots, and buildings.
-		</div>
-	</div>
-	<div class="boxWrap topRight fadeOut">
-		<div class="boxText">
-			But the special qualities John Muir experienced in the diverse locales within the 747,956 acres of this park are still there, awaiting your discovery and contemplation.
-		</div>
-	</div>
-	<div class="boxWrap bottomRight fadeOut">
-		<div class="boxText">
-			<span class="highlight">Explore John Muir's Yosemite</span>  offers a chance to reflect on some of the beauty and history of these places as seen through the words of John Muir. Sit back, relax, and breathe in the fresh Sierra Nevada air.
-		</div>
-	</div>
+    <div class="fullscreen fadeOut">
+        <img src="img/valley_today.jpg" />
+    </div>
+    <div class="boxWrap topLeft fadeOut">
+        <div class="boxText">
+            Yosemite National Park has since become a hugely popular tourist destination, with over 3.7 million annual visitors. On a visit to today's Yosemite Valley, you'll encounter all kinds of people, vehicles, parking lots, and buildings.
+        </div>
+    </div>
+    <div class="boxWrap topRight fadeOut">
+        <div class="boxText">
+            But the special qualities John Muir experienced in the diverse locales within the 747,956 acres of this park are still there, awaiting your discovery and contemplation.
+        </div>
+    </div>
+    <div class="boxWrap bottomRight fadeOut">
+        <div class="boxText">
+            <span class="highlight">Explore John Muir's Yosemite</span>  offers a chance to reflect on some of the beauty and history of these places as seen through the words of John Muir. Sit back, relax, and breathe in the fresh Sierra Nevada air.
+        </div>
+    </div>
 </div>
 
 <!--Slide 4-->
 <div id="slide4" class="slide">
-	<div class="fullscreen transparent fadeOut">
-		<img src="img/valley_today.jpg" />
-	</div>
-	<div class="columns hidden">
-		<div class="columnLeft fadeOut">
-			<div class="boxText">
-				<a href="range_of_light.html"><img src="img/tn_range.jpg" border="1" />
-				<br /><span class="highlight">BEGIN YOUR JOURNEY</span></a>
-				<p>Follow John Muir from San Francisco into the "Range of Light," or...</p>
-			</div>
-		</div>
-		<div class="columnRight fadeOut">
-			<div class="boxText">
-				<a href="map_yosemite.html"><img src="img/tn_map.jpg" border="1" />
-				<br /><span class="highlight">VIEW THE MAP</span></a>
-				<p>Jump into any of the ten scenes exploring Yosemite National Park and the nearby Sequoia National Park, each of which were significant to Muir.</p>
-				<p>You can also view the map, and the "Range of Light," at any time by clicking the "Map" link in the navigation bar at the top of the screen.</p>
-			</div>
-		</div>
-	</div>
+    <div class="fullscreen transparent fadeOut">
+        <img src="img/valley_today.jpg" />
+    </div>
+    <div class="columns hidden">
+        <div class="columnLeft fadeOut">
+            <div class="boxText">
+                <a href="range_of_light.html"><img src="img/tn_range.jpg" border="1" />
+                <br /><span class="highlight">BEGIN YOUR JOURNEY</span></a>
+                <p>Follow John Muir from San Francisco into the "Range of Light," or...</p>
+            </div>
+        </div>
+        <div class="columnRight fadeOut">
+            <div class="boxText">
+                <a href="map_yosemite.html"><img src="img/tn_map.jpg" border="1" />
+                <br /><span class="highlight">VIEW THE MAP</span></a>
+                <p>Jump into any of the ten scenes exploring Yosemite National Park and the nearby Sequoia National Park, each of which were significant to Muir.</p>
+                <p>You can also view the map, and the "Range of Light," at any time by clicking the "Map" link in the navigation bar at the top of the screen.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
