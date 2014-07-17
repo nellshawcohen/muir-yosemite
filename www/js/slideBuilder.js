@@ -128,7 +128,7 @@ var Slides = {
 
         // if this slide is before the last slide (less than the total number
         // of slides), then show the next button
-        if (this.activeSlideNum < totalSlides) {
+        if (this.activeSlideNum + 1 < totalSlides) {
             $("#next").removeClass("fadeOut");
         }
 
@@ -153,6 +153,10 @@ var Slides = {
 
         // Hide the loading indicator
         $("#loading").addClass("fadeOut");
+
+        setTimeout(function() {
+            $("#loading").hide();
+        }, 2000);
 
         // Show the next/begin link
         $("#next").removeClass("fadeOut");

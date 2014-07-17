@@ -61,6 +61,7 @@ li {
     width: 100%;
     min-width: 550px;
     padding: 10px 0 10px 0;
+    font-size: 18px;
     height: 20px;
     top: 0;
     background: rgba(0, 0, 0, .5);
@@ -76,8 +77,10 @@ li {
     color: #fff;
     /* color: #9e8b73; */
     font-family: ChaparralPro-Regular;
-    font-size: 18px;
     text-shadow: 2px 2px #000;
+}
+#header .button {
+    font-size: inherit;
 }
 .button {
     z-index: 150;
@@ -165,7 +168,7 @@ li {
     font-size: 40px;
     font-family: ChaparralPro-Regular;
     line-height: 55px;
-    vertical-align: bottom;
+    vertical-align: text-bottom;
     opacity: 1;
     -webkit-transition: opacity 2s ease-in-out;
     -moz-transition: opacity 2s ease-in-out;
@@ -177,53 +180,41 @@ li {
     opacity: 0;
 }
 
-/*
-#loadingText {
-    @-webkit-keyframes pulse {
-     from {
-       opacity: 0;
-     }
-     to {
-       opacity: 1;
-     };
-     @keyframes pulse {
-     from {
-       opacity: 0;
-     }
-     to {
-       opacity: 1;
-     }
-}
-
-#loadingText {
-  -webkit-animation: pulse 2s;
-  animation: pulse 2s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-animation-direction: alternate;
-}
-*/
-
-.beginPosition {
-    position: fixed;
-    right: 44%;
-    bottom: 40%;
+#loading.beginPosition {
+    width: 300px;
+    margin-right: -150px;
+    text-align: center;
 }
 
 /* navigation arrows */
 
+.beginPosition {
+    position: fixed;
+    right: 50%;
+    bottom: 40%;
+    margin-right: -100px;
+    width: 200px;
+}
 .nextPosition {
     position: fixed;
     right: 5px;
     bottom: 40%;
+    margin-right: 0px;
+    width: 75px;
 }
 #next {
     position: fixed;
+    white-space: nowrap;
+    text-align: center;
+}
+#next a {
+    float: right;
 }
 #previous {
     position: fixed;
     left: 5px;
     bottom: 40%;
+    margin-left: 0px;
 }
 
 /* classes for animating visibility & positioning */
@@ -335,7 +326,6 @@ li {
 .fullscreen video {
     min-width: 100%;
     min-height: 100%;
-    -webkit-transform: scale(1.3);
 }
 .infoText {
     color: white;
@@ -625,4 +615,29 @@ a.mapCaption:hover {
     top: 0;
     width: auto;
     height: 20px;
+}
+
+.ipad .fullscreen video {
+    -webkit-transform: scale(1.3);
+}
+
+.ipad #header {
+    font-size: 28px;
+    height: 30px;
+}
+
+.ipad .topLeft, .ipad .topRight {
+    top: 60px;
+}
+
+.ipad #previous, .ipad #next {
+    font-size: 25px;
+}
+
+.ipad #begin {
+    font-size: 50px;
+}
+
+.ipad .columns {
+    left: 50px;
 }
