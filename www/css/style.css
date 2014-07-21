@@ -606,24 +606,18 @@ a.mapCaption:hover {
     right: 15%;
 }
 
-/* not currently being used */
-
-#foo {
-    z-index: 100;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: auto;
-    height: 20px;
-}
-
 .ipad .fullscreen video {
-    -webkit-transform: scale(1.3);
+    -webkit-transform: scale(1.35);
 }
 
 .ipad #header {
     font-size: 28px;
     height: 30px;
+    padding-top: 20px;
+}
+
+.ipad #titleNav {
+    top: 15px;
 }
 
 .ipad .topLeft, .ipad .topRight {
