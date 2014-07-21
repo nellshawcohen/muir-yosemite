@@ -48,6 +48,9 @@ h2 {
 	text-shadow: 2px 2px #000;
 	margin: 2px;
 }
+h3 {
+	font-size: 24px;
+}
 li {
 	margin-bottom: 10px;
 }
@@ -410,7 +413,15 @@ li {
 	font-size: 18px;
 	text-shadow: 2px 2px #000;
 	padding: 10px;
-	overflow: auto;
+	overflow: auto !important;
+}
+
+#mobile {
+	margin: 0 auto;
+	top: 0px;
+	padding: 0 10px;
+	width: auto;
+	max-width: 600px;
 }
 
 /* Map elements */
