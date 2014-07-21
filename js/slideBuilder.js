@@ -171,7 +171,7 @@ function audioLoader(files, callback) {
 			} else {
 				elem.src = filePath + ".ogg";
 			}
-			elem.oncanplay = isLoaded;
+			elem.addEventListener("canplaythrough", isLoaded, false);
 			total += 1;
 			document.body.appendChild(elem);
 		}
