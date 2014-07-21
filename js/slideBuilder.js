@@ -201,3 +201,9 @@ function mapHoverAudio(sceneName) {
 		  }
 		);
 }
+
+// Redirect to the mobile page if the user is attempting to access
+// on a mobile device
+if (/android|ios|ipad|iphone|ipod/i.test(navigator.userAgent)) {
+    window.location = "mobile.html";
+}
