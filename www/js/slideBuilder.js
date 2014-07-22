@@ -162,7 +162,7 @@ var Slides = {
         $("#next").removeClass("fadeOut");
 
         // start playing all audio and video
-        $("video").trigger("play");
+        $("video").prop("volume", 0).trigger("play");
 
         for (var name in this.tracks) {
             this.tracks[name].play();
@@ -209,48 +209,24 @@ var Slides = {
         $("#buttonsNav").removeClass("fadeOut");
     },
 
-    playTracks: function(toUnmute, audioVolume, videoVolume) {
+    playTracks: function(toPlay) {
         var self = this;
+        var volumes = {};
 
-        // manages which audio (including video) is muted or unmuted (faded in)
-        // also uses variable volume levels based on user-manipulated
-        // this.volume
-
-        // if no audioVolume argument in defined in function, make it 100
-        if (audioVolume === undefined) {
-            audioVolume = 1;
+        if (!("length" in toPlay)) {
+            volumes = toPlay;
+            toPlay = Object.keys(toPlay);
         }
-
-        // if no videoVolume argument in defined in function, make it 100
-        if (videoVolume === undefined) {
-            videoVolume = 1;
-        }
-
-        // multiply audioVolume and videoVolume by masterVolume (allowing user
-        // to set volume levels)
-        audioVolume = audioVolume * this.volume;
-        videoVolume = videoVolume * this.volume;
-
-        // all video elements in the page included in $allVideo array
-        $("video").each(function(i, videoElem) {
-            // If the element that we're currently looking at is one of the
-            // elements that we want to unmute, then animate to maxVolume over
-            // 1000 ms
-            if (toUnmute.indexOf(videoElem.id) >= 0) {
-                $(videoElem).animate({volume: videoVolume}, 1000);
-            // If it's not one of the audio/video elements we care about, mute it
-            } else {
-                $(videoElem).animate({volume: 0}, 1000);
-            }
-        });
 
         $.each(Object.keys(this.tracks), function(i, id) {
             var sound = self.tracks[id];
             var start = sound.volume();
-            var end = audioVolume;
+            var end = 1;
 
-            if (toUnmute.indexOf(id) < 0) {
+            if (toPlay.indexOf(id) < 0) {
                 end = 0;
+            } else if (id in volumes) {
+                end = volumes[id] * self.volume;
             }
 
             sound.fade(start, end, 1000);

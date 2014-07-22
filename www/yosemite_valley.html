@@ -2,135 +2,54 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no"/>
 <title>Explore John Muir's Yosemite: Yosemite Valley</title>
 <!--CSS-->
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/font-awesome-4.0.3/css/font-awesome.min.css" >
-<!--Google analytics-->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-23759871-1']);
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+<link rel="stylesheet" href="css/font-awesome-4.0.3/css/font-awesome.min.css" />
 <!--JavaScript-->
 <script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/howler.js"></script>
 <script src="js/slideBuilder.js"></script>
-<script src="js/popcorn-complete.js"></script>
-<script src="js/popcorn.player.js"></script>
-<script src="js/popcorn._MediaElementProto.js"></script>
-<script src="js/popcorn.HTMLNullVideoElement.js"></script>
 <script>
-
-// create global variable "pop"
-var pop;
-
-audioLoader({
-    // Audio embeds and hidden elements
-    track1: "audio/yosemite_valley/track1",
-    track2: "audio/yosemite_valley/track2",
-    track3: "audio/yosemite_valley/track3",
-    track4: "audio/yosemite_valley/track4"
-}, function() {
-    // After all the audio and DOM has loaded
-
-    // Hide the loading indicator
-    $("#loading").addClass("fadeOut");
-
-    // Show the next/begin link
-    $("#next").removeClass("fadeOut");
-
-	// mute all audio, to start with
-	var $allAudioVideo = $("audio, video");
-	$allAudioVideo.prop("volume", 0);
-
-	// create popcorn timeline (independent of media elements)
-	Popcorn.player( "baseplayer" );
-	// assign Popcorn timeline to global variable "pop"
-	pop = Popcorn.smart("#base", "#t=,100");
-
-	/* show timer
-	pop.on( "timeupdate", function() {
-    	document.getElementById( "foo" ).innerHTML = this.currentTime();
-	}); */
-
-	// timeline navigation buttons
-	$("#next").click(function() {
-		pop.play();
-		return false;
-	});
-	$("#previous").click(function() {
-		var currentTime = pop.currentTime();
-		pop.play(currentTime - 7);
-		return false;
-	});
-
-	// Using Popcorn timeline, cue slides
-
-	// Slide 1
-	slideBuilder(1, function onStart() {
-		audioManager($("#track1"));
-		// start playing all audio and video
-		$("audio, video").trigger("play");
-		// get rid of title page stuff
-		$("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
-		$("#begin").addClass("fadeOut");
-		$("#titleBG").removeClass("transparent").addClass("fadeOut");
-		$("#titleText").addClass("fadeOut");
-		$("#buttonsNav").removeClass("fadeOut");
-	});
-	// Slide 2
-	slideBuilder(2, function onStart() {
-		audioManager($("#track2, #merced-video2"), 1, 0.5);
-	});
-	// Slide 3
-	slideBuilder(3, function onStart() {
-		audioManager($("#track2, #merced-video2"), 1, 1);
-	});
-	// Slide 4
-	slideBuilder(4, function onStart() {
-		audioManager($("#track3"));
-	});
-	// Slide 5
-	slideBuilder(5, function onStart() {
-		audioManager($("#track4"));
-	});
-	// Slide 6
-	slideBuilder(6, function onStart() {
-		audioManager($("#track4"));
-	});
-  
-    $("#next").click();
+$(function() {
+    Slides.init({
+        startOnLoad: true,
+        initialAudio: ["track1"],
+        tracks: {
+            // Audio tracks
+            track1: "audio/yosemite_valley/track1",
+            track2: "audio/yosemite_valley/track2",
+            track3: "audio/yosemite_valley/track3",
+            track4: "audio/yosemite_valley/track4",
+            merced2: "audio/yosemite_valley/merced2"
+        },
+        slides: [
+            { audio: ["track1"] },
+            {
+                audio: {
+                    track2: 1.0,
+                    merced2: 0.4
+                }
+            },
+            { audio: ["track2", "merced2"] },
+            { audio: ["track3"] },
+            { audio: ["track4"] },
+            { audio: ["track4"] }
+        ]
+    });
 });
 </script>
 <body>
 
-<div id="base"></div><!--base div for Popcorn timeline-->
-<div id="foo"></div><!--timer-->
-
 <!--Header and navigation-->
 <div id="header">
-	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="map_yosemite.html">Maps</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
-	</div>
-	<span id="buttonsNav" class="fadeOut">
-		<span id="jumpSlide1" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
-		<span id="jumpSlide2" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
-		<span id="jumpSlide3" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
-		<span id="jumpSlide4" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
-		<span id="jumpSlide5" class="button"><a href="#"><i class="fa fa-circle"></i></a></span>
-		<span id="jumpSlide6" class="button"><a href="#"><i class="fa fa-info-circle"></i></a></span>
-	</span>
+    <div id="titleNav">
+        Explore John Muir's Yosemite - <a href="map_yosemite.html">Maps</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
+    </div>
+    <span id="buttonsNav" class="fadeOut"></span>
 </div>
 <div id="previous" class="button fadeOut"><a href="#"><i class="fa fa-chevron-left fa-3x"></i></a></div>
 
