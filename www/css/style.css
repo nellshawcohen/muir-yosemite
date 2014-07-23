@@ -632,6 +632,17 @@ a.mapCaption:hover, a.mapCaption .mapIcon.hover {
     font-size: 50px;
 }
 
+.ipad #about {
+    top: 60px;
+    padding: 0px 10px;
+}
+
 .ipad .columns {
     left: 50px;
+    top: 70px;
+    padding-top: 0px;
+}
+
+.ipad #mapTitle_yosemite {
+    top: 60px;
 }
