@@ -454,7 +454,7 @@ li {
 a.mapCaption, a.mapCaption:visited {
     color: #fff;
 }
-a.mapCaption:hover {
+a.mapCaption:hover, a.mapCaption .mapIcon.hover {
     color: #fff800; /* pale yellow */
 }
 .mapTitle {
@@ -492,7 +492,7 @@ a.mapCaption:hover {
     left: 10px;
     top: 50%;
 }
-#map_range:hover {
+#map_range:hover, #map_range.hover {
     background-image: url(../img/maps/tn_range_on.png);
 }
 #map_hetch_hetchy {
@@ -503,7 +503,7 @@ a.mapCaption:hover {
     /* left: 100px;
     top: 70px; */
 }
-#map_hetch_hetchy:hover {
+#map_hetch_hetchy:hover, #map_hetch_hetchy.hover {
     background-image: url(../img/maps/tn_hetch_hetchy_on.png);
 }
 #map_yosemite_valley {
@@ -514,7 +514,7 @@ a.mapCaption:hover {
     /* left: 260px;
     bottom: 170px; */
 }
-#map_yosemite_valley:hover {
+#map_yosemite_valley:hover, #map_yosemite_valley.hover {
     background-image: url(../img/maps/tn_yosemite_valley_on.png);
 }
 #map_yosemite_falls {
@@ -525,7 +525,7 @@ a.mapCaption:hover {
     /* left: 400px;
     bottom: 230px; */
 }
-#map_yosemite_falls:hover {
+#map_yosemite_falls:hover, #map_yosemite_falls.hover {
     background-image: url(../img/maps/tn_yosemite_falls_on.png);
 }
 #map_bridalveil {
@@ -536,7 +536,7 @@ a.mapCaption:hover {
     /* left: 340px;
     bottom: 110px; */
 }
-#map_bridalveil:hover {
+#map_bridalveil:hover, #map_bridalveil.hover {
     background-image: url(../img/maps/tn_bridalveil_on.png);
 }
 #map_hoffman {
@@ -547,7 +547,7 @@ a.mapCaption:hover {
     /* top: 280px;
     left: 570px; */
 }
-#map_hoffman:hover {
+#map_hoffman:hover, #map_hoffman.hover {
     background-image: url(../img/maps/tn_hoffman_on.png);
 }
 #map_tuolomne_meadows {
@@ -558,7 +558,7 @@ a.mapCaption:hover {
     /* top: 210px;
     left: 750px; */
 }
-#map_tuolomne_meadows:hover {
+#map_tuolomne_meadows:hover, #map_tuolomne_meadows.hover {
     background-image: url(../img/maps/tn_tuolomne_meadows_on.png);
 }
 #map_south {
@@ -578,7 +578,7 @@ a.mapCaption:hover {
     left: 30px;
     top: 20%;
 }
-#map_squirrel:hover {
+#map_squirrel:hover, #map_squirrel.hover {
     background-image: url(../img/maps/tn_squirrel_on.png);
 }
 #map_giant_forest {
@@ -589,7 +589,7 @@ a.mapCaption:hover {
     /* top: 20%;
     right: 40%; */
 }
-#map_giant_forest:hover {
+#map_giant_forest:hover, #map_giant_forest.hover {
     background-image: url(../img/maps/tn_giant_forest_on.png);
 }
 #map_crescent_meadow {
@@ -598,7 +598,7 @@ a.mapCaption:hover {
     bottom: 40%;
     left: 45%;
 }
-#map_crescent_meadow:hover {
+#map_crescent_meadow:hover, #map_crescent_meadow.hover {
     background-image: url(../img/maps/tn_crescent_meadow_on.png);
 }
 #map_north {

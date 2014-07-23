@@ -1,4 +1,4 @@
-/* 
+/*
 Special functions for building popcorn.js scenes and managing audio tracks
 Written by John Resig (jeresig@gmail.com) and Nell Shaw Cohen (nell@nellshawcohen.com)
 for use in "Explore John Muir's Yosemite" (http://beyondthenotes.org/yosemite)
@@ -48,6 +48,16 @@ var Slides = {
             var slideNum = parseFloat(/\d+$/.exec(this.id)[0]);
             self.jump(slideNum);
             return false;
+        });
+
+        $(document).on("mouseenter", ".mapIcon", function() {
+            var id = this.id.replace(/map_/, "");
+            self.tracks[id].fade(0, 1, 1000);
+        });
+
+        $(document).on("mouseleave", ".mapIcon", function() {
+            var id = this.id.replace(/map_/, "");
+            self.tracks[id].fade(1, 0, 750);
         });
     },
 
@@ -147,6 +157,8 @@ var Slides = {
     },
 
     onPreload: function() {
+        var self = this;
+
         if (this.initialAudio) {
             this.playTracks(this.initialAudio);
         }
@@ -170,6 +182,38 @@ var Slides = {
 
         if (this.startOnLoad) {
             $("#next").click();
+        }
+
+        if (window.isiPad) {
+            var iconPos = 0;
+            var prevIcon;
+            var icons = $(".mapIcon");
+            var toggleMapIcon = function() {
+                curIcon = icons[iconPos];
+
+                if (prevIcon) {
+                    $(prevIcon).removeClass("hover");
+                    var id = prevIcon.id.replace(/map_/, "");
+                    self.tracks[id].fade(1, 0, 750);
+                }
+
+                $(curIcon).addClass("hover");
+                var id = curIcon.id.replace(/map_/, "");
+                self.tracks[id].fade(0, 1, 1000);
+
+                prevIcon = curIcon;
+                iconPos += 1;
+                if (iconPos >= icons.length) {
+                    iconPos = 0;
+                }
+            };
+
+            if (icons.length > 0) {
+                setTimeout(function() {
+                    toggleMapIcon();
+                    setInterval(toggleMapIcon, 5000);
+                }, 3000);
+            }
         }
     },
 
@@ -283,22 +327,7 @@ _gaq.push(['_trackPageview']);
 })();
 
 // Add iPad class if we're on an iPad
-if (/ipad/i.test(navigator.userAgent)) {
+window.isiPad = /ipad/i.test(navigator.userAgent) || true;
+if (window.isiPad) {
     document.documentElement.className += " ipad";
-}
-
-// audio playback when hovering over map links
-
-function mapHoverAudio(sceneName) {
-    $("#map_" + sceneName).hover(
-              function() {
-              // Once you enter
-              $("#audio_" + sceneName).animate({volume: 1}, 1000)[0].play();
-              }, function() {
-              // Once you leave
-              $("#audio_" + sceneName).animate({volume: 0}, 750, function() {
-                  this.pause();
-              });
-          }
-        );
 }

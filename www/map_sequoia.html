@@ -2,56 +2,39 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no"/>
 <title>Explore John Muir's Yosemite: Map of Seqouia National Park (Detail View)</title>
 <!--CSS-->
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/font-awesome-4.0.3/css/font-awesome.min.css" >
-<!--Google analytics-->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-23759871-1']);
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+<link rel="stylesheet" href="css/font-awesome-4.0.3/css/font-awesome.min.css" />
 <!--JavaScript-->
 <script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/howler.js"></script>
 <script src="js/slideBuilder.js"></script>
-<script src="js/popcorn-complete.js"></script>
-<script src="js/popcorn.player.js"></script>
-<script src="js/popcorn._MediaElementProto.js"></script>
-<script src="js/popcorn.HTMLNullVideoElement.js"></script>
 <script>
-
-audioLoader({
-    // Audio embeds and hidden elements
-    audio_squirrel: "audio/squirrel/track4",
-    audio_giant_forest: "audio/giant_forest/track1",
-    audio_crescent_meadow: "audio/crescent_meadow/track1"
-}, function() {
-    // After all the audio and DOM has loaded
-    mapHoverAudio("squirrel");
-	mapHoverAudio("giant_forest");
-	mapHoverAudio("crescent_meadow");
-
+$(function() {
+    Slides.init({
+        startOnLoad: false,
+        initialAudio: [],
+        tracks: {
+            // Audio tracks
+            squirrel: "audio/squirrel/track4",
+            giant_forest: "audio/giant_forest/track1",
+            crescent_meadow: "audio/crescent_meadow/track1"
+        }
+    });
 });
-
 </script>
+<body>
 
 <!--Header and navigation-->
 <div id="header">
-	<div id="titleNav">
-		Explore John Muir's Yosemite - <a href="map_yosemite.html">Maps</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
-	</div>
+    <div id="titleNav">
+        Explore John Muir's Yosemite - <a href="map_yosemite.html">Maps</a> - <a href="index.html">Introduction</a> - <a href="about.html">About</a>
+    </div>
+    <span id="buttonsNav" class="fadeOut"></span>
 </div>
 
 <!--Map-->
