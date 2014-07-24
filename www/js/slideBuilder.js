@@ -280,16 +280,29 @@ var Slides = {
     loadAudio: function(files, callback) {
         var loaded = 0;
         var total = 0;
+        var trackLoaded = {};
 
-        var isLoaded = function() {
-            loaded += 1;
-            if (loaded === total) {
-                $("#loadingText").text("");
-                callback();
-            } else {
-                var loading = Math.round((loaded / total) * 100);
-                $("#loadingText").text(loading + "% loaded...");
-            }
+        var handleLoaded = function(id) {
+            trackLoaded[id] = false;
+
+            return function() {
+                if (trackLoaded[id]) {
+                    return;
+                }
+
+                trackLoaded = true;
+                loaded += 1;
+
+                console.log("Loaded:", id, loaded, total, trackLoaded)
+
+                if (loaded === total) {
+                    $("#loadingText").text("");
+                    callback();
+                } else {
+                    var loading = Math.round((loaded / total) * 100);
+                    $("#loadingText").text(loading + "% loaded...");
+                }
+            };
         };
 
         for (var name in files) {
@@ -300,17 +313,19 @@ var Slides = {
                 autoplay: false,
                 loop: true,
                 volume: 0,
-                onload: isLoaded
+                onload: handleLoaded(name)
             });
         }
 
         var otherMedia = $("img, video");
-        otherMedia.on("load canplay", isLoaded);
+        otherMedia.on("load canplay", function() {
+            handleLoaded(this.id || this.src)();
+        });
         total += otherMedia.length;
 
-         if (total === 0) {
-             callback();
-         }
+        if (total === 0) {
+            callback();
+        }
     }
 };
 

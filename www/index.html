@@ -49,10 +49,7 @@ $(function() {
 
 <!--Title (Splash)-->
 <div id="titleBG" class="fullscreen transparent">
-    <video loop muted autoplay class="video">
-        <source src="video/yosemite_valley/mirror.mp4" type="video/mp4">
-        <source src="video/yosemite_valley/mirror.webm" type="video/webm">
-    </video>
+    <div class="video" data-src="video/yosemite_valley/mirror"></div>
 </div>
 <div id="titleText">
     <h1>Explore John Muir's Yosemite</h1>
@@ -66,7 +63,7 @@ $(function() {
 <!--Slide 1-->
 <div id="slide1" class="slide">
     <div class="fullscreen fadeOut">
-        <img src="img/john-muir.jpg" />
+        <div class="img" data-src="img/john-muir.jpg"></div>
     </div>
     <div class="boxWrap topLeft fadeOut">
         <div class="boxText">
@@ -86,7 +83,7 @@ $(function() {
 <!--Slide 2-->
 <div id="slide2" class="slide">
     <div class="fullscreen fadeOut">
-        <img src="img/valley_then.jpg" />
+        <div class="img" data-src="img/valley_then.jpg"></div>
     </div>
     <div class="boxWrap bottomRight fadeOut">
         <div class="boxText">
@@ -101,7 +98,7 @@ $(function() {
 <!--Slide 3-->
 <div id="slide3" class="slide">
     <div class="fullscreen fadeOut">
-        <img src="img/valley_today.jpg" />
+        <div class="img" data-src="img/valley_today.jpg"></div>
     </div>
     <div class="boxWrap topLeft fadeOut">
         <div class="boxText">
@@ -123,19 +120,19 @@ $(function() {
 <!--Slide 4-->
 <div id="slide4" class="slide">
     <div class="fullscreen transparent fadeOut">
-        <img src="img/valley_today.jpg" />
+        <div class="img" data-src="img/valley_today.jpg"></div>
     </div>
     <div class="columns hidden">
         <div class="columnLeft fadeOut">
             <div class="boxText">
-                <a href="range_of_light.html"><img src="img/tn_range.jpg" border="1" />
+                <a href="range_of_light.html"><div class="img" data-src="img/tn_range.jpg"></div>
                 <br /><span class="highlight">BEGIN YOUR JOURNEY</span></a>
                 <p>Follow John Muir from San Francisco into the "Range of Light," or...</p>
             </div>
         </div>
         <div class="columnRight fadeOut">
             <div class="boxText">
-                <a href="map_yosemite.html"><img src="img/tn_map.jpg" border="1" />
+                <a href="map_yosemite.html"><div class="img" data-src="img/tn_map.jpg"></div>
                 <br /><span class="highlight">VIEW THE MAP</span></a>
                 <p>Jump into any of the ten scenes exploring Yosemite National Park and the nearby Sequoia National Park, each of which were significant to Muir.</p>
                 <p>You can also view the map, and the "Range of Light," at any time by clicking the "Map" link in the navigation bar at the top of the screen.</p>
