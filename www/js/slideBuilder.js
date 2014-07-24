@@ -163,6 +163,10 @@ var Slides = {
             var elem = this;
             var src = $(this).attr("data-src");
             $("<video>")
+                .prop({
+                    loop: true,
+                    autoplay: true
+                })
                 .on("load canplay", function() {
                     $(elem).addClass("loaded");
                     self.handleLoaded(src, callback);

@@ -9,5 +9,9 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="Orientation" value="landscape" />
     <preference name="DisallowOverscroll" value="true" />
+    <plugin name="org.apache.cordova.console" />
+    <plugin name="File" value="CDVFile" />
 </widget>

@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -39,6 +38,11 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		2F4BDFA5CE98460F93468A74 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F26FF854BD43C2A9A80B28 /* CDVLogger.m */; };
+		8997003B10DC4EADB2CEF12F /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = BA34C0075ACF4B6FA1C572EA /* CDVFile.m */; };
+		9DC2BC324950492F86581C87 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 335BBC32428A4C859A4C7FDB /* CDVLocalFilesystem.m */; };
+		3C3E1F5D649A465DBE051C52 /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7D90CFFA5C431FB228DF18 /* CDVAssetLibraryFilesystem.m */; };
+		5653FCE8762D42D386FE4622 /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EAFB4AA6C5498E90F2BB05 /* CDVSound.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +107,16 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = MuirYosemite/config.xml; sourceTree = "<group>"; };
+		C2F26FF854BD43C2A9A80B28 /* CDVLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLogger.m"; path = "org.apache.cordova.console/CDVLogger.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		C2345AC5FFA74513A764EF89 /* CDVLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLogger.h"; path = "org.apache.cordova.console/CDVLogger.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		BA34C0075ACF4B6FA1C572EA /* CDVFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVFile.m"; path = "org.apache.cordova.file/CDVFile.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		335BBC32428A4C859A4C7FDB /* CDVLocalFilesystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocalFilesystem.m"; path = "org.apache.cordova.file/CDVLocalFilesystem.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		6F7D90CFFA5C431FB228DF18 /* CDVAssetLibraryFilesystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVAssetLibraryFilesystem.m"; path = "org.apache.cordova.file/CDVAssetLibraryFilesystem.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		17F85F825AE440E2BE03BDFF /* CDVFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVFile.h"; path = "org.apache.cordova.file/CDVFile.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		6391D18ED811452AB53A97A4 /* CDVLocalFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocalFilesystem.h"; path = "org.apache.cordova.file/CDVLocalFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		6FE43E56A17F436883305C26 /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAssetLibraryFilesystem.h"; path = "org.apache.cordova.file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		83EAFB4AA6C5498E90F2BB05 /* CDVSound.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSound.m"; path = "org.apache.cordova.media/CDVSound.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		D5385B51851A4B5B9A773679 /* CDVSound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSound.h"; path = "org.apache.cordova.media/CDVSound.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +237,16 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				C2F26FF854BD43C2A9A80B28 /* CDVLogger.m */,
+				C2345AC5FFA74513A764EF89 /* CDVLogger.h */,
+				BA34C0075ACF4B6FA1C572EA /* CDVFile.m */,
+				335BBC32428A4C859A4C7FDB /* CDVLocalFilesystem.m */,
+				6F7D90CFFA5C431FB228DF18 /* CDVAssetLibraryFilesystem.m */,
+				17F85F825AE440E2BE03BDFF /* CDVFile.h */,
+				6391D18ED811452AB53A97A4 /* CDVLocalFilesystem.h */,
+				6FE43E56A17F436883305C26 /* CDVAssetLibraryFilesystem.h */,
+				83EAFB4AA6C5498E90F2BB05 /* CDVSound.m */,
+				D5385B51851A4B5B9A773679 /* CDVSound.h */,
 			);
 			name = Plugins;
 			path = MuirYosemite/Plugins;
@@ -316,7 +340,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 510;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = HH4B99K5E9;
@@ -422,6 +446,11 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				2F4BDFA5CE98460F93468A74 /* CDVLogger.m in Sources */,
+				8997003B10DC4EADB2CEF12F /* CDVFile.m in Sources */,
+				9DC2BC324950492F86581C87 /* CDVLocalFilesystem.m in Sources */,
+				3C3E1F5D649A465DBE051C52 /* CDVAssetLibraryFilesystem.m in Sources */,
+				5653FCE8762D42D386FE4622 /* CDVSound.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
