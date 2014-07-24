@@ -14,21 +14,31 @@ var Slides = {
     init: function(options) {
         var self = this;
 
-        this.tracks = options.tracks;
-        this.initialAudio = options.initialAudio;
+        this.tracks = {};
+        this.audioFiles = options.tracks;
         this.startOnLoad = options.startOnLoad;
 
         this.bindEventListeners();
-
-        this.loadAudio(this.tracks, function() {
-            self.onPreload();
-        });
 
         if (options.slides) {
             $.each(options.slides, function(i, slide) {
                 self.add(slide);
             });
         }
+
+        // Stub in the title slide, uses the audio of the first slide
+        this.slides[0] = {
+            $el: $("#titleBG"),
+            audio: this.slides[1].audio
+        };
+
+        var onPreload = function() {
+            self.onPreload();
+        };
+
+        this.loadAllAudio(onPreload);
+        this.loadSlideMedia(0, onPreload);
+        this.loadSlideMedia(1, onPreload);
     },
 
     bindEventListeners: function() {
@@ -46,7 +56,9 @@ var Slides = {
 
         $(document).on("click", "#buttonsNav .button", function() {
             var slideNum = parseFloat(/\d+$/.exec(this.id)[0]);
-            self.jump(slideNum);
+            self.loadSlideMedia(slideNum, function() {
+                self.jump(slideNum);
+            });
             return false;
         });
 
@@ -78,15 +90,120 @@ var Slides = {
         this.slides.push(options);
     },
 
+    loaded: 0,
+    total: 0,
+    trackLoaded: {},
+
+    handleLoaded: function(id, callback) {
+        if (this.trackLoaded[id]) {
+            return;
+        }
+
+        this.trackLoaded = true;
+        this.loaded += 1;
+
+        console.log("Loaded:", id, this.loaded, this.total, this.trackLoaded)
+
+        if (this.loaded >= this.total) {
+            this.total = 0;
+            this.loaded = 0;
+            this.trackLoaded = {};
+
+            $("#loadingText").text("");
+            if (callback) {
+                callback();
+            }
+        } else {
+            var loading = Math.round((this.loaded / this.total) * 100);
+            $("#loadingText").text(loading + "% loaded...");
+        }
+    },
+
+    loadAllAudio: function(callback) {
+        var self = this;
+
+        $.each(Object.keys(this.audioFiles), function(i, name) {
+            var filePath = self.audioFiles[name];
+            self.tracks[name] = new Howl({
+                urls: [filePath + ".mp3", "../alt_media/" + filePath + ".ogg"],
+                autoplay: false,
+                loop: true,
+                volume: 0,
+                onload: function() {
+                    self.handleLoaded(name, callback);
+                }
+            });
+            self.total += 1;
+        });
+    },
+
+    loadSlideMedia: function(slideNum, callback) {
+        var self = this;
+        var slide = this.slides[slideNum];
+
+        slide.$el.find("div.img:not(.loaded)").each(function() {
+            var elem = this;
+            var src = $(this).attr("data-src");
+            $("<img>")
+                .attr("src", src)
+                .on("load", function() {
+                    $(elem).addClass("loaded");
+                    self.handleLoaded(src, callback);
+                })
+                .appendTo(this);
+            self.total += 1;
+        });
+
+        slide.$el.find("div.video:not(.loaded)").each(function() {
+            var elem = this;
+            var src = $(this).attr("data-src");
+            $("<video>")
+                .on("load canplay", function() {
+                    $(elem).addClass("loaded");
+                    self.handleLoaded(src, callback);
+                })
+                .append($("<source>")
+                    .attr("src", src + ".mp4"))
+                .append($("<source>")
+                    .attr("src", "../alt_media/" + src + ".ogg"))
+                .appendTo(this);
+            self.total += 1;
+        });
+
+        if (self.total === 0) {
+            callback();
+        }
+    },
+
+    unloadSlideMedia: function(slide) {
+        slide.$el
+            .find("div.img.loaded")
+                .removeClass("loaded")
+                .find("img").remove().end()
+            .end()
+            .find("div.video.loaded")
+                .removeClass("loaded")
+                .find("video").remove().end()
+            .end();
+    },
+
     next: function() {
         if (this.activeSlideNum + 1 < this.slides.length) {
-            this.jump(this.activeSlideNum + 1);
+            var self = this;
+            var slideNum = this.activeSlideNum + 1;
+            this.loadSlideMedia(slideNum, function() {
+                self.jump(slideNum);
+            });
         }
     },
 
     previous: function() {
         if (this.activeSlideNum > 1) {
-            this.jump(this.activeSlideNum - 1);
+            var self = this;
+            var slideNum = this.activeSlideNum - 1;
+            this.loadSlideMedia(slideNum, function() {
+                self.jump(slideNum);
+            });
         }
     },
 
@@ -159,9 +276,7 @@ var Slides = {
     onPreload: function() {
         var self = this;
 
-        if (this.initialAudio) {
-            this.playTracks(this.initialAudio);
-        }
+        this.playTracks(this.slides[0].audio);
 
         // Hide the loading indicator
         $("#loading").addClass("fadeOut");
@@ -218,6 +333,8 @@ var Slides = {
     },
 
     onSlideExit: function(prevSlide) {
+        var self = this;
+
         // Fade out the contents of the slide
         prevSlide.$el.find(".boxWrap, .endNav, .columnLeft, .caption, " +
                 ".columnRight, .infoText, .infoPics, .fullscreen")
@@ -238,10 +355,13 @@ var Slides = {
         // of) "Hide" means to put it off the side of the page.
         setTimeout(function() {
             prevSlide.$el.removeClass("activeSlide");
+            self.unloadSlideMedia(prevSlide);
         }, 2000);
     },
 
     onTitleExit: function() {
+        var self = this;
+
         // get rid of title page stuff
         $("#next").removeClass("beginPosition fadeOut").addClass("nextPosition");
         $("#titleBG").removeClass("transparent");
@@ -249,6 +369,7 @@ var Slides = {
         $hiding.addClass("fadeOut");
         setTimeout(function() {
             $hiding.hide();
+            self.unloadSlideMedia(self.slides[0]);
         }, 2000);
         $("#buttonsNav").removeClass("fadeOut");
     },
@@ -273,59 +394,10 @@ var Slides = {
                 end = volumes[id] * self.volume;
             }
 
-            sound.fade(start, end, 1000);
+            if (start !== end) {
+                sound.fade(start, end, 1000);
+            }
         });
-    },
-
-    loadAudio: function(files, callback) {
-        var loaded = 0;
-        var total = 0;
-        var trackLoaded = {};
-
-        var handleLoaded = function(id) {
-            trackLoaded[id] = false;
-
-            return function() {
-                if (trackLoaded[id]) {
-                    return;
-                }
-
-                trackLoaded = true;
-                loaded += 1;
-
-                console.log("Loaded:", id, loaded, total, trackLoaded)
-
-                if (loaded === total) {
-                    $("#loadingText").text("");
-                    callback();
-                } else {
-                    var loading = Math.round((loaded / total) * 100);
-                    $("#loadingText").text(loading + "% loaded...");
-                }
-            };
-        };
-
-        for (var name in files) {
-            total += 1;
-            var filePath = files[name];
-            this.tracks[name] = new Howl({
-                urls: [filePath + ".mp3", filePath + ".ogg"],
-                autoplay: false,
-                loop: true,
-                volume: 0,
-                onload: handleLoaded(name)
-            });
-        }
-
-        var otherMedia = $("img, video");
-        otherMedia.on("load canplay", function() {
-            handleLoaded(this.id || this.src)();
-        });
-        total += otherMedia.length;
-
-        if (total === 0) {
-            callback();
-        }
     }
 };
 
