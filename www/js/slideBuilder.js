@@ -137,7 +137,10 @@ var Slides = {
         $.each(Object.keys(this.audioFiles), function(i, name) {
             var filePath = self.audioFiles[name];
             self.tracks[name] = new Howl({
-                urls: [filePath + ".mp3", "../alt_media/" + filePath + ".ogg"],
+                urls: [
+                    "media/" + filePath + ".mp3",
+                    "../alt_media/" + filePath + ".ogg"
+                ],
                 autoplay: false,
                 loop: true,
                 volume: 0,
@@ -179,7 +182,7 @@ var Slides = {
                     self.handleLoaded(src, callback);
                 })
                 .append($("<source>")
-                    .attr("src", src + ".mp4"))
+                    .attr("src", "media/" + src + ".mp4"))
                 .append($("<source>")
                     .attr("src", "../alt_media/" + src + ".ogg"))
                 .appendTo(this);
