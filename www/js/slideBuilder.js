@@ -29,7 +29,9 @@ var Slides = {
         // Stub in the title slide, uses the audio of the first slide
         this.slides[0] = {
             $el: $("#titleBG"),
-            audio: this.slides[1].audio
+            audio: this.slides.length > 1 ?
+                this.slides[1].audio :
+                []
         };
 
         var onPreload = function() {
@@ -38,7 +40,10 @@ var Slides = {
 
         this.loadAllAudio(onPreload);
         this.loadSlideMedia(0, onPreload);
-        this.loadSlideMedia(1, onPreload);
+
+        if (this.slides.length > 1) {
+            this.loadSlideMedia(1, onPreload);
+        }
     },
 
     bindEventListeners: function() {
@@ -327,7 +332,7 @@ var Slides = {
                 setTimeout(function() {
                     toggleMapIcon();
                     setInterval(toggleMapIcon, 5000);
-                }, 3000);
+                }, 1000);
             }
         }
     },
