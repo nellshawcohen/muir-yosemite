@@ -99,12 +99,19 @@ var Slides = {
     total: 0,
     trackLoaded: {},
 
+    trackLoading: function(id) {
+        if (!(id in this.trackLoaded)) {
+            this.total += 1;
+            this.trackLoaded[id] = false;
+        }
+    },
+
     handleLoaded: function(id, callback) {
-        if (this.trackLoaded[id]) {
+        if (!(id in this.trackLoaded) || this.trackLoaded[id]) {
             return;
         }
 
-        this.trackLoaded = true;
+        this.trackLoaded[id] = true;
         this.loaded += 1;
 
         console.log("Loaded:", id, this.loaded, this.total, this.trackLoaded)
@@ -138,7 +145,7 @@ var Slides = {
                     self.handleLoaded(name, callback);
                 }
             });
-            self.total += 1;
+            self.trackLoading(name);
         });
     },
 
@@ -156,7 +163,7 @@ var Slides = {
                     self.handleLoaded(src, callback);
                 })
                 .appendTo(this);
-            self.total += 1;
+            self.trackLoading(src);
         });
 
         slide.$el.find("div.video:not(.loaded)").each(function() {
@@ -176,10 +183,10 @@ var Slides = {
                 .append($("<source>")
                     .attr("src", "../alt_media/" + src + ".ogg"))
                 .appendTo(this);
-            self.total += 1;
+            self.trackLoading(src);
         });
 
-        if (self.total === 0) {
+        if (this.total === 0) {
             callback();
         }
     },
