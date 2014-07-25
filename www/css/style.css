@@ -606,6 +606,18 @@ a.mapCaption:hover, a.mapCaption .mapIcon.hover {
     right: 15%;
 }
 
+.ipad-details {
+    float: right;
+    width: 400px;
+    text-align: center;
+    margin: 0px 10px;
+    font-family: ChaparralPro-Regular;
+}
+
+.app .non-app {
+    display: none;
+}
+
 .app .fullscreen video {
     -webkit-transform: scale(1.35);
 }
