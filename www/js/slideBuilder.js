@@ -280,7 +280,7 @@ var Slides = {
 
         // if this slide is the last (info) slide, hide the previous and next
         // buttons
-        if (this.activeSlideNum === totalSlides) {
+        if (this.activeSlideNum + 1 === totalSlides) {
             $("#next, #previous").addClass("fadeOut");
         }
 
