@@ -29,6 +29,9 @@
     <feature name="Media">
         <param name="ios-package" value="CDVSound" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
     <name>MuirYosemite</name>
     <description>
         John Muir's Yosemite.
@@ -43,7 +46,4 @@
     <preference name="DisallowOverscroll" value="true" />
     <plugin name="org.apache.cordova.console" />
     <plugin name="File" value="CDVFile" />
-    <feature name="InAppBrowser">
-        <param name="ios-package" value="CDVInAppBrowser" />
-    </feature>
 </widget>

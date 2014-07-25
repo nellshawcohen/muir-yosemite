@@ -436,4 +436,9 @@ _gaq.push(['_trackPageview']);
 window.isApp = !!window.cordova;
 if (window.isApp) {
     document.documentElement.className += " app";
+
+// Redirect to the mobile page if the user is attempting to access
+// on a mobile device
+} else if (/android|ios|ipad|iphone|ipod/i.test(navigator.userAgent)) {
+    window.location = "mobile.html";
 }
