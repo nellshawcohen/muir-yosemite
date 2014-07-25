@@ -43,6 +43,7 @@
 		9DC2BC324950492F86581C87 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 335BBC32428A4C859A4C7FDB /* CDVLocalFilesystem.m */; };
 		3C3E1F5D649A465DBE051C52 /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7D90CFFA5C431FB228DF18 /* CDVAssetLibraryFilesystem.m */; };
 		5653FCE8762D42D386FE4622 /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EAFB4AA6C5498E90F2BB05 /* CDVSound.m */; };
+		18493770AE1C42AE94838312 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7231D65F86FE4B6FB9DB2E83 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,8 @@
 		6FE43E56A17F436883305C26 /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAssetLibraryFilesystem.h"; path = "org.apache.cordova.file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		83EAFB4AA6C5498E90F2BB05 /* CDVSound.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSound.m"; path = "org.apache.cordova.media/CDVSound.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		D5385B51851A4B5B9A773679 /* CDVSound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSound.h"; path = "org.apache.cordova.media/CDVSound.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		7231D65F86FE4B6FB9DB2E83 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		3D0F91FFCDCC4F179C61EAA5 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +250,8 @@
 				6FE43E56A17F436883305C26 /* CDVAssetLibraryFilesystem.h */,
 				83EAFB4AA6C5498E90F2BB05 /* CDVSound.m */,
 				D5385B51851A4B5B9A773679 /* CDVSound.h */,
+				7231D65F86FE4B6FB9DB2E83 /* CDVInAppBrowser.m */,
+				3D0F91FFCDCC4F179C61EAA5 /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = MuirYosemite/Plugins;
@@ -451,6 +456,7 @@
 				9DC2BC324950492F86581C87 /* CDVLocalFilesystem.m in Sources */,
 				3C3E1F5D649A465DBE051C52 /* CDVAssetLibraryFilesystem.m in Sources */,
 				5653FCE8762D42D386FE4622 /* CDVSound.m in Sources */,
+				18493770AE1C42AE94838312 /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

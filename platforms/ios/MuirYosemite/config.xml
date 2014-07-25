@@ -43,4 +43,7 @@
     <preference name="DisallowOverscroll" value="true" />
     <plugin name="org.apache.cordova.console" />
     <plugin name="File" value="CDVFile" />
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
 </widget>

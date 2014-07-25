@@ -318,7 +318,7 @@ var Slides = {
             $("#next").click();
         }
 
-        if (window.isiPad) {
+        if (window.isApp) {
             var iconPos = 0;
             var prevIcon;
             var icons = $(".mapIcon");
@@ -432,8 +432,8 @@ _gaq.push(['_trackPageview']);
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
-// Add iPad class if we're on an iPad
-window.isiPad = /ipad/i.test(navigator.userAgent) || true;
-if (window.isiPad) {
-    document.documentElement.className += " ipad";
+// Add app class if we're in a Cordova app
+window.isApp = !!window.cordova;
+if (window.isApp) {
+    document.documentElement.className += " app";
 }

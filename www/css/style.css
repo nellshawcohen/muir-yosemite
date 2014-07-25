@@ -606,43 +606,43 @@ a.mapCaption:hover, a.mapCaption .mapIcon.hover {
     right: 15%;
 }
 
-.ipad .fullscreen video {
+.app .fullscreen video {
     -webkit-transform: scale(1.35);
 }
 
-.ipad #header {
+.app #header {
     font-size: 28px;
     height: 30px;
     padding-top: 20px;
 }
 
-.ipad #titleNav {
+.app #titleNav {
     top: 15px;
 }
 
-.ipad .topLeft, .ipad .topRight {
+.app .topLeft, .app .topRight {
     top: 60px;
 }
 
-.ipad #previous, .ipad #next {
+.app #previous, .app #next {
     font-size: 25px;
 }
 
-.ipad #begin {
+.app #begin {
     font-size: 50px;
 }
 
-.ipad #about {
+.app #about {
     top: 60px;
     padding: 0px 10px;
 }
 
-.ipad .columns {
+.app .columns {
     left: 50px;
     top: 70px;
     padding-top: 0px;
 }
 
-.ipad #mapTitle_yosemite {
+.app #mapTitle_yosemite {
     top: 60px;
 }
