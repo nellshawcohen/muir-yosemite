@@ -618,8 +618,8 @@ a.mapCaption:hover, a.mapCaption .mapIcon.hover {
     display: none;
 }
 
-.app a:hover {
-    color: #a1e2ff;
+.app .button a:hover {
+    color: #fff;
 }
 
 .app .fullscreen video {
