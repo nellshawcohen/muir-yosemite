@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B6DFBB6E-54E4-4A69-9DF7-E5CAA734492F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MuirYosemite</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B4D19F3E-16DE-4D18-9766-265C6B3B02BD</key>
+		<string>ssh://github.com/nellshawcohen/muir-yosemite.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/MuirYosemite.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B4D19F3E-16DE-4D18-9766-265C6B3B02BD</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/nellshawcohen/muir-yosemite.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B4D19F3E-16DE-4D18-9766-265C6B3B02BD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B4D19F3E-16DE-4D18-9766-265C6B3B02BD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>muir-yosemite</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -76,6 +76,19 @@ var Slides = {
             var id = this.id.replace(/map_/, "");
             self.tracks[id].fade(1, 0, 750);
         });
+
+        $(document).on("click", "a[target=_blank]", function(e) {
+            // Work as normal if we're not an app
+            if (!window.isApp) {
+                return;
+            }
+
+            // Ignore navigating to the link as normal
+            e.preventDefault();
+
+            // Instead, open the link in the native system browser
+            window.open(this.href, "_system");
+        });
     },
 
     add: function(options) {
