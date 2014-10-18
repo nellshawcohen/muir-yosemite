@@ -34,7 +34,13 @@ $(function() {
                     merced2: 0.4
                 }
             },
-            { audio: ["track2", "merced2"] },
+            {
+                audio: ["track2", "merced2"],
+                onStart: function() {
+                    this.$el.find("video")[0].currentTime = 0;
+                    Slides.tracks.merced2.pos(0);
+                }
+            },
             { audio: ["track3"] },
             { audio: ["track4"] },
             { audio: ["track4"] }

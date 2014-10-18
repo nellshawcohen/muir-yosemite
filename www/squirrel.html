@@ -31,9 +31,10 @@ $(function() {
             { audio: ["track2"] },
             { audio: ["track3"] },
             {
-                audio: ["track4"],
+                audio: ["track4", "squirrel"],
                 onStart: function() {
                     this.$el.find("video")[0].currentTime = 0;
+                    Slides.tracks.squirrel.pos(0);
                 }
             },
             { audio: ["track4"] }

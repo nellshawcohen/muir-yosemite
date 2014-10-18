@@ -39,7 +39,13 @@ $(function() {
                     wapama: 0.3
                 }
             },
-            { audio: ["track4", "wapama"] },
+            {
+                audio: ["track4", "wapama"],
+                onStart: function() {
+                    this.$el.find("video")[0].currentTime = 0;
+                    Slides.tracks.wapama.pos(0);
+                }
+            },
             { audio: ["track4"] },
             { audio: ["track5"] },
             {
