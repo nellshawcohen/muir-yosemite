@@ -319,6 +319,9 @@ li {
       transition: all 2s ease-in-out;
       overflow: hidden;
 }
+.fullscreen .img, .fullscreen .video {
+    height: 100%;
+}
 .fullscreen img {
     min-width: 100%;
     min-height: 100%;

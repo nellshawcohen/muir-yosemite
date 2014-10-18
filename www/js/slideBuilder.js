@@ -1,8 +1,10 @@
 /*
-Special functions for building popcorn.js scenes and managing audio tracks
-Written by John Resig (jeresig@gmail.com) and Nell Shaw Cohen (nell@nellshawcohen.com)
-for use in "Explore John Muir's Yosemite" (http://beyondthenotes.org/yosemite)
-*/
+ * Special functions for building scenes and managing audio tracks
+ * Written by John Resig (jeresig@gmail.com) and
+ * Nell Shaw Cohen (nell@nellshawcohen.com)
+ * for use in "Explore John Muir's Yosemite"
+ * http://beyondthenotes.org/yosemite
+ */
 
 var Slides = {
     slides: [null],
