@@ -96,7 +96,8 @@ var Slides = {
     add: function(options) {
         var slideNum = this.slides.length;
         var $el = $("#slide" + slideNum);
-        var icon = $el.find(".columns").length > 0 ? "fa-info-circle" : "fa-circle";
+        var icon = $el.find(".columns").length > 0 ?
+            "fa-info-circle" : "fa-circle";
 
         var $jump = $('<span id="jumpSlide' + slideNum +
             '" class="button"><a href="#"><i class="fa ' + icon + '">' +
@@ -271,8 +272,6 @@ var Slides = {
 
         if ($columns.length > 0) {
             $columns.removeClass("hidden");
-        } else {
-            $(".columns").addClass("hidden");
         }
 
         setTimeout(function() {
@@ -398,6 +397,8 @@ var Slides = {
             if (self.activeSlide === prevSlide) {
                 return;
             }
+
+            prevSlide.$el.find(".columns").addClass("hidden");
             prevSlide.$el.removeClass("activeSlide");
             self.unloadSlideMedia(prevSlide);
         }, 2000);
