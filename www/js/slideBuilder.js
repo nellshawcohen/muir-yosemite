@@ -154,8 +154,8 @@ var Slides = {
             var filePath = self.audioFiles[name];
             self.tracks[name] = new Howl({
                 urls: [
-                    "media/" + filePath + ".mp3",
-                    "../alt_media/" + filePath + ".ogg"
+                    "www/media/" + filePath + ".mp3",
+                    "alt_media/" + filePath + ".ogg"
                 ],
                 autoplay: false,
                 loop: true,
@@ -198,9 +198,9 @@ var Slides = {
                     self.handleLoaded(src, callback);
                 })
                 .append($("<source>")
-                    .attr("src", "media/" + src + ".mp4"))
+                    .attr("src", "www/media/" + src + ".mp4"))
                 .append($("<source>")
-                    .attr("src", "../alt_media/" + src + ".ogg"))
+                    .attr("src", "alt_media/" + src + ".ogg"))
                 .appendTo(this);
             self.trackLoading(src);
         });
