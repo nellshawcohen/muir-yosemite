@@ -264,7 +264,7 @@ li {
 }
 .boxWrap {
     z-index: 6;
-    position: fixed;
+    position: absolute;
     margin: 10px;
     width: auto;
     max-width: 48%;
@@ -286,7 +286,7 @@ li {
 }
 .caption {
     z-index: 30;
-    position: fixed;
+    position: absolute;
     background: rgba(0, 0, 0, .7);
     color: #fff;
     bottom: 0;
@@ -339,7 +339,7 @@ li {
 }
 .infoPics {
     z-index: 4;
-    position: fixed;
+    position: absolute;
     right: 0;
     bottom: 10px;
     width: 100%;
