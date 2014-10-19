@@ -129,7 +129,7 @@ var Slides = {
         this.trackLoaded[id] = true;
         this.loaded += 1;
 
-        console.log("Loaded:", id, this.loaded, this.total, this.trackLoaded)
+        //console.log("Loaded:", id, this.loaded, this.total, this.trackLoaded)
 
         if (this.loaded >= this.total) {
             this.total = 0;
@@ -242,6 +242,7 @@ var Slides = {
     },
 
     jump: function(slideNum) {
+        var self = this;
         var totalSlides = this.slides.length;
         var prevSlide = this.activeSlide;
 
@@ -300,6 +301,11 @@ var Slides = {
         }
 
         setTimeout(function() {
+            // Don't fade in if we're no longer on the slide
+            if (self.activeSlideNum !== slideNum) {
+                return;
+            }
+
             // fade in the divs with class of .boxWrap inside this slide
             slide.$el.find(".boxWrap, .endNav, .columnLeft, .caption, " +
                     ".columnRight, .infoText, .infoPics, .fullscreen")
@@ -388,6 +394,10 @@ var Slides = {
         // Hide the other active slide (the slide we're transitioning out
         // of) "Hide" means to put it off the side of the page.
         setTimeout(function() {
+            // Don't become not-active if we've been navigated back to
+            if (self.activeSlide === prevSlide) {
+                return;
+            }
             prevSlide.$el.removeClass("activeSlide");
             self.unloadSlideMedia(prevSlide);
         }, 2000);
