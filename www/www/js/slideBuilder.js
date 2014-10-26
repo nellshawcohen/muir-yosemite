@@ -246,7 +246,7 @@ var Slides = {
             var elem = this;
             var src = $(this).attr("data-src");
             // Load the retina image, if supported
-            var noRetina = $(this).attr("data-noretina");
+            var noRetina = $(this).attr("data-noretina") != null;
             var isRetina = window.isApp && window.devicePixelRatio >= 2 &&
                 /\.jpg$/.test(src) && !noRetina;
             if (isRetina) {
