@@ -245,9 +245,20 @@ var Slides = {
         slide.$el.find("div.img:not(.loaded)").each(function() {
             var elem = this;
             var src = $(this).attr("data-src");
+            // Load the retina image, if supported
+            var noRetina = $(this).attr("data-noretina");
+            var isRetina = window.isApp && window.devicePixelRatio >= 2 &&
+                /\.jpg$/.test(src) && !noRetina;
+            if (isRetina) {
+                src = src.replace(/\.jpg$/, "@2x.jpg");
+            }
             $("<img>")
                 .attr("src", src)
                 .on("load", function() {
+                    if (isRetina) {
+                        this.width = this.width / 2;
+                        this.height = this.height / 2;
+                    }
                     $(elem).addClass("loaded");
                     self.handleLoaded(src, callback);
                 })
