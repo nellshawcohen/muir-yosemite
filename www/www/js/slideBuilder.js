@@ -267,6 +267,11 @@ var Slides = {
         });
 
         slide.$el.find("div.video:not(.loaded)").each(function() {
+            // A video is already loading, so no need to try again
+            if ($(this).find("video").length > 0) {
+                return;
+            }
+
             var elem = this;
             var src = $(this).attr("data-src");
             $("<video>")

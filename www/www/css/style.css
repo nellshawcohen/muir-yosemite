@@ -625,9 +625,11 @@ a.mapCaption:hover, a.mapCaption .mapIcon.hover {
     color: #fff;
 }
 
+/*
 .app .fullscreen video {
     -webkit-transform: scale(1.35);
 }
+*/
 
 .app #header {
     font-size: 28px;
