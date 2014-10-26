@@ -40,11 +40,19 @@ var Slides = {
             self.onPreload();
         };
 
-        this.loadAllAudio(onPreload);
-        this.loadSlideMedia(0, onPreload);
+        var init = function() {
+            self.loadAllAudio(onPreload);
+            self.loadSlideMedia(0, onPreload);
 
-        if (this.slides.length > 1) {
-            this.loadSlideMedia(1, onPreload);
+            if (self.slides.length > 1) {
+                self.loadSlideMedia(1, onPreload);
+            }
+        };
+
+        if (window.isApp) {
+            document.addEventListener("deviceready", init, false);
+        } else {
+            init();
         }
     },
 
@@ -90,6 +98,16 @@ var Slides = {
 
             // Instead, open the link in the native system browser
             window.open(this.href, "_system");
+        });
+
+        $(window).on("unload", function() {
+            if (!window.isApp) {
+                return;
+            }
+
+            for (var id in self.tracks) {
+                self.tracks[id].media.release();
+            }
         });
     },
 
@@ -152,19 +170,71 @@ var Slides = {
 
         $.each(Object.keys(this.audioFiles), function(i, name) {
             var filePath = self.audioFiles[name];
-            self.tracks[name] = new Howl({
-                urls: [
-                    "www/media/" + filePath + ".mp3",
-                    "alt_media/" + filePath + ".ogg"
-                ],
-                autoplay: false,
-                loop: true,
-                volume: 0,
-                onload: function() {
-                    self.handleLoaded(name, callback);
-                }
+            self.tracks[name] = self.getAudioObject(filePath, function() {
+                self.handleLoaded(name, callback);
             });
             self.trackLoading(name);
+        });
+    },
+
+    getAudioObject: function(filePath, callback) {
+        if (window.isApp && window.Media) {
+            // Media is loaded synchronously!
+            setTimeout(callback, 1);
+
+            var media = new Media("www/media/" + filePath + ".mp3");
+
+            media.setVolume(0);
+
+            return {
+                media: media,
+                curVolume: 0,
+
+                play: function() {
+                    this.media.play({ numberOfLoops: 99999 });
+                },
+
+                pos: function(time) {
+                    this.media.seekTo(time);
+                },
+
+                volume: function() {
+                    return this.curVolume;
+                },
+
+                setVolume: function(volume) {
+                    this.curVolume = volume;
+                    this.media.setVolume(volume);
+                },
+
+                fade: function(start, end, duration) {
+                    var self = this;
+                    var cur = start;
+                    var startTime = (new Date).getTime();
+
+                    var interval = setInterval(function() {
+                        var percent = Math.min(((new Date).getTime() - startTime) / duration, 1);
+                        cur = start - (percent * (start - end));
+                        self.setVolume(cur);
+
+                        if (percent >= 1) {
+                            clearInterval(interval);
+                        }
+                    }, 16);
+                }
+            };
+        }
+
+        // Otherwise fall back to using the Howl library for playing audio
+        return new Howl({
+            urls: [
+                "www/media/" + filePath + ".mp3",
+                "alt_media/" + filePath + ".ogg"
+            ],
+            autoplay: false,
+            loop: true,
+            volume: 0,
+            onload: callback
         });
     },
 
