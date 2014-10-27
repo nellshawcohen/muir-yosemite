@@ -12,6 +12,9 @@
     <preference name="Fullscreen" value="true" />
     <preference name="Orientation" value="landscape" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="true"/>
+    <preference name="StatusBarBackgroundColor" value="#000000"/>
+    <preference name="StatusBarStyle" value="lightcontent" />
     <plugin name="org.apache.cordova.console" />
     <plugin name="File" value="CDVFile" />
 </widget>
