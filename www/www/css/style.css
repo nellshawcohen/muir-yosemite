@@ -105,10 +105,6 @@ li {
 #buttonsNav {
     position: absolute;
     right: 10px;
-    -webkit-transition: all 2s ease-in-out;
-      -moz-transition: all 2s ease-in-out;
-      -o-transition: all 2s ease-in-out;
-      transition: all 2s ease-in-out;
 }
 
 /* title screen */
@@ -643,6 +639,11 @@ a.mapCaption:hover, a.mapCaption .mapIcon.hover {
 
 .app #titleNav {
     top: 15px;
+    left: 0px;
+}
+
+.app #buttonsNav {
+    right: 5px;
 }
 
 .app .topLeft, .app .topRight {
