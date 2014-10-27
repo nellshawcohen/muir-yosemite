@@ -625,6 +625,10 @@ a.mapCaption:hover, a.mapCaption .mapIcon.hover {
     color: #fff;
 }
 
+.app .button.buttonCurrent a:hover {
+    color: #a800db;
+}
+
 /*
 .app .fullscreen video {
     -webkit-transform: scale(1.35);
