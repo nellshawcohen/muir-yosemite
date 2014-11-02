@@ -87,19 +87,6 @@ var Slides = {
             self.tracks[id].fade(1, 0, 750);
         });
 
-        $(document).on("click", "a[target=_blank]", function(e) {
-            // Work as normal if we're not an app
-            if (!window.isApp) {
-                return;
-            }
-
-            // Ignore navigating to the link as normal
-            e.preventDefault();
-
-            // Instead, open the link in the native system browser
-            window.open(this.href, "_system");
-        });
-
         $(window).on("unload", function() {
             if (!window.isApp) {
                 return;
@@ -543,7 +530,6 @@ if (window.isApp) {
     window.location = "mobile.html";
 }
 
-
 if (!window.isApp) {
     // Google analytics
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -554,3 +540,17 @@ if (!window.isApp) {
     ga('create', 'UA-55986641-1', 'auto');
     ga('send', 'pageview');
 }
+
+// Handle external links, get them to open using the default system browser
+$(document).on("click", "a[target=_blank]", function(e) {
+    // Work as normal if we're not an app
+    if (!window.isApp) {
+        return;
+    }
+
+    // Ignore navigating to the link as normal
+    e.preventDefault();
+
+    // Instead, open the link in the native system browser
+    window.open(this.href, "_system");
+});
