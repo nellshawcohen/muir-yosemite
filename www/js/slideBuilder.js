@@ -200,7 +200,7 @@ var Slides = {
                 .append($("<source>")
                     .attr("src", "www/media/" + src + ".mp4"))
                 .append($("<source>")
-                    .attr("src", "alt_media/" + src + ".ogg"))
+                    .attr("src", "alt_media/" + src + ".webm"))
                 .appendTo(this);
             self.trackLoading(src);
         });
