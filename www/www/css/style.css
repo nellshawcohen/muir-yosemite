@@ -218,7 +218,7 @@ li {
 /* By default all slides are tucked away off the screen - but are still
 "visible" (in that they are not display: none). */
 .slide {
-    position: fixed;
+    position: absolute;
     left: 100%;
     top: 100%;
     width: 100%;

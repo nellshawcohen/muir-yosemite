@@ -261,6 +261,7 @@ var Slides = {
 
             var elem = this;
             var src = $(this).attr("data-src");
+            var id = $(this).attr("id") || src;
             $("<video>")
                 .prop({
                     loop: true,
@@ -268,14 +269,14 @@ var Slides = {
                 })
                 .on("load canplay", function() {
                     $(elem).addClass("loaded");
-                    self.handleLoaded(src, callback);
+                    self.handleLoaded(id, callback);
                 })
                 .append($("<source>")
                     .attr("src", "www/media/" + src + ".mp4"))
                 .append($("<source>")
-                    .attr("src", "alt_media/" + src + ".ogg"))
+                    .attr("src", "alt_media/" + src + ".webm"))
                 .appendTo(this);
-            self.trackLoading(src);
+            self.trackLoading(id);
         });
 
         if (this.total === 0) {

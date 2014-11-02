@@ -27,14 +27,30 @@ $(function() {
             squirrel: "audio/squirrel/squirrel"
         },
         slides: [
-            { audio: ["track1"] },
-            { audio: ["track2"] },
-            { audio: ["track3"] },
+            {
+                audio: ["track1"],
+                onStart: function() {
+                    Slides.tracks.track1.pos(0);
+                }
+            },
+            {
+                audio: ["track2"],
+                onStart: function() {
+                    Slides.tracks.track2.pos(0);
+                }
+            },
+            {
+                audio: ["track3"],
+                onStart: function() {
+                    Slides.tracks.track3.pos(0);
+                }
+            },
             {
                 audio: ["track4", "squirrel"],
                 onStart: function() {
                     this.$el.find("video")[0].currentTime = 0;
                     Slides.tracks.squirrel.pos(0);
+                    Slides.tracks.track4.pos(0);
                 }
             },
             { audio: ["track4"] }
