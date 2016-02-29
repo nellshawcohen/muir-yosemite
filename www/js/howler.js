@@ -1,8 +1,8 @@
 /*!
- *  howler.js v1.1.23
+ *  howler.js v1.1.29
  *  howlerjs.com
  *
- *  (c) 2013-2014, James Simpson of GoldFire Studios
+ *  (c) 2013-2016, James Simpson of GoldFire Studios
  *  goldfirestudios.com
  *
  *  MIT License
@@ -52,6 +52,7 @@
     this._volume = 1;
     this._muted = false;
     this.usingWebAudio = usingWebAudio;
+    this.ctx = ctx;
     this.noAudio = noAudio;
     this._howls = [];
     this._codecs = codecs;
@@ -138,7 +139,7 @@
 
     /**
      * Check for codec support.
-     * @param  {String} ext Audio file extention.
+     * @param  {String} ext Audio file extension.
      * @return {Boolean}
      */
     codecs: function(ext) {
@@ -186,13 +187,13 @@
             self.iOSAutoEnable = false;
 
             // remove the touch start listener
-            window.removeEventListener('touchstart', unlock, false);
+            window.removeEventListener('touchend', unlock, false);
           }
         }, 0);
       };
 
       // setup a touch start listener to attempt an unlock in
-      window.addEventListener('touchstart', unlock, false);
+      window.addEventListener('touchend', unlock, false);
 
       return self;
     }
@@ -260,7 +261,7 @@
     }
 
     // automatically try to enable audio on iOS
-    if (typeof ctx !== 'undefined' && Howler.iOSAutoEnable) {
+    if (typeof ctx !== 'undefined' && ctx && Howler.iOSAutoEnable) {
       Howler._enableiOSAudio();
     }
 
@@ -283,7 +284,7 @@
 
       // if no audio is available, quit immediately
       if (noAudio) {
-        self.on('loaderror');
+        self.on('loaderror', new Error('No audio support.'));
         return;
       }
 
@@ -296,14 +297,16 @@
           ext = self._format;
         } else {
           // figure out the filetype (whether an extension or base64 data)
-          urlItem = self._urls[i].toLowerCase().split('?')[0];
-          ext = urlItem.match(/.+\.([^?]+)(\?|$)/);
-          ext = (ext && ext.length >= 2) ? ext : urlItem.match(/data\:audio\/([^?]+);/);
+          urlItem = self._urls[i];
+          ext = /^data:audio\/([^;,]+);/i.exec(urlItem);
+          if (!ext) {
+            ext = /\.([^.]+)$/.exec(urlItem.split('?', 1)[0]);
+          }
 
           if (ext) {
-            ext = ext[1];
+            ext = ext[1].toLowerCase();
           } else {
-            self.on('loaderror');
+            self.on('loaderror', new Error('Could not extract format from passed URLs, please add format parameter.'));
             return;
           }
         }
@@ -315,7 +318,7 @@
       }
 
       if (!url) {
-        self.on('loaderror');
+        self.on('loaderror', new Error('No codec support for selected audio sources.'));
         return;
       }
 
@@ -342,9 +345,6 @@
         newNode._pos = 0;
         newNode.preload = 'auto';
         newNode.volume = (Howler._muted) ? 0 : self._volume * Howler.volume();
-
-        // add this sound to the cache
-        cache[url] = self;
 
         // setup the event listener to start playing the sound
         // as soon as it has buffered enough
@@ -483,7 +483,7 @@
 
             // fire ended event
             self.on('end', soundId);
-          }, duration * 1000);
+          }, (duration / self._rate) * 1000);
 
           // store the reference to the timer
           self._onendTimer.push({timer: timerId, id: data.id});
@@ -501,9 +501,9 @@
           node.gain.value = self._volume;
 
           if (typeof node.bufferSource.start === 'undefined') {
-            node.bufferSource.noteGrainOn(0, pos, duration);
+            loop ? node.bufferSource.noteGrainOn(0, pos, 86400) : node.bufferSource.noteGrainOn(0, pos, duration);
           } else {
-            node.bufferSource.start(0, pos, duration);
+            loop ? node.bufferSource.start(0, pos, 86400) : node.bufferSource.start(0, pos, duration);
           }
         } else {
           if (node.readyState === 4 || !node.readyState && navigator.isCocoonJS) {
@@ -1060,7 +1060,7 @@
      */
     _clearEndTimer: function(soundId) {
       var self = this,
-        index = 0;
+        index = -1;
 
       // loop through the timers to find the one associated with this sound
       for (var i=0; i<self._onendTimer.length; i++) {
@@ -1136,15 +1136,18 @@
      */
     off: function(event, fn) {
       var self = this,
-        events = self['_on' + event],
-        fnString = fn.toString();
+        events = self['_on' + event];
 
-      // loop through functions in the event for comparison
-      for (var i=0; i<events.length; i++) {
-        if (fnString === events[i].toString()) {
-          events.splice(i, 1);
-          break;
+      if (fn) {
+        // loop through functions in the event for comparison
+        for (var i=0; i<events.length; i++) {
+          if (fn === events[i]) {
+            events.splice(i, 1);
+            break;
+          }
         }
+      } else {
+        self['_on' + event] = [];
       }
 
       return self;
@@ -1163,6 +1166,7 @@
         // stop the sound if it is currently playing
         if (!nodes[i].paused) {
           self.stop(nodes[i].id);
+          self.on('end', nodes[i].id);
         }
 
         if (!self._webAudio) {
@@ -1208,25 +1212,25 @@
 
         // load the sound into this object
         loadSound(obj);
+        return;
+      }
+      
+      if (/^data:[^;]+;base64,/.test(url)) {
+        // Decode base64 data-URIs because some browsers cannot load data-URIs with XMLHttpRequest.
+        var data = atob(url.split(',')[1]);
+        var dataView = new Uint8Array(data.length);
+        for (var i=0; i<data.length; ++i) {
+          dataView[i] = data.charCodeAt(i);
+        }
+        
+        decodeAudioData(dataView.buffer, obj, url);
       } else {
         // load the buffer from the URL
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'arraybuffer';
         xhr.onload = function() {
-          // decode the buffer into an audio source
-          ctx.decodeAudioData(
-            xhr.response,
-            function(buffer) {
-              if (buffer) {
-                cache[url] = buffer;
-                loadSound(obj, buffer);
-              }
-            },
-            function(err) {
-              obj.on('loaderror');
-            }
-          );
+          decodeAudioData(xhr.response, obj, url);
         };
         xhr.onerror = function() {
           // if there is an error, switch the sound to HTML Audio
@@ -1235,6 +1239,7 @@
             obj._webAudio = false;
             obj._audioNode = [];
             delete obj._gainNode;
+            delete cache[url];
             obj.load();
           }
         };
@@ -1244,6 +1249,28 @@
           xhr.onerror();
         }
       }
+    };
+
+    /**
+     * Decode audio data from an array buffer.
+     * @param  {ArrayBuffer} arraybuffer The audio data.
+     * @param  {Object} obj The Howl object for the sound to load.
+     * @param  {String} url The path to the sound file.
+     */
+    var decodeAudioData = function(arraybuffer, obj, url) {
+      // decode the buffer into an audio source
+      ctx.decodeAudioData(
+        arraybuffer,
+        function(buffer) {
+          if (buffer) {
+            cache[url] = buffer;
+            loadSound(obj, buffer);
+          }
+        },
+        function(err) {
+          obj.on('loaderror', err);
+        }
+      );
     };
 
     /**
